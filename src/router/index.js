@@ -24,7 +24,78 @@ const routes = [
     path: '/signUp',
     name: 'SignUp',
     component: () => import(/* webpackChunkName: "signUp" */ '../views/SignUp.vue')
-  }
+  },
+  {
+    path: '/teams',
+    name: 'Teams',
+    component: () => import(/* webpackChunkName: "teams" */ '../views/Teams.vue')
+  },
+  {
+    path: '/terrain',
+    name: 'Terrain',
+    component: () => import(/* webpackChunkName: "terrain" */ '../views/Terrain.vue')
+  },
+  {
+    path: '/categories',
+    name: 'Categories',
+    component: () => import(/* webpackChunkName: "categories" */ '../views/Categories.vue')
+  },
+  {
+    path: '/calendar',
+    name: 'Calendar',
+    component: () => import(/* webpackChunkName: "calendar" */ '../views/Calendar.vue')
+  },
+  {
+    path: '/booking',
+    name: 'Booking',
+    component: () => import(/* webpackChunkName: "booking" */ '../views/Booking.vue')
+  },
+  {
+    path: '/listPlayers',
+    name: 'ListPlayers',
+    component: () => import(/* webpackChunkName: "listPlayers" */ '../views/ListPlayers.vue')
+  },
+  {
+    path: '/account',
+    name: 'Account',
+    component: () => import(/* webpackChunkName: "account" */ '../views/Account.vue')
+  },
+  {
+    path: '/loginAdmin',
+    name: 'LoginAdmin',
+    component: () => import(/* webpackChunkName: "loginAdmin" */ '../views/LoginAdmin.vue')
+  },
+  {
+    path: '/homeAdmin',
+    name: 'HomeAdmin',
+    component: () => import(/* webpackChunkName: "homeAdmin" */ '../views/HomeAdmin.vue')
+  },
+  {
+    path: '/accountAdmin',
+    name: 'AccountAdmin',
+    component: () => import(/* webpackChunkName: "accountAdmin" */ '../views/AccountAdmin.vue')
+  },
+  {
+    path: '/terrainAdmin',
+    name: 'TerrainAdmin',
+    component: () => import(/* webpackChunkName: "terrainAdmin" */ '../views/TerrainAdmin.vue')
+  },
+  {
+    path: '/dateAdmin',
+    name: 'DateAdmin',
+    component: () => import(/* webpackChunkName: "dateAdmin" */ '../views/DateAdmin.vue')
+  },
+  {
+    path: '/inboxAdmin',
+    name: 'InboxAdmin',
+    component: () => import(/* webpackChunkName: "inboxAdmin" */ '../views/InboxAdmin.vue')
+  },
+  {
+    path: '/filledListAdmin',
+    name: 'FilledListAdmin',
+    component: () => import(/* webpackChunkName: "filledListAdmin" */ '../views/FilledListAdmin.vue')
+  },
+
 ]
 
 const router = new VueRouter({

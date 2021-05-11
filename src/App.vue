@@ -1,12 +1,34 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/naslovna">Naslovna</router-link>
+      <router-link to="/">Home</router-link>|
+      <router-link to="/naslovna">Naslovna</router-link>|
+      <router-link to="/teams">Teams</router-link>|
+      <router-link to="/account">Account</router-link>|
+      <router-link to="/accountAdmin">AccountAdmin</router-link>|
+      <router-link to="/booking">Booking</router-link>|
+      <router-link to="/calendar">Calendar</router-link>|
+      <router-link to="/categories">Categories</router-link>|
+      <router-link to="/dateAdmin">DateAdmin</router-link>|
+      <router-link to="/filledListAdmin">FilledListAdmin</router-link>|
+      <router-link to="/homeAdmin">HomeAdmin</router-link>|
+      <router-link to="/inboxAdmin">InboxAdmin</router-link>|
+      <router-link to="/listPlayers">ListPlayers</router-link>|
+      <router-link to="/loginAdmin">LoginAdmin</router-link>|
+      <router-link to="/terrainAdmin">TerrainAdmin</router-link>|
+      <router-link to="/terrain">Terrain</router-link>|
     </div>
     <router-view/>
   </div>
 </template>
+<script>
+import { SidebarMenu } from 'vue-sidebar-menu'
+export default {
+  components: {
+    SidebarMenu
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
