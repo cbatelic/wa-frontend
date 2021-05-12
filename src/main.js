@@ -9,6 +9,19 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+import Vuesax from 'vuesax'
+
+import 'vuesax/dist/vuesax.css' //Vuesax styles
+Vue.use(Vuesax, {
+  colors: {
+    primary:'#1286C7',
+    success:'rgb(23, 201, 100)',
+    danger:'rgb(242, 19, 93)',
+    warning:'rgb(255, 130, 0)',
+    dark:'rgb(36, 33, 69)'
+  }
+}),
+
 
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)

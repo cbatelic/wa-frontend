@@ -1,38 +1,49 @@
-<template>
-  <sidebar-menu  :menu="menu" />
+ <template>
+    <div class="hidden">
+      <vs-sidebar
+        :color="color"
+        absolute
+        open
+        >
+        <template #logo>
+           <v-img :src="require('@/assets/logo.png')"> </v-img>
+        </template>
+        <vs-sidebar-item id="home" to='/' :active="color == 'primary'" @click="color = 'primary'">
+          <template #icon>
+            <i class='fa fa-home fa-fw'></i>
+          </template>
+          Home
+        </vs-sidebar-item>
+        <vs-sidebar-item id="terrain" to='/terrain'>
+          <template #icon>
+            <i class='fa fa-area-chart'></i>
+          </template>
+          Sports halls/terrain
+        </vs-sidebar-item>
+        <vs-sidebar-item id="account" to='/account'>
+          <template #icon>
+            <i class='fa fa-user fa'></i>
+          </template>
+          Account
+        </vs-sidebar-item>
+        <template #footer>
+          <vs-row justify="space-between">
+
+          </vs-row>
+        </template>
+      </vs-sidebar>
+    </div>
 </template>
- 
+
 <script>
-import { SidebarMenu } from 'vue-sidebar-menu'
-import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
-    export default {
-      components: {
-         SidebarMenu
-  },
-        data() {
-            return {
-                menu: [
-                    {
-                        header: true,
-                        src:"require('@/assets/logo.png')", 
-                    },
-                    {
-                        href: '/',
-                        title: 'Home',
-                        icon: 'fa fa-home fa-fw'
-                    },
-                    {
-                        href: '/terrain',
-                        title: 'Sports halls/terrain',
-                        icon: 'fa fa-area-chart',
-                    },
-                    {
-                        href: '/account',
-                        title: 'Account',
-                        icon: 'fa fa-user fa'
-                    }
-                ]
-            }
+
+export default {
+    data() {
+        return{
+         color: 'primary'
         }
-    }
-</script> 
+    },
+}
+</script>
+
+  

@@ -32,6 +32,8 @@
     </v-main>
   </v-app>
 </template>
+
+
 <style scoped>
 #inspire{
   background-color:  #86D1FC;
