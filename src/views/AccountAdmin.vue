@@ -8,7 +8,7 @@
         <template #logo>
            <v-img :src="require('@/assets/logo.png')"> </v-img>
         </template>
-        <vs-sidebar-item id="home" to='/'>
+        <vs-sidebar-item id="home" to='/homeAdmin'>
           <template #icon>
             <i class='fa fa-home fa-fw'></i>
           </template>
@@ -38,21 +38,21 @@
   <h3>Account</h3>
 </div>
 </div>
-<div id="box1" style="margin-left:30%">
+<div id="box1" style="margin-left:27%">
 
 <div class="w3-container w3-teal">
   <label>Name:
   </label>
     </div>
     </div>
-    <div id="box1" style="margin-left:30%">
+    <div id="box1" style="margin-left:27%">
 
 <div class="w3-container w3-teal">
   <label>Surname:
   </label>
     </div>
     </div>
-    <div id="box1" style="margin-left:30%">
+    <div id="box1" style="margin-left:27%">
 
 <div class="w3-container w3-teal">
   <label>Email:
@@ -79,7 +79,7 @@
   margin-top: 40px;
 }
 #box1 {
-  max-width: 200px; 
+  max-width: 600px; 
   text-align: left;
   width: fixed;
   height: 65px;

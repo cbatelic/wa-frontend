@@ -8,7 +8,7 @@
         <template #logo>
            <v-img :src="require('@/assets/logo.png')"> </v-img>
         </template>
-        <vs-sidebar-item id="home" to='/'>
+        <vs-sidebar-item id="home" to='/naslovna'>
           <template #icon>
             <i class='fa fa-home fa-fw'></i>
           </template>

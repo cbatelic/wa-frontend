@@ -3,7 +3,6 @@
     <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/naslovna">Naslovna</router-link>|
-      <router-link to="/teams">Teams</router-link>|
       <router-link to="/account">Account</router-link>|
       <router-link to="/accountAdmin">AccountAdmin</router-link>|
       <router-link to="/booking">Booking</router-link>|

@@ -25,7 +25,14 @@
                               color: #1286C7;
                               padding: 5px 50px;
                               border: 2px solid #1286C7;
-                              box-shadow: 0 3px #1286C7;">Register</v-btn>
+                              box-shadow: 0 3px #1286C7;">
+                              <v-icon
+          dark
+          left
+        >
+          mdi-pencil-ruler
+        </v-icon>
+                              Register</v-btn>
                               <v-spacer></v-spacer>
               </v-card-actions>
             </v-card>

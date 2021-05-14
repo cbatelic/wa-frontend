@@ -22,7 +22,13 @@
                               color: #1286C7;
                               padding: 5px 50px;
                               border: 2px solid #1286C7;
-                              box-shadow: 0 3px #1286C7;">Login</v-btn>
+                              box-shadow: 0 3px #1286C7;">
+                              <v-icon
+          dark
+          left
+        >
+          mdi-login-variant
+        </v-icon> Login</v-btn>
                 <v-spacer></v-spacer>
               </v-card-actions>
             </v-card>
