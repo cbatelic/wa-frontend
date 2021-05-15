@@ -27,9 +27,10 @@
           Account
         </vs-sidebar-item>
         <template #footer>
-          <vs-row justify="space-between">
-
-          </vs-row>
+          <vs-button >
+            <i class='fa fa-sign-out'></i>
+          Logout
+        </vs-button>
         </template>
       </vs-sidebar>
        <div id="box1" style="margin-left:27%">
@@ -97,7 +98,7 @@
   font-size: 16px;
   margin-left: 50px;
   display: block;
-  margin-top: 50px;
+  margin-top: 40px;
   background-color: white;
   color: #1286C7;
   border: none;
@@ -116,6 +117,7 @@
   color:white;
   padding: 15px;
   max-width: 350px; 
+  height: 65px;
 }
 .btn{
   background-color: white;

@@ -27,9 +27,10 @@
           Account
         </vs-sidebar-item>
         <template #footer>
-          <vs-row justify="space-between">
-
-          </vs-row>
+          <vs-button >
+            <i class='fa fa-sign-out'></i>
+          Logout
+        </vs-button>
         </template>
       </vs-sidebar>
       <div id="box1" style="margin-left:27%">

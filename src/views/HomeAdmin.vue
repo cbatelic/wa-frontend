@@ -27,9 +27,10 @@
           Account
         </vs-sidebar-item>
         <template #footer>
-          <vs-row justify="space-between">
-
-          </vs-row>
+          <vs-button >
+            <i class='fa fa-sign-out'></i>
+          Logout
+        </vs-button>
         </template>
       </vs-sidebar>
       <div class="row">
@@ -56,6 +57,30 @@
 </div>
 </div>
 <div id="box1" style="margin-left:0%">
+
+<div>
+  <label>Team name:
+  </label>
+  <br>
+  <br>
+  <label>City:
+  </label>
+  <br>
+  <br>
+  <label>Categories:
+  </label>
+  <br>
+  <br>
+  <label>Date and time:
+  </label>
+  <br><br>
+  <label>Members:
+  </label>
+  <br>
+  <br>
+    </div>
+    </div>
+    <div id="box1" style="margin-left:0%">
 
 <div>
   <label>Team name:
@@ -131,6 +156,7 @@
   margin-left: 2px;
   /* display: block; */
   margin-top: 40px;
+  overflow: scroll;
 }
 .subtitle{
   max-width: 500px; 
