@@ -32,34 +32,59 @@
           </vs-row>
         </template>
       </vs-sidebar>
-      <div id="box" style="margin-left:25%">
-       <div class="subtitle" style="margin-left:25%">
+      <div id="box1" style="margin-left:27%">
+         <div class="subtitle">
+  <u><p>Booking</p></u>
+</div>
+<br>
+<br>
+
 
 <div class="w3-container w3-teal">
-  <u><h3>Booking</h3></u>
-</div>
-</div>
-</div>
+  <label>Team name:
+  </label>
+  <input
+            type="text"
+            maxlength="50"
+            name="teamName"
+            class="form-control"
+            id="teamName"
+          />
+  <br>
+  <br>
+  <label>Members:
+  </label>
+  <input
+            type="text"
+            maxlength="50"
+            name="members"
+            class="form-control"
+            id="members"
+          />
+  <br>
+  <br>
+  <label>Note:
+  </label>
+   <textarea
+            class="form-control"
+            maxlength="500"
+            id="note"
+            rows="4"
+          ></textarea>
+  <br>
+  <br>
+    </div>
+     <br>
+    <button class="btn">
+          <b>Confirm booking</b>
+        </button>
+    </div>
+
     </div>
 </template>
   <style scoped>
-      #box{
-  max-width: 900px; 
-  text-align: left;
-  color: white;
-  width: fixed;
-  height: 675px;
-  /* padding: 15px; */
-  box-sizing: border-box;
-  border-radius: 0px;
-  background: #1286C7;
-  font-size: 16px;
-  margin-left: 2px;
-  /* display: block; */
-  margin-top: 40px;
-}
-.subtitle{
-  max-width: 500px; 
+#box {
+  max-width: 200px; 
   text-align: center;
   color: white;
   width: fixed;
@@ -69,6 +94,45 @@
   border-radius: 0px;
   background: #1286C7;
   font-size: 16px;
-  /* margin-left: 10px; */
+  margin-left: 50px;
+  display: block;
+  margin-top: 40px;
+}
+#box1 {
+  max-width: 1000px; 
+  text-align: left;
+  width: fixed;
+  height: 680px;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 0px;
+  font-size: 16px;
+  margin-left: 50px;
+  display: block;
+  margin-top: 50px;
+  background-color: #1286C7;
+  color: white;
+  border: none;
+}
+.form-control {
+  margin-bottom: 8px;
+  margin-top: 10px;
+  background-color: white;
+  outline: #1286C7;
+  box-shadow: #1286C7;
+}
+.subtitle{
+  text-align: center;
+  font-size: 40px;
+}
+.btn{
+  background-color: white;
+    color: #1286C7;
+    padding: 10px 50px;
+    border: none;
+    box-shadow: 0 3px #1286C7;
+    text-align: center;
+    position: absolute;
+  left: 50%;
 }
   </style>

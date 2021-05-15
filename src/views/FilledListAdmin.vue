@@ -33,13 +33,13 @@
         </template>
       </vs-sidebar>
        <div id="box" style="margin-left:25%">
-       <div class="subtitle" style="margin-left:25%">
+       <div class="subtitle" style="margin-left:0%">
 
 <div class="w3-container w3-teal">
-  <h3>List of unfilled sports players</h3>
+  <h3>List of filled sports players</h3>
 </div>
 </div>
-<div id="box1" style="margin-left:27%">
+<div id="box1" style="margin-left:0%">
 
 <div>
   <label>Team name:
@@ -94,6 +94,7 @@
   border-radius: 0px;
   background: #1286C7;
   font-size: 16px;
+  left:5%
   /* margin-left: 10px; */
 }
 #box1 {

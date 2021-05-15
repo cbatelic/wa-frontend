@@ -36,7 +36,6 @@
       <div class="teams" style="margin-left:20%">
     <router-link to="/filledListAdmin">
         <button class="btn">
-          <i class='fa fa-users' aria-hidden="true" id="ikona_inbox"></i>
           <b>Teams</b>
         </button>
     </router-link>
@@ -44,20 +43,19 @@
         <div class="inbox" style="margin-left:20%">
     <router-link to="/inboxAdmin">
         <button class="btn">
-            <i class="fa fa-inbox" aria-hidden="true"></i>
           <b>Inbox</b>
         </button>
     </router-link>
         </div>
     </div>
-     <div id="box" style="margin-left:25%">
-       <div class="subtitle" style="margin-left:25%">
+     <div id="box" style="margin-left:20%">
+       <div class="subtitle" style="margin-left:0%">
 
 <div class="w3-container w3-teal">
   <h3>List of unfilled sports players</h3>
 </div>
 </div>
-<div id="box1" style="margin-left:27%">
+<div id="box1" style="margin-left:0%">
 
 <div>
   <label>Team name:
