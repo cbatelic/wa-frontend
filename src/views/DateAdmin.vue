@@ -49,6 +49,7 @@
             name="date"
             class="form-control"
             id="date"
+            v-model="date"
           />
   <br>
   <br>
@@ -59,6 +60,7 @@
             name="time"
             class="form-control"
             id="time"
+            v-model="time"
           />
   <br>
   <br>
@@ -70,6 +72,20 @@
     </div>
     </div>
 </template>
+<script>
+import { defineComponent } from '@vue/composition-api'
+
+export default{
+  data() {
+    return{
+      date: '',
+      time: ''
+    }
+    
+  },
+}
+</script>
+
 
   <style scoped>
    #box {

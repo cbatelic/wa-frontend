@@ -33,7 +33,48 @@
         </vs-button>
         </template>
       </vs-sidebar>
+      <div id="box" style="margin-left:21%">
+       <form id="search" class="navbar-form form-inline ml-auto">
+      <input
+        icon="fa fa-search"
+        v-model="search"
+        class="form-control"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </form>
     </div>
-  </template>
+    </div>
+</template>
+<script>
+  
+  export default {
+    data() {
+      return{
+        search: '',
+      }
+      
+    },
+  }
+  </script>
+  
   <style scoped>
+  .search{
+    max-width: 1000px;
+  }
+  #box{
+  max-width: 1000px; 
+  text-align: left;
+  width: fixed;
+  height: 70px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-left: 50px;
+  display: block;
+  margin-top: 50px;
+  background-color: #86d1fc;
+  color: black;
+  }
   </style>

@@ -44,33 +44,35 @@
 <div class="w3-container w3-teal">
   <label>Name:
   </label>
-  <input
-            type="text"
-            maxlength="50"
-            name="name"
-            class="form-control"
-            id="name"
-          />
+  <form class="navbar-form form-inline ml-auto">
+      <input
+        v-model="name"
+        class="form-control mr-sm-2"
+        type="text"
+      />
+    </form>
   <br>
   <br>
   <label>City:
   </label>
-  <input
-            type="text"
-            maxlength="50"
-            name="city"
-            class="form-control"
-            id="city"
-          />
+  <form class="navbar-form form-inline ml-auto">
+      <input
+        v-model="city"
+        class="form-control mr-sm-2"
+        type="text"
+      />
+    </form>
   <br>
   <br>
   <label>Categories:
   </label>
-   <input
-            class="form-control"
-            name="categories"
-            id="categories"
-          />
+   <form class="navbar-form form-inline ml-auto">
+      <input
+        v-model="categories"
+        class="form-control mr-sm-2"
+        type="text"
+      />
+    </form>
   <br>
   <br>
     </div>
@@ -83,6 +85,21 @@
     </div>
     </div>
 </template>
+<script>
+import { defineComponent } from '@vue/composition-api'
+
+export default {
+  data() {
+    return{
+      name: '',
+      city: '',
+      categories: ''
+    }
+    
+  },
+}
+</script>
+
 
   <style scoped>
   #box {

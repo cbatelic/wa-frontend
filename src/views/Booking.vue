@@ -44,24 +44,24 @@
 <div class="w3-container w3-teal">
   <label>Team name:
   </label>
-  <input
-            type="text"
-            maxlength="50"
-            name="teamName"
-            class="form-control"
-            id="teamName"
-          />
+  <form class="navbar-form form-inline ml-auto">
+      <input
+        class="form-control mr-sm-2"
+        type="text"
+        v-model="teamName"
+      />
+    </form>
   <br>
   <br>
   <label>Members:
   </label>
-  <input
-            type="text"
-            maxlength="50"
-            name="members"
-            class="form-control"
-            id="members"
-          />
+  <form class="navbar-form form-inline ml-auto">
+      <input
+        class="form-control mr-sm-2"
+        type="text"
+        v-model="members"
+      />
+    </form>
   <br>
   <br>
   <label>Note:
@@ -71,6 +71,7 @@
             maxlength="500"
             id="note"
             rows="4"
+            v-model="note"
           ></textarea>
   <br>
   <br>
@@ -83,6 +84,20 @@
 
     </div>
 </template>
+<script>
+
+export default {
+  data() {
+    return{
+      teamName: '',
+      members: '',
+      note: ''
+    }
+    
+  },
+}
+</script>
+
   <style scoped>
 #box {
   max-width: 200px; 

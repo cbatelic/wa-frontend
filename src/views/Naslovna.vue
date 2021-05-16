@@ -47,7 +47,7 @@
   </p>
      <div style="text-align:right;">
         <button class="btn">
-          <font-awesome-icon icon="envelope" size="lg" />
+          
           <b>Questions</b>
         </button>
         </div>
@@ -60,7 +60,7 @@
   <div style="text-align:right;">
     <router-link to="/listPlayers">
         <button class="btn">
-          <font-awesome-icon icon="envelope" size="lg" />
+          
           <b>Teams</b>
         </button>
     </router-link>
