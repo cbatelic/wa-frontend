@@ -39,8 +39,6 @@
 </div>
 <br>
 <br>
-
-
 <div class="w3-container w3-teal">
   <label>Team name:
   </label>
