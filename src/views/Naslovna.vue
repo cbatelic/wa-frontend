@@ -27,7 +27,7 @@
           Account
         </vs-sidebar-item>
         <template #footer>
-          <vs-button >
+          <vs-button to='/'>
             <i class='fa fa-sign-out'></i>
           Logout
         </vs-button>

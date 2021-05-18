@@ -18,7 +18,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn style="background-color: white;
+                <v-btn to="/naslovna" style="background-color: white;
                               color: #1286C7;
                               padding: 5px 50px;
                               border: 2px solid #1286C7;

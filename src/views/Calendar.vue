@@ -27,7 +27,7 @@
           Account
         </vs-sidebar-item>
         <template #footer>
-          <vs-button >
+          <vs-button to='/' >
             <i class='fa fa-sign-out'></i>
           Logout
         </vs-button>
@@ -64,6 +64,62 @@
     </v-col>
   </v-row>
         
+      </div>
+      <br>
+      <br>
+      <br>
+    
+      <div class="date" style="margin-left:40%">
+        <div class="row">
+        <div class="col-sm">
+           <router-link to="/booking">
+          <vs-button >
+          8:30
+        </vs-button>
+           </router-link>
+        </div>
+        <div class="col-sm">
+           <router-link to="/booking">
+          <vs-button >
+          10:30
+        </vs-button>
+           </router-link>
+        </div>
+        <div class="col-sm">
+           <router-link to="/booking">
+          <vs-button >
+          13:00
+        </vs-button>
+           </router-link>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        </div>
+        <div class="row">
+        <div class="col-sm">
+          <router-link to="/booking">
+          <vs-button >
+          15:30
+        </vs-button>
+          </router-link>
+        </div>
+        <div class="col-sm">
+           <router-link to="/booking">
+          <vs-button >
+          18:00
+        </vs-button>
+           </router-link>
+        </div>
+        <div class="col-sm">
+           <router-link to="/booking">
+          <vs-button >
+          20:30
+        </vs-button>
+           </router-link>
+        </div>
+        </div>
       </div>
     </div>
 </template>

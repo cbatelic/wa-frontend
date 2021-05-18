@@ -14,20 +14,20 @@
           </template>
           Home
         </vs-sidebar-item>
-        <vs-sidebar-item id="terrain" to='/terrain'>
+        <vs-sidebar-item id="terrain" to='/terrainAdmin'>
           <template #icon>
             <i class='fa fa-area-chart'></i>
           </template>
           Sports halls/terrain
         </vs-sidebar-item>
-        <vs-sidebar-item id="account" to='/account'>
+        <vs-sidebar-item id="account" to='/accountAdmin'>
           <template #icon>
             <i class='fa fa-user fa'></i>
           </template>
           Account
         </vs-sidebar-item>
         <template #footer>
-          <vs-button >
+          <vs-button to='/'>
             <i class='fa fa-sign-out'></i>
           Logout
         </vs-button>
@@ -73,7 +73,6 @@
     </div>
 </template>
 <script>
-import { defineComponent } from '@vue/composition-api'
 
 export default{
   data() {

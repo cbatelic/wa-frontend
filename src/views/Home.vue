@@ -15,6 +15,10 @@
      <router-link to="/login">
      <label style="color: #1286C7"><b>Log in</b></label>
      </router-link>
+     <br>
+     <router-link to="/loginAdmin">
+     <label style="color: #1286C7"><b>Log in Admin</b></label>
+     </router-link>
      </div>
   </div>
 </template>
