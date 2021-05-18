@@ -78,7 +78,6 @@
                                     <span v-else-if="!$v.user.confirmPassword.sameAsPassword">Passwords must match</span>
                                 </div>
                   </div>
-                  </div>
                 </v-form>
               </v-card-text>
               <v-card-actions>
