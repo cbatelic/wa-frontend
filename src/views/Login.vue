@@ -11,14 +11,50 @@
             <v-card class="elevation-12" style="border: 2px solid #1286C7;">
               <v-card-text>
                 <v-form>
-                  <v-text-field prepend-icon="person" name="email" label="Email" type="text"></v-text-field>
-                  <v-text-field id="password" prepend-icon="lock" name="password" label="Password" type="password"></v-text-field>
-                  <v-text-field id="confirmPassword" prepend-icon="lock" name="confirmPassword" label="Confirm password" type="password"></v-text-field>
+                  <div>
+                  <v-text-field prepend-icon="person" 
+                                name="email" 
+                                label="Email" 
+                                type="text"
+                                v-model="user.email" 
+                                :class="{ 'is-invalid': submitted && $v.user.email.$error }"></v-text-field>
+                  <div v-if="submitted && $v.user.email.$error" class="invalid-feedback">
+                                    <span v-if="!$v.user.email.required">Email is required</span>
+                                    <span v-if="!$v.user.email.email">Email is invalid</span>
+                                </div>
+                  </div>
+                  <div>
+                  <v-text-field id="password" 
+                                prepend-icon="lock" 
+                                name="password" 
+                                label="Password" 
+                                type="password"
+                                v-model="user.password"
+                                :class="{ 'is-invalid': submitted && $v.user.password.$error }"
+                                ></v-text-field>
+                                <div v-if="submitted && $v.user.password.$error" class="invalid-feedback">
+                                    <span v-if="!$v.user.password.required">Password is required</span>
+                                    <span v-if="!$v.user.password.minLength">Password must be at least 6 characters</span>
+                                </div>
+                            </div>
+                  <div>
+                  <v-text-field id="confirmPassword" 
+                                prepend-icon="lock" 
+                                name="confirmPassword" 
+                                label="Confirm password" 
+                                type="password"
+                                v-model="user.confirmPassword"
+                                :class="{ 'is-invalid': submitted && $v.user.confirmPassword.$error }"></v-text-field>
+                                <div v-if="submitted && $v.user.confirmPassword.$error" class="invalid-feedback">
+                                    <span v-if="!$v.user.confirmPassword.required">Confirm Password is required</span>
+                                    <span v-else-if="!$v.user.confirmPassword.sameAsPassword">Passwords must match</span>
+                                </div>
+                  </div>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn to="/naslovna" style="background-color: white;
+                <v-btn @click="submit()" to="/naslovna" style="background-color: white;
                               color: #1286C7;
                               padding: 5px 50px;
                               border: 2px solid #1286C7;
@@ -37,6 +73,41 @@
     </v-main>
   </v-app>
 </template>
+<script>
+import { required, minLength, email, sameAs } from 'vuelidate/lib/validators'
+
+export default {
+  data(){
+    return {
+                user: {
+                    email: "",
+                    password: "",
+                    confirmPassword: ""
+                },
+                submitted: false
+            };
+  },
+  
+  validations: {
+   user: {
+                email: { required, email },
+                password: { required, minLength: minLength(6) },
+                confirmPassword: { required, sameAsPassword: sameAs('password') }
+            }
+  },
+  methods: {
+     submit() {
+                this.submitted = true;
+
+                // stop here if form is invalid
+                this.$v.$touch();
+                if (this.$v.$invalid) {
+                    return;
+                }
+    },
+  }
+  }
+</script>
 
 
 <style scoped>

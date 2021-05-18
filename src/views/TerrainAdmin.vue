@@ -49,7 +49,14 @@
         v-model="name"
         class="form-control mr-sm-2"
         type="text"
+        :class="{ 'is-invalid': submitted && $v.name.$error }"
       />
+      <div
+          v-if="submitted && !$v.name.required"
+          class="invalid-feedback"
+        >
+          Name is required.
+        </div>
     </form>
   <br>
   <br>
@@ -60,7 +67,14 @@
         v-model="city"
         class="form-control mr-sm-2"
         type="text"
+        :class="{ 'is-invalid': submitted && $v.city.$error }"
       />
+      <div
+          v-if="submitted && !$v.city.required"
+          class="invalid-feedback"
+        >
+          City is required.
+        </div>
     </form>
   <br>
   <br>
@@ -71,14 +85,21 @@
         v-model="categories"
         class="form-control mr-sm-2"
         type="text"
+        :class="{ 'is-invalid': submitted && $v.categories.$error }"
       />
+      <div
+          v-if="submitted && !$v.categories.required"
+          class="invalid-feedback"
+        >
+          Categories is required.
+        </div>
     </form>
   <br>
   <br>
     </div>
      <br>
-     <router-link to="/dateAdmin">
-    <button class="btn">
+     <router-link to="/dateAdmin" >
+    <button class="btn" @click="submit()">
           <b>Next</b>
         </button>
      </router-link>
@@ -86,16 +107,33 @@
     </div>
 </template>
 <script>
+import { required } from 'vuelidate/lib/validators'
 
 export default {
   data() {
     return{
       name: '',
       city: '',
-      categories: ''
-    }
-    
+      categories: '',
+      submitted: false
+    };
   },
+   validations: {     
+                name: { required },
+                city: { required },
+                categories: { required }
+  },
+  methods: {
+     submit() {
+                this.submitted = true;
+
+                // stop here if form is invalid
+                this.$v.$touch();
+                if (this.$v.$invalid) {
+                    return;
+                }
+    },
+  }
 }
 </script>
 

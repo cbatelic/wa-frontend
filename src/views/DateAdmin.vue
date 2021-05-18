@@ -50,7 +50,14 @@
             class="form-control"
             id="date"
             v-model="date"
-          />
+            :class="{ 'is-invalid': submitted && $v.date.$error }"
+      />
+      <div
+          v-if="submitted && !$v.date.required"
+          class="invalid-feedback"
+        >
+          Date is required.
+        </div>
   <br>
   <br>
   <label>Time:
@@ -61,27 +68,50 @@
             class="form-control"
             id="time"
             v-model="time"
-          />
+            :class="{ 'is-invalid': submitted && $v.time.$error }"
+      />
+      <div
+          v-if="submitted && !$v.time.required"
+          class="invalid-feedback"
+        >
+          Time is required.
+        </div>
   <br>
   <br>
     </div>
      <br>
-    <button class="btn">
+    <button class="btn" @click="submit()">
           <b>Add</b>
         </button>
     </div>
     </div>
 </template>
 <script>
+import { required } from 'vuelidate/lib/validators'
 
-export default{
+export default {
   data() {
     return{
       date: '',
-      time: ''
-    }
-    
+      time: '',
+      submitted: false
+    };
   },
+   validations: {     
+                date: { required },
+                time: { required },
+  },
+  methods: {
+     submit() {
+                this.submitted = true;
+
+                // stop here if form is invalid
+                this.$v.$touch();
+                if (this.$v.$invalid) {
+                    return;
+                }
+    },
+  }
 }
 </script>
 

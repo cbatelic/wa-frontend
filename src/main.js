@@ -10,6 +10,9 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import Vuesax from 'vuesax'
+import Vuelidate from 'vuelidate';
+ 
+Vue.use(Vuelidate);
 
 import 'vuesax/dist/vuesax.css' //Vuesax styles
 Vue.use(Vuesax, {

@@ -49,7 +49,7 @@
       <div id="box2" style="margin-left:0%">
 
 <div>
-  <router-link to="/calendar">
+  <router-link to="/categories">
   <img class="img" alt="hall" src="../assets/SportskiCentarMileta.jpg">
   <br>
   <br>
@@ -65,7 +65,7 @@
       </div>
      <div id="box2" style="margin-left:0%">
     <div>
-      <router-link to="/calendar">
+      <router-link to="/categories">
   <img class="img" alt="hall" src="../assets/SportskaDvoranaŽatika.jpg">
   <br>
   <br>
@@ -81,7 +81,7 @@
     </div>
     <div id="box2" style="margin-left:0%">
     <div>
-      <router-link to="/calendar">
+      <router-link to="/categories">
   <img class="img" alt="hall" src="../assets/DvoranaBale.jpg">
   <br>
   <br>

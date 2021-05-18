@@ -68,6 +68,15 @@
      <div class="row">
         <div class="col-sm">
           <router-link to="/calendar">
+          <v-icon
+          dark
+          left
+          style="font-size:170px;background-color: white; color: #1286C7;"
+        >
+          mdi mdi-handball
+        </v-icon>
+        <br>
+        <br>
      <label style="font-size: 32px; color: white;">Handball</label>
           </router-link>
         </div>

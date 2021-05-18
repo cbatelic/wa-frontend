@@ -47,7 +47,14 @@
         class="form-control mr-sm-2"
         type="text"
         v-model="teamName"
+        :class="{ 'is-invalid': submitted && $v.teamName.$error }"
       />
+      <div
+          v-if="submitted && !$v.teamName.required"
+          class="invalid-feedback"
+        >
+          Team name is required.
+        </div>
     </form>
   <br>
   <br>
@@ -58,7 +65,14 @@
         class="form-control mr-sm-2"
         type="text"
         v-model="members"
+        :class="{ 'is-invalid': submitted && $v.members.$error }"
       />
+      <div
+          v-if="submitted && !$v.members.required"
+          class="invalid-feedback"
+        >
+          Members is required.
+        </div>
     </form>
   <br>
   <br>
@@ -75,7 +89,7 @@
   <br>
     </div>
      <br>
-    <button class="btn">
+    <button class="btn" @click="submit()">
           <b>Confirm booking</b>
         </button>
     </div>
@@ -83,16 +97,33 @@
     </div>
 </template>
 <script>
+import { required } from 'vuelidate/lib/validators'
 
 export default {
   data() {
     return{
       teamName: '',
       members: '',
-      note: ''
-    }
-    
+      note: '',
+      submitted: false
+            };
   },
+  
+  validations: {     
+                teamName: { required },
+                members: { required }
+  },
+  methods: {
+     submit() {
+                this.submitted = true;
+
+                // stop here if form is invalid
+                this.$v.$touch();
+                if (this.$v.$invalid) {
+                    return;
+                }
+    },
+  }
 }
 </script>
 
@@ -116,7 +147,7 @@ export default {
   max-width: 1000px; 
   text-align: left;
   width: fixed;
-  height: 680px;
+  height: 720px;
   padding: 15px;
   box-sizing: border-box;
   border-radius: 0px;
