@@ -8,10 +8,12 @@
 <script>
 import { SidebarMenu } from 'vue-sidebar-menu'
 export default {
+  
   components: {
     SidebarMenu
-  }
+  },
 }
+
 </script>
 
 <style lang="scss">
