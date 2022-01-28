@@ -82,7 +82,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <button @click="submit()" style="background-color: white;
+                <button @click="submit(name,surname,email,password,confirmPassword)" style="background-color: white;
                               text-align: center;
                               color: #1286C7;
                               padding: 5px 50px;
@@ -105,6 +105,7 @@
   </v-app>
 </template>
 <script>
+import store from '@/store.js';
 import {Auth} from '@/services';
 import { required, minLength, email, sameAs } from 'vuelidate/lib/validators'
 
@@ -132,41 +133,52 @@ export default {
           
   },
   methods: {
-     async submit() {
-                // this.submitted = true;
-
-                // // stop here if form is invalid
-                // this.$v.$touch();
-                // if (this.$v.$invalid) {
-                //     return;
-                // }
-                // console.log("hhh");
+  //    async submit() {
     
-        let success = await Auth.login(this.email, this.password);
-        console.log('Rezultat prijave', success);
-        if(success == true){
-          this.$router.push({path: '/naslovna'})
-         if (
-        this.password !== this.confirmPassword ||
-        this.confirmPassword !== this.password
-      ) {
-        alert("Lozinke se ne podudaraju!");
-        console.log(error);
-      }
-      let user = {
-          name: this.name,
+  //       let success = await Auth.login(this.email, this.password);
+  //       console.log('Rezultat prijave', success);
+  //       if(success == true){
+  //         this.$router.push({path: '/naslovna'})
+  //        if (
+  //       this.password !== this.confirmPassword ||
+  //       this.confirmPassword !== this.password
+  //     ) {
+  //       alert("Lozinke se ne podudaraju!");
+  //       console.log(error);
+  //     }
+  //     else { let user = {
+  //         name: this.name,
+  //         surname: this.surname,
+  //         email: this.email,
+  //         password: this.password,
+  //         confirmPassword: this.confirmPassword,
+  //     };
+  //      let newuser = await Auth.registracija(user);
+  //       console.log('Registriran je korisnik', newuser.data);
+  //       }
+  //       }
+
+  // },
+  async submit(name,surname,email,password,confirmPassword) {
+
+        let user = {
+            name: this.name,
           surname: this.surname,
           email: this.email,
           password: this.password,
           confirmPassword: this.confirmPassword,
-      };
-       let newuser = await Auth.registracija(user);
-        console.log('Registriran je korisnik', newuser.data);
         }
 
-  },
+        console.log(user)
+        await Auth.signUp(user).then(() => {
+            this.$router.push({ path: '/naslovna' });
+            store.authenticated=true;
+            store.email=this.email;
+        });
+        }
+      },
   }
-  }
+
 </script>
 
 <style scoped>

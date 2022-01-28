@@ -70,8 +70,8 @@ let Auth = {
         }
     },
     state: {
-        get authenticated (){ //pomocu get ovaj atribut authenticated pretvaramo u funkciju
-           return Auth.authenticated(); //pozivamo ju kao funckiju ali kad ju citamo ne moramo ju pozvat kao funkciju nego kao atribut 
+        get authenticated (){
+           return Auth.authenticated(); 
         },
     }
 };
