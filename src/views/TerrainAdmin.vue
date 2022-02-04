@@ -46,7 +46,7 @@
   </label>
   <form class="navbar-form form-inline ml-auto">
       <input
-        v-model="name"
+        v-model="terrainName"
         class="form-control mr-sm-2"
         type="text"
         :class="{ 'is-invalid': submitted && $v.name.$error }"
@@ -64,7 +64,7 @@
   </label>
   <form class="navbar-form form-inline ml-auto">
       <input
-        v-model="city"
+        v-model="terrainCity"
         class="form-control mr-sm-2"
         type="text"
         :class="{ 'is-invalid': submitted && $v.city.$error }"
@@ -82,7 +82,7 @@
   </label>
    <form class="navbar-form form-inline ml-auto">
       <input
-        v-model="categories"
+        v-model="terrainCategories"
         class="form-control mr-sm-2"
         type="text"
         :class="{ 'is-invalid': submitted && $v.categories.$error }"
@@ -112,16 +112,16 @@ import { required } from 'vuelidate/lib/validators'
 export default {
   data() {
     return{
-      name: '',
-      city: '',
-      categories: '',
+      terrainName: '',
+      terrainCity: '',
+      terrainCategories: '',
       submitted: false
     };
   },
    validations: {     
-                name: { required },
-                city: { required },
-                categories: { required }
+                terrainName: { required },
+                terrainCity: { required },
+                terrainCategories: { required }
   },
   methods: {
      submit() {
@@ -132,6 +132,14 @@ export default {
                 if (this.$v.$invalid) {
                     return;
                 }
+                let terrain = {
+                  terrainName: this.terrainName,
+                  terrainCity: this.terrainCity,
+                  terrainCategories: this.terrainCategories
+                };
+                let newterrain = await Posts.add_terrain(terrain);
+        console.log('Save terrain', newterrain.data);
+        this.$router.push({ path: '/dateAdmin' });
     },
   }
 }

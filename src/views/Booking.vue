@@ -97,6 +97,7 @@
     </div>
 </template>
 <script>
+import navigation from '@/components/navigation.vue';
 import { required } from 'vuelidate/lib/validators'
 
 export default {
@@ -123,6 +124,9 @@ export default {
                     return;
                 }
     },
+  },
+  components: {
+    navigation
   }
 }
 </script>

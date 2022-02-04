@@ -30,6 +30,42 @@ Service.interceptors.response.use(
         //console.error('Interceptor', error.response)
     }
 );
+
+let Posts ={
+    add_terrain(terrain) {
+        return Service.post('/terrain', terrain);
+    },
+
+    async getAll() {        
+        let response = await Service.get(`/terrain`)
+        let data = response.data
+        data = data.map(doc =>{
+            return {
+                id:doc._id,
+                terrainName: doc.terrainName,
+                terrainCity: doc.terrainCity,
+                terrainCategories: doc.terrainCategories,
+                posted_at: Number (doc.posted_at)
+            
+            };
+        });
+        return data
+    },
+    async getOne(id){
+        let response = await Service.get(`/terrain/${id}`);
+        let doc = response.data;
+        return {
+            id:doc._id,
+            terrainName: doc.terrainName,
+            terrainCity: doc.terrainCity,
+            terrainCategories: doc.terrainCategories,
+            posted_at: Number(doc.posted_at),
+
+            
+        };
+    }, 
+}
+
 let Auth = {
     
     async login(email, password){
@@ -50,6 +86,12 @@ let Auth = {
     },
     getUser(){
       return JSON.parse(localStorage.getItem("user"))  
+    },
+    account(){
+        let user = Auth.getUser()
+        if(user){
+            return user
+        }
     },
     getToken(){
         let user = Auth.getUser();
@@ -76,4 +118,4 @@ let Auth = {
     }
 };
 
-export { Service, Auth }
+export { Service, Auth, Posts }
