@@ -1,4 +1,4 @@
-     <template>
+<template>
     <div class="hidden">
       <vs-sidebar
         text="#1286C7"
@@ -49,10 +49,10 @@
         v-model="terrainName"
         class="form-control mr-sm-2"
         type="text"
-        :class="{ 'is-invalid': submitted && $v.name.$error }"
+        :class="{ 'is-invalid': submitted && $v.terrainName.$error }"
       />
       <div
-          v-if="submitted && !$v.name.required"
+          v-if="submitted && !$v.terrainName.required"
           class="invalid-feedback"
         >
           Name is required.
@@ -67,10 +67,10 @@
         v-model="terrainCity"
         class="form-control mr-sm-2"
         type="text"
-        :class="{ 'is-invalid': submitted && $v.city.$error }"
+        :class="{ 'is-invalid': submitted && $v.terrainCity.$error }"
       />
       <div
-          v-if="submitted && !$v.city.required"
+          v-if="submitted && !$v.terrainCity.required"
           class="invalid-feedback"
         >
           City is required.
@@ -85,10 +85,10 @@
         v-model="terrainCategories"
         class="form-control mr-sm-2"
         type="text"
-        :class="{ 'is-invalid': submitted && $v.categories.$error }"
+        :class="{ 'is-invalid': submitted && $v.terrainCategories.$error }"
       />
       <div
-          v-if="submitted && !$v.categories.required"
+          v-if="submitted && !$v.terrainCategories.required"
           class="invalid-feedback"
         >
           Categories is required.
@@ -98,16 +98,17 @@
   <br>
     </div>
      <br>
-     <router-link to="/dateAdmin" >
     <button class="btn" @click="submit()">
           <b>Next</b>
         </button>
-     </router-link>
     </div>
     </div>
 </template>
 <script>
 import { required } from 'vuelidate/lib/validators'
+import { Posts } from '@/services';
+import {Auth} from "@/services";
+
 
 export default {
   data() {
@@ -124,7 +125,7 @@ export default {
                 terrainCategories: { required }
   },
   methods: {
-     submit() {
+     async submit() {
                 this.submitted = true;
 
                 // stop here if form is invalid
@@ -132,12 +133,14 @@ export default {
                 if (this.$v.$invalid) {
                     return;
                 }
-                let terrain = {
+                let admTerrain = {
                   terrainName: this.terrainName,
                   terrainCity: this.terrainCity,
                   terrainCategories: this.terrainCategories
                 };
-                let newterrain = await Posts.add_terrain(terrain);
+                console.log('radiss')
+                console.log(this.terrainName)
+                let newterrain = await Posts.add_terrain(admTerrain);
         console.log('Save terrain', newterrain.data);
         this.$router.push({ path: '/dateAdmin' });
     },

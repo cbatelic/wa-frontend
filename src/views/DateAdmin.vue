@@ -88,6 +88,7 @@
 </template>
 <script>
 import { required } from 'vuelidate/lib/validators'
+import { Posts } from '@/services';
 
 export default {
   data() {
@@ -102,7 +103,7 @@ export default {
                 time: { required },
   },
   methods: {
-     submit() {
+    async submit() {
                 this.submitted = true;
 
                 // stop here if form is invalid
@@ -110,6 +111,14 @@ export default {
                 if (this.$v.$invalid) {
                     return;
                 }
+                let admTerrain = {
+                  date: this.date,
+                  time: this.time
+                };
+                console.log('radiss')
+                console.log(this.terrainName)
+                let newterrain = await Posts.add_terrain(admTerrain);
+        console.log('Save terrain', newterrain.data);
     },
   }
 }

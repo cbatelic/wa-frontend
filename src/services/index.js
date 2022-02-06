@@ -32,8 +32,8 @@ Service.interceptors.response.use(
 );
 
 let Posts ={
-    add_terrain(terrain) {
-        return Service.post('/terrain', terrain);
+    add_terrain(admTerrain) {
+        return Service.post('/terrain', admTerrain);
     },
 
     async getAll() {        
@@ -51,19 +51,19 @@ let Posts ={
         });
         return data
     },
-    async getOne(id){
-        let response = await Service.get(`/terrain/${id}`);
-        let doc = response.data;
-        return {
-            id:doc._id,
-            terrainName: doc.terrainName,
-            terrainCity: doc.terrainCity,
-            terrainCategories: doc.terrainCategories,
-            posted_at: Number(doc.posted_at),
+    // async getOne(id){
+    //     let response = await Service.get(`/terrain/${id}`);
+    //     let doc = response.data;
+    //     return {
+    //         id:doc._id,
+    //         terrainName: doc.terrainName,
+    //         terrainCity: doc.terrainCity,
+    //         terrainCategories: doc.terrainCategories,
+    //         posted_at: Number(doc.posted_at),
 
             
-        };
-    }, 
+    //     };
+    // }, 
 }
 
 let Auth = {

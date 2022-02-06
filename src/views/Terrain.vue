@@ -16,8 +16,8 @@
     <div id="box1" style="margin-left:25%">
       <div id="box2" style="margin-left:0%">
 
-<div  :key="terrain.id" v-for="terrain in terrain">
-            <OneTerrain :info="terrain" />
+<div  :key="admTerrain.id" v-for="admTerrain in terrains">
+            <OneTerrain :info="admTerrain" />
           </div>  
       </div>
     </div>
@@ -32,7 +32,7 @@ import { Posts } from '@/services';
     data() {
       return{
         search: '',
-        terrain: [],
+        terrains: [],
       }
       
     },
@@ -42,8 +42,8 @@ import { Posts } from '@/services';
     },
      methods: {
         async GetAllTerrain() {
-            this.terrain = await Posts.getAll();
-            console.log(this.terrain)
+            this.terrains = await Posts.GetAll();
+            console.log(this.terrains)
         },
   },
 

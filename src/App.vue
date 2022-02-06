@@ -7,13 +7,30 @@
 </template>
 <script>
 import { SidebarMenu } from 'vue-sidebar-menu'
+import {Auth} from "@/services";
+
 export default {
+  data(){
+    return{
+      auth: Auth.state,   //dovlaci iz jednog objekta u drugi objekt neke kljuceve, varijable...
+      user: {},
+    };
+  },
+   methods:{
+    account(){
+      if(this.auth.authenticated){
+        this.user = Auth.account()
+      }
+   }
+  },
+  created() {
+      this.account();
+    },
   
   components: {
     SidebarMenu
   },
 }
-
 </script>
 
 <style lang="scss">
