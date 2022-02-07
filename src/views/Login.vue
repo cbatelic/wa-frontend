@@ -112,8 +112,9 @@ export default {
                try {
         // prijava je prošla uspješnp
         console.log('ddd');
-        let success = await Auth.login(this.email, this.password);
+        let success = await Auth.login(this.email, this.password, this.name, this.surname);
         console.log('Result of login: ', success);
+        console.log(success.name, success.email)
           this.$router.replace({ path: '/naslovna' });
           // refresh trenutne stranice
           // this.$router.go();

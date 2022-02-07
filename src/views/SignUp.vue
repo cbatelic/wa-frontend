@@ -173,7 +173,9 @@ export default {
         await Auth.signUp(user).then(() => {
             this.$router.push({ path: '/naslovna' });
             store.authenticated=true;
-            store.email=this.email;
+            store.email=user.email;
+            store.name=user.name;
+            store.surname=user.surname;
         });
         }
       },

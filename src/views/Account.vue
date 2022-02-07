@@ -9,26 +9,26 @@
 </div>
 <div id="box1" style="margin-left:27%">
 
-<div @click="account()" class="w3-container w3-teal">
+<div  class="w3-container w3-teal">
   <label>Name:
   </label>
-  {{user.name}}
+  {{store.name}}
     </div>
     </div>
     <div id="box1" style="margin-left:27%">
 
-<div @click="account()" class="w3-container w3-teal">
+<div @click="fun()" class="w3-container w3-teal">
   <label>Surname:
   </label>
-  {{user.surname}}
+  {{store.surname}}
     </div>
     </div>
     <div id="box1" style="margin-left:27%">
 
-<div @click="account()" class="w3-container w3-teal">
+<div class="w3-container w3-teal">
   <label >Email:
   </label>
-              {{user.email}}
+              {{store.email}}
       
     </div>
     </div>
@@ -50,23 +50,30 @@ export default {
     };
   },
   methods: {
-   account(){
-     if(this.auth.authenticated){
-     this.user = Auth.account();
-     console.log(this.user)
-     console.log(this.user.name)
-     }
-   },
+  //  account(){
+  //    if(this.auth.authenticated){
+  //    this.user = Auth.account();
+  //    console.log(this.user)
+  //    console.log(this.user.name)
+  //    }
+  //  },
+  fun(){
+    store.email;
+    store.name;
+    console.log(this.store.email, this.store.name, store.name, store.email);
+
+
+  },
    logout(){
       Auth.logout();
       this.$router.push("/"); 
       console.log('odjava')
       console.log(this.user)
     },
-   created() {
-        this.account();
+  //  created() {
+  //       this.account();
         
-    },
+  //   },
 },
 components: {
   navigation

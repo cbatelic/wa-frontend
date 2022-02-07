@@ -7,7 +7,7 @@
         <template #logo>
            <v-img :src="require('@/assets/logo.png')"> </v-img>
         </template>
-        <vs-sidebar-item id="home">
+        <vs-sidebar-item id="home" to='/naslovna'>
           <template #icon>
             <i class='fa fa-home fa-fw'></i>
           </template>
@@ -47,6 +47,7 @@ export default {
    logout(){
       Auth.logout();
       this.$router.push("/"); 
+      this.$router.go();
       console.log('odjava')
     },
 },

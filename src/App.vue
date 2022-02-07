@@ -8,18 +8,25 @@
 <script>
 import { SidebarMenu } from 'vue-sidebar-menu'
 import {Auth} from "@/services";
+import store from "@/store.js"
 
 export default {
   data(){
     return{
       auth: Auth.state,   //dovlaci iz jednog objekta u drugi objekt neke kljuceve, varijable...
       user: {},
+      store
     };
   },
    methods:{
     account(){
-      if(this.auth.authenticated){
-        this.user = Auth.account()
+      if(store.authenticated = true){
+       this.store = Auth.account()
+         store.email=this.email;
+          store.name=this.name;
+          store.surname=this.surname;
+        console.log(this.store.email)
+        console.log(this.store.name, this.store.surname)
       }
    }
   },

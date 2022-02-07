@@ -68,10 +68,12 @@ let Posts ={
 
 let Auth = {
     
-    async login(email, password){
+    async login(email, password, name, surname){
         let response = await Service.post("/auth",{
            email: email,
            password: password,
+           name: name,
+           surname: surname
         });
         let user = response.data
         localStorage.setItem("user", JSON.stringify(user)); 
