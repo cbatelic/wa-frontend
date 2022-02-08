@@ -118,7 +118,7 @@ export default {
                     email: "",
                     password: "",
                     confirmPassword: "",
-                
+                    store,
                 submitted: false
             };
   },
@@ -162,7 +162,7 @@ export default {
   async submit(name,surname,email,password,confirmPassword) {
 
         let user = {
-            name: this.name,
+          name: this.name,
           surname: this.surname,
           email: this.email,
           password: this.password,
@@ -173,9 +173,10 @@ export default {
         await Auth.signUp(user).then(() => {
             this.$router.push({ path: '/naslovna' });
             store.authenticated=true;
-            store.email=user.email;
-            store.name=user.name;
-            store.surname=user.surname;
+            this.store = Auth.account()
+            store.email=this.email;
+            store.name=this.name;
+            store.surname=this.surname;
         });
         }
       },

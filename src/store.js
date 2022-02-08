@@ -2,5 +2,6 @@ export default {
     authenticated: false,
     email: '',
     name: '',
-    surname:''
+    surname:'',
+    admin:null
 }

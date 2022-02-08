@@ -47,7 +47,6 @@ export default {
    logout(){
       Auth.logout();
       this.$router.push("/"); 
-      this.$router.go();
       console.log('odjava')
     },
 },

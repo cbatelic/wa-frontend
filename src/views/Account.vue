@@ -17,7 +17,7 @@
     </div>
     <div id="box1" style="margin-left:27%">
 
-<div @click="fun()" class="w3-container w3-teal">
+<div class="w3-container w3-teal">
   <label>Surname:
   </label>
   {{store.surname}}
@@ -57,11 +57,16 @@ export default {
   //    console.log(this.user.name)
   //    }
   //  },
-  fun(){
-    store.email;
-    store.name;
-    console.log(this.store.email, this.store.name, store.name, store.email);
-
+  account(){
+    if(this.auth.authenticated){
+      this.user = Auth.account();
+      this.store = Auth.account();
+      console.log("Authenticated:", this.auth.authenticated)
+      store.email=this.store.email;
+      store.name=this.store.name;
+      store.surname=this.store.surname;
+      console.log(store.email,store.name,store.surname);
+    }
 
   },
    logout(){
@@ -70,10 +75,10 @@ export default {
       console.log('odjava')
       console.log(this.user)
     },
-  //  created() {
-  //       this.account();
+   created() {
+        this.account();
         
-  //   },
+    },
 },
 components: {
   navigation

@@ -114,10 +114,25 @@ export default {
         console.log('ddd');
         let success = await Auth.login(this.email, this.password, this.name, this.surname);
         console.log('Result of login: ', success);
-        console.log(success.name, success.email)
+        
+        this.store = Auth.account()
+        store.email=this.store.email;
+        store.name=this.store.name;
+        store.surname=this.store.surname;
+
+        // Dva admina
+        if(store.email=='chiarab@gmail.com' || store.email=='klaudiab@gmail.com'){
+          this.$router.replace({ path: '/homeAdmin '});
+          store.admin=true;
+          console.log("Da li je trenutno ulogiran admin: ", store.admin)
+        }
+        else{
           this.$router.replace({ path: '/naslovna' });
+          store.admin=false;
+          console.log("Da li je trenutno ulogiran admin: ", store.admin)
           // refresh trenutne stranice
           // this.$router.go();
+        }
       } catch (e) {
         this.error = 'Wrong username or password!';
       }

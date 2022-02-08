@@ -45,12 +45,17 @@
   <label>Name:
   </label>
   <form class="navbar-form form-inline ml-auto">
-      <input
+      <select
         v-model="terrainName"
         class="form-control mr-sm-2"
         type="text"
         :class="{ 'is-invalid': submitted && $v.terrainName.$error }"
-      />
+      >
+      <option value="Sportska 1" class="selected">Sportska dvorana 1</option>
+      <option value="Sportska 2" class="selected">Sportska dvorana 2</option>
+      <option value="Sportska 3" class="selected">Sportska dvorana 3</option>
+      <option value="Sportska 4" class="selected">Sportska dvorana 4</option>
+      </select>
       <div
           v-if="submitted && !$v.terrainName.required"
           class="invalid-feedback"
@@ -60,6 +65,7 @@
     </form>
   <br>
   <br>
+  <!-- Dodati gradove koji su povazani sa dvoranom koja se tamo nalazi -->
   <label>City:
   </label>
   <form class="navbar-form form-inline ml-auto">
@@ -81,12 +87,19 @@
   <label>Categories:
   </label>
    <form class="navbar-form form-inline ml-auto">
-      <input
+      <select
         v-model="terrainCategories"
         class="form-control mr-sm-2"
         type="text"
         :class="{ 'is-invalid': submitted && $v.terrainCategories.$error }"
-      />
+      >
+      <option value="Soccer" class="selected">Soccer</option>
+      <option value="Basketball" class="selected">Basketball</option>
+      <option value="Tennis" class="selected">Tennis</option>
+      <option value="Handball" class="selected">Handball</option>
+      <option value="Volleyball" class="selected">Volleyball</option>
+      <option value="Other" class="selected">Other</option>
+      </select>
       <div
           v-if="submitted && !$v.terrainCategories.required"
           class="invalid-feedback"

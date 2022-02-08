@@ -44,6 +44,7 @@
 <div class="w3-container w3-teal">
   <label>Name:
   </label>
+  {{store.name}}
     </div>
     </div>
     <div id="box1" style="margin-left:27%">
@@ -51,6 +52,7 @@
 <div class="w3-container w3-teal">
   <label>Surname:
   </label>
+  {{store.surname}}
     </div>
     </div>
     <div id="box1" style="margin-left:27%">
@@ -58,10 +60,25 @@
 <div class="w3-container w3-teal">
   <label>Email:
   </label>
+  {{store.email}}
     </div>
     </div>
     </div>
 </template>
+
+<script>
+import navigation from '@/components/navigation.vue';
+import {Auth} from '@/services';
+import store from '@/store.js';
+
+export default ({
+  data() {
+    return {
+      store
+    };
+  },
+})
+</script>
 
   <style scoped>
   #box {

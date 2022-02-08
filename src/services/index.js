@@ -77,7 +77,7 @@ let Auth = {
         });
         let user = response.data
         localStorage.setItem("user", JSON.stringify(user)); 
-
+        console.log(user.surname)
         return true;
     },
     signUp(user) {

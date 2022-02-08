@@ -19,19 +19,31 @@ export default {
     };
   },
    methods:{
+    //Drži korisnika ulogiranog i nakon refresha -> problem što je nakon odjave korisnik i dalje prijavljen
+
     account(){
-      if(store.authenticated = true){
-       this.store = Auth.account()
-         store.email=this.email;
-          store.name=this.name;
-          store.surname=this.surname;
-        console.log(this.store.email)
-        console.log(this.store.name, this.store.surname)
+      if(this.auth.authenticated){
+      this.user = Auth.account();
+      this.store = Auth.account();
+      console.log("Authenticated:", this.auth.authenticated)
+          store.email=this.store.email;
+          store.name=this.store.name;
+          store.surname=this.store.surname;
+          console.log(store.email,store.name,store.surname);
       }
-   }
+    },
   },
   created() {
       this.account();
+
+      if(store.email=='chiarab@gmail.com' || store.email=='klaudiab@gmail.com'){
+          store.admin=true;
+          console.log("Da li je trenutno ulogiran admin: ", store.email, store.admin)
+        }
+        else{
+          store.admin=false;
+          console.log("Da li je trenutno ulogiran admin: ", store.admin)
+        }
     },
   
   components: {
