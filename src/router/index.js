@@ -63,7 +63,8 @@ const routes = [
   {
     path: '/homeAdmin',
     name: 'HomeAdmin',
-    component: () => import(/* webpackChunkName: "homeAdmin" */ '../views/HomeAdmin.vue')
+    component: () => import(/* webpackChunkName: "homeAdmin" */ '../views/HomeAdmin.vue'),
+    meta: { isAdmin: true },
   },
   {
     path: '/accountAdmin',

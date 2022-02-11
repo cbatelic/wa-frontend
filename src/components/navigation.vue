@@ -1,37 +1,94 @@
  <template>
- <vs-sidebar
-        text="#1286C7"
-        absolute
-        open
-        >
-        <template #logo>
-           <v-img :src="require('@/assets/logo.png')"> </v-img>
-        </template>
-        <vs-sidebar-item id="home" to='/naslovna'>
-          <template #icon>
-            <i class='fa fa-home fa-fw'></i>
-          </template>
-          Home
-        </vs-sidebar-item>
-        <vs-sidebar-item id="terrain" to='/terrain'>
-          <template #icon>
-            <i class='fa fa-area-chart'></i>
-          </template>
-          Sports halls/terrain
-        </vs-sidebar-item>
-        <vs-sidebar-item id="account" to='/account'>
-          <template #icon>
-            <i class='fa fa-user fa'></i>
-          </template>
-          Account
-        </vs-sidebar-item>
-        <template #footer>
-          <vs-button @click="logout()">
-            <i class='fa fa-sign-out'></i>
-          Logout
-        </vs-button>
-        </template>
-      </vs-sidebar>
+<div>
+  <div class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
+    <div class="flex flex-col flex-grow border-r border-gray-200 bg-white overflow-y-auto space-y-28">
+      <div class="items-center flex-shrink-0 px-4 mt-5">
+        <img  :src="require('@/assets/logo.png')" alt="Logo">
+      </div>
+      <div class=" flex-grow flex flex-col">
+        <nav class="flex-1 px-2 pb-4 space-y-1">
+          <router-link to="/naslovna">
+          <a class="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+            <svg class="text-gray-500 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+          </a>
+          </router-link>
+
+          <router-link to="/terrain">
+          <a  class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+            <!-- Heroicon name: outline/users -->
+            <svg class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            Terrain
+          </a>
+          </router-link>
+
+          <router-link to="/account">
+          <a  class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+            <!-- Heroicon name: outline/folder -->
+            <svg class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+            </svg>
+            Account
+          </a>
+          </router-link>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="md:pl-64 flex flex-col flex-1">
+    <div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white shadow">
+      <button type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
+        <span class="sr-only">Open sidebar</span>
+        <!-- Heroicon name: outline/menu-alt-2 -->
+        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+        </svg>
+      </button>
+      <div class="flex-1 px-4 flex justify-between">
+        <div class="flex-1 flex">
+          <form class="w-full flex md:ml-0" action="#" method="GET">
+            <label for="search-field" class="sr-only">Search</label>
+            <div class="relative w-full text-gray-400 focus-within:text-gray-600">
+              <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+                <!-- search -->
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input id="search-field" class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm" placeholder="Search" type="search" name="search">
+            </div>
+          </form>
+        </div>
+        <div class="ml-4 flex items-center md:ml-6 justify-end">
+          <div class="ml-3 relative border-2 border-sky-700 rounded-md ">
+            <div >
+              <button type="button" @click="logout()" class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+             Sign out
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <main class="flex-1">
+      <div class="py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <h1 class="text-2xl font-semibold text-gray-900">Naslovnaa</h1>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <div class="py-4">
+            <div class="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
+          </div>
+        </div>
+      </div>
+    </main> -->
+  </div>
+</div>
 </template> 
 
 <script>

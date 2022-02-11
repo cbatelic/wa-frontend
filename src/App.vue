@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import { SidebarMenu } from 'vue-sidebar-menu'
+// import { SidebarMenu } from 'vue-sidebar-menu'
 import {Auth} from "@/services";
 import store from "@/store.js"
 
@@ -47,7 +47,7 @@ export default {
     },
   
   components: {
-    SidebarMenu
+    // SidebarMenu
   },
 }
 </script>
@@ -66,7 +66,6 @@ body{
 }
 
 #nav {
-  padding: 30px;
 
   a {
     font-weight: bold;

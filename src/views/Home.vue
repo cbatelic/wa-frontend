@@ -1,26 +1,6 @@
 <template>
-  <div class="naslovna">
-    <img class="logo" alt="logo" src="../assets/logo.png">
-    <div class="elements1">
-     <router-link to="/signUp">
-     <button class="signIn">
-       <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;
-          <b>Sign Up for account</b>
-     </button>
-     </router-link>
-     </div>
-     <div class="elements2">
-     <label style="color: white">Already a member?</label>
-     &nbsp;
-     <router-link to="/login">
-     <label style="color: #1286C7"><b>Log in</b></label>
-     </router-link>
-     <br>
-     <router-link to="/loginAdmin">
-     <label style="color: #1286C7"><b>Log in Admin</b></label>
-     </router-link>
-     </div>
-  </div>
+  <div class="bg-blue">sadbkjcy</div>
+
 </template>
 
 <style scoped>

@@ -65,6 +65,27 @@ let Posts ={
     //     };
     // }, 
 }
+let Admin = {
+    async getAll(admin) {
+      let response = await Service.get(`/admin?${admin}`);
+      let data = response.data;
+      data = data.map((doc) => {
+        return {
+          email: doc.email,
+          role: doc.role,
+        };
+      });
+      return data;
+    },
+  
+    async getOne(admin) {
+      let response = await Service.get(`/admin/${admin}`);
+      let doc = response.data;
+      return {
+        role: doc.role,
+      };
+    },
+  };
 
 let Auth = {
     
@@ -120,4 +141,4 @@ let Auth = {
     }
 };
 
-export { Service, Auth, Posts }
+export { Service, Auth, Posts, Admin }
