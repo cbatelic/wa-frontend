@@ -1,5 +1,77 @@
      <template>
-    <div class="hidden">
+<nav class="min-h-screen">
+  <navigationAdmin></navigationAdmin>
+<table class="min-w-full border-collapse block md:table my-16">
+     <thead class="block md:table-header-group">
+			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
+				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell">List of unfilled teams</th>
+			 <th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+      </tr>
+		</thead>
+		<thead class="block md:table-header-group">
+			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Name</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">User Name</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Email Address</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Actions</th>
+			</tr>
+		</thead>
+		<tbody class="block md:table-row-group">
+			<tr class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Name</span> </td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User Name</span></td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Email Address</span></td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span></td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+					<span class="inline-block w-1/3 md:hidden font-bold">Actions</span>
+					<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Edit</button>
+					<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+  <!-- 2 tablica -->
+  <table class="min-w-full border-collapse block md:table">
+    <thead class="block md:table-header-group">
+			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
+				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell">List of filled teams</th>
+			 <th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+      </tr>
+		</thead>
+		<thead class="block md:table-header-group">
+			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Name</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">User Name</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Email Address</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Actions</th>
+			</tr>
+		</thead>
+		<tbody class="block md:table-row-group">
+			<tr class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Name</span></td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User Name</span></td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Email Address</span></td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>582-3X2-6233</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+					<span class="inline-block w-1/3 md:hidden font-bold">Actions</span>
+					<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Edit</button>
+					<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+ </nav>
+ 
+    <!-- <div class="hidden">
       <vs-sidebar
         text="#1286C7"
         absolute
@@ -105,11 +177,21 @@
     </div>
     </div>
 </div>
-    </div>
+    </div> -->
 </template>
 
+<script>
+import navigationAdmin from '@/components/navigationAdmin.vue';
+
+export default {
+  
+components: {
+  navigationAdmin
+}
+}
+</script>
   <style scoped>
-  .btn{
+  /* .btn{
   background-color: white;
     color: #1286C7;
     padding: 5px 50px;
@@ -149,12 +231,12 @@
   width: fixed;
   height: 600px;
   /* padding: 15px; */
-  box-sizing: border-box;
+  /* box-sizing: border-box;
   border-radius: 0px;
   background: white;
   font-size: 16px;
   margin-left: 2px;
-  /* display: block; */
+  /* display: block; 
   margin-top: 40px;
   overflow: scroll;
 }
@@ -168,10 +250,10 @@
   box-sizing: border-box;
   border-radius: 0px;
   background: #1286C7;
-  font-size: 16px;
-  /* margin-left: 10px; */
+  font-size: 16px; */
+  /* margin-left: 10px; 
 }
-#box1 {
+/* #box1 {
   max-width: 800px; 
   text-align: left;
   width: fixed;
@@ -187,6 +269,6 @@
   color: #1286C7;
   border: none;
   box-shadow: 0 3px #1286C7;
-}
+}  */
 
   </style>

@@ -2,12 +2,12 @@
  <nav class="min-h-screen">
   <div class="antialiased bg-gray-100 dark-mode:bg-gray-900" >
   <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
-    <div class="flex flex-col mx-auto md:items-center md:justify-between md:flex-row">
+    <div class="flex  mx-auto md:items-center md:justify-between md:flex-row">
       <div class="">
         <img class="h-16"  :src="require('@/assets/logoHome.png')" alt="Logo">
       </div>
       <div class="flex flex-row items-center justify-between p-4 bg-blue-400" style="clip-path:polygon(5% 0, 100% 0%, 100% 100%, 0 100%)">
-        <a  class=" ml-16 text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Move&Play</a>
+        <a  class=" lg:ml-16 text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Move&Play</a>
         <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline">
           <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
             <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -22,7 +22,7 @@
   </div>
 </div>
 <div class="">
-        <img class="object-cover h-[32rem] w-full"  :src="require('@/assets/pictureHome.jpg')" alt="Logo">
+        <img class="object-cover h-screen w-full"  :src="require('@/assets/pictureHome.jpg')" alt="Logo">
 <div class="bg-gray-900">
     <footer class="flex flex-wrap items-center justify-between p-3 m-auto">
         <div class="container mx-auto flex flex-col flex-wrap items-center justify-between">

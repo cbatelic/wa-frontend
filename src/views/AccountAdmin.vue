@@ -1,5 +1,31 @@
      <template>
-    <div class="hidden">
+<div>
+  <navigation-admin></navigation-admin>
+  <div class=" flex items-center h-auto  flex-wrap mx-auto my-32 ">
+    
+	<!--Main Col-->
+	<div id="profile" class="w-full lg:mx-5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
+	
+
+		<div class="p-4 md:p-12 text-center lg:text-left">
+			<!-- Image for mobile view-->
+			<div class="block rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('')"></div>
+			
+			<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-blue-500 opacity-25"></div>
+			<p class="pt-4 text-base font-bold flex items-center justify-center lg:mx-32"><label>Name</label> <label class="ml-16">{{store.name}}</label></p>
+			<p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"><label>Surname</label> {{store.surname}}</p>
+			<p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"><label>Email</label> {{store.email}}</p>
+
+
+			<div class="pt-12 pb-8">
+			</div>
+
+		</div>
+
+	</div>
+  </div>
+</div>
+    <!-- <div class="hidden">
       <vs-sidebar
         text="#1286C7"
         absolute
@@ -63,21 +89,50 @@
   {{store.email}}
     </div>
     </div>
-    </div>
+    </div> -->
 </template>
 
 <script>
-import navigation from '@/components/navigation.vue';
+import navigationAdmin from '@/components/navigationAdmin.vue';
 import {Auth} from '@/services';
 import store from '@/store.js';
 
-export default ({
-  data() {
+export default {
+    data() {
     return {
+      auth: Auth.state,
+      user: {},
       store
     };
   },
-})
+  methods: {
+  account(){
+    if(this.auth.authenticated){
+      this.user = Auth.account();
+      this.store = Auth.account();
+      console.log("Authenticated:", this.auth.authenticated)
+      store.email=this.store.email;
+      store.name=this.store.name;
+      store.surname=this.store.surname;
+      console.log(store.email,store.name,store.surname);
+    }
+
+  },
+   logout(){
+      Auth.logout();
+      this.$router.push("/"); 
+      console.log('odjava')
+      console.log(this.user)
+    },
+   created() {
+        this.account();
+        
+    },
+},
+components: {
+  navigationAdmin
+}
+}
 </script>
 
   <style scoped>

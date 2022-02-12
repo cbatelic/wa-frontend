@@ -77,11 +77,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "terrainAdmin" */ '../views/TerrainAdmin.vue')
   },
   {
-    path: '/dateAdmin',
-    name: 'DateAdmin',
-    component: () => import(/* webpackChunkName: "dateAdmin" */ '../views/DateAdmin.vue')
-  },
-  {
     path: '/inboxAdmin',
     name: 'InboxAdmin',
     component: () => import(/* webpackChunkName: "inboxAdmin" */ '../views/InboxAdmin.vue')

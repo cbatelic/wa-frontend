@@ -1,38 +1,102 @@
 <template>
-    <div class="hidden">
-      <vs-sidebar
-        text="#1286C7"
-        absolute
-        open
+<div>
+  <navigation-admin></navigation-admin>
+  <div class="mt-10 sm:mt-0">
+  <div class="md:grid  md:gap-6">
+    <div class="mt-5 md:mt-0 md:col-span-2">
+      <form action="#" method="POST">
+        <div class="shadow overflow-hidden sm:rounded-md lg:mx-12">
+          <div class="px-4 py-5 bg-white sm:p-6">
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 ">
+                <label for="first_name" class="block text-sm font-medium text-gray-700">Terrain name</label>
+                <select v-model="terrainName" class="mt-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                :class="{ 'is-invalid': submitted && $v.terrainName.$error }">
+      <option value="Sportska 1" class="selected">Sportska dvorana 1</option>
+      <option value="Sportska 2" class="selected">Sportska dvorana 2</option>
+      <option value="Sportska 3" class="selected">Sportska dvorana 3</option>
+      <option value="Sportska 4" class="selected">Sportska dvorana 4</option>
+      </select>
+      <div
+          v-if="submitted && !$v.terrainName.required"
+          class="invalid-feedback"
         >
-        <template #logo>
-           <v-img :src="require('@/assets/logo.png')"> </v-img>
-        </template>
-        <vs-sidebar-item id="home" to='/homeAdmin'>
-          <template #icon>
-            <i class='fa fa-home fa-fw'></i>
-          </template>
-          Home
-        </vs-sidebar-item>
-        <vs-sidebar-item id="terrain" to='/terrainAdmin'>
-          <template #icon>
-            <i class='fa fa-area-chart'></i>
-          </template>
-          Sports halls/terrain
-        </vs-sidebar-item>
-        <vs-sidebar-item id="account" to='/accountAdmin'>
-          <template #icon>
-            <i class='fa fa-user fa'></i>
-          </template>
-          Account
-        </vs-sidebar-item>
-        <template #footer>
-          <vs-button to='/'>
-            <i class='fa fa-sign-out'></i>
-          Logout
-        </vs-button>
-        </template>
-      </vs-sidebar>
+          Name is required.
+        </div>
+              </div> 
+
+              <div class="col-span-6 ">
+                <label for="last_name" class="block text-sm font-medium text-gray-700">Terrain city</label>
+                <input type="text" v-model="terrainCity" class="mt-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                :class="{ 'is-invalid': submitted && $v.terrainCity.$error }" />
+      <div
+          v-if="submitted && !$v.terrainCity.required"
+          class="invalid-feedback"
+        >
+          City is required.
+        </div>
+              </div>
+
+              <div class="col-span-6 ">
+                <label for="email_address" class="block text-sm font-medium text-gray-700">Categories</label>
+                <select type="text" v-model="terrainCategories" class="mt-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                :class="{ 'is-invalid': submitted && $v.terrainCategories.$error }">
+                <option value="Soccer" class="selected">Soccer</option>
+      <option value="Basketball" class="selected">Basketball</option>
+      <option value="Tennis" class="selected">Tennis</option>
+      <option value="Handball" class="selected">Handball</option>
+      <option value="Volleyball" class="selected">Volleyball</option>
+      <option value="Other" class="selected">Other</option>
+                </select>
+                <div
+          v-if="submitted && !$v.terrainCategories.required"
+          class="invalid-feedback"
+        >
+          Categories is required.
+        </div>
+              </div>
+
+              <div class="col-span-6 ">
+                <label for="country" class="block text-sm font-medium text-gray-700">Date</label>
+                <input type="date" class="mt-2 py-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                v-model="date"
+            :class="{ 'is-invalid': submitted && $v.date.$error }"
+      />
+      <div
+          v-if="submitted && !$v.date.required"
+          class="invalid-feedback"
+        >
+          Date is required.
+        </div>
+              </div>
+
+              <div class="col-span-6">
+                <label for="street_address" class="block text-sm font-medium text-gray-700">Time</label>
+                <input type="time"  class="mt-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                v-model="time"
+            :class="{ 'is-invalid': submitted && $v.time.$error }"
+      />
+      <div
+          v-if="submitted && !$v.time.required"
+          class="invalid-feedback"
+        >
+          Time is required.
+        </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <button type="button" @click="submit()"  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Save
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+    <!--
        <div id="box1" style="margin-left:27%">
          <div class="subtitle">
   <h3>Add sports halls or terrain</h3>
@@ -65,8 +129,8 @@
     </form>
   <br>
   <br>
-  <!-- Dodati gradove koji su povazani sa dvoranom koja se tamo nalazi -->
-  <label>City:
+  <! Dodati gradove koji su povazani sa dvoranom koja se tamo nalazi -->
+  <!-- <label>City:
   </label>
   <form class="navbar-form form-inline ml-auto">
       <input
@@ -115,12 +179,13 @@
           <b>Next</b>
         </button>
     </div>
-    </div>
+    </div>  -->
 </template>
 <script>
 import { required } from 'vuelidate/lib/validators'
 import { Posts } from '@/services';
 import {Auth} from "@/services";
+import navigationAdmin from '../components/navigationAdmin.vue';
 
 
 export default {
@@ -129,13 +194,17 @@ export default {
       terrainName: '',
       terrainCity: '',
       terrainCategories: '',
+      date: '',
+      time: '',
       submitted: false
     };
   },
    validations: {     
                 terrainName: { required },
                 terrainCity: { required },
-                terrainCategories: { required }
+                terrainCategories: { required },
+                date: { required },
+                time: { required },
   },
   methods: {
      async submit() {
@@ -149,7 +218,9 @@ export default {
                 let admTerrain = {
                   terrainName: this.terrainName,
                   terrainCity: this.terrainCity,
-                  terrainCategories: this.terrainCategories
+                  terrainCategories: this.terrainCategories,
+                  date: this.date,
+                  time: this.time
                 };
                 console.log('radiss')
                 console.log(this.terrainName)
@@ -157,6 +228,9 @@ export default {
         console.log('Save terrain', newterrain.data);
         this.$router.push({ path: '/dateAdmin' });
     },
+  },
+  components:{
+    navigationAdmin
   }
 }
 </script>
