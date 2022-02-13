@@ -1,17 +1,18 @@
      <template>
 <div>
      <navigation></navigation>
- <body class="bg-gray-100 text-gray-700  font-sans quicksand">
+ <body class=" text-gray-700  font-sans quicksand">
 
   <div class="p-9 md:p-16">
     <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 m-5 mb-10 gap-24">
 
-
+<router-link to="/calendar">
             <div class="bg-white overflow-hidden hover:bg-green-100 border border-gray-200 p-3">
         <div class="m-2 text-center">
              <i class="fa fa-soccer-ball-o" style="font-size:170px;background-color: white; color: #1286C7;"></i>
         </div>
     </div>
+</router-link>
           <div class="bg-white overflow-hidden hover:bg-green-100 border border-gray-200 p-3">
         <div class="m-2 text-center">
             <i class='fas fa-basketball-ball' style="font-size:170px;background-color: white; color: #1286C7;"></i>

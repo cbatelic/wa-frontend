@@ -60,10 +60,10 @@ export default {
 //   text-align: center;
 //   color: #2c3e50;
 // }
-// body{
-//     // background-color: #86d1fc;
+body{
+    background-color: #374151;
 
-// }
+}
 
 // #nav {
 

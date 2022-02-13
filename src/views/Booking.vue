@@ -1,7 +1,80 @@
      <template>
-    <div class="hidden">
+    <div class="">
       <navigation></navigation>
-      <div id="box1" style="margin-left:27%">
+      <div class="w-full">
+    <div class="h-72"></div>
+    <div class="mx-auto px-6 sm:px-6 lg:px-8 mt-1.5">
+        <div class="w-full p-8 sm:p-12 -mt-72">
+            <p class="text-3xl font-bold leading-7 text-center"></p>
+            <form action="" method="post">
+                <div class="md:flex items-center mt-12">
+                    <div class="w-full md:w-1/2 flex flex-col">
+                        <label class="font-semibold leading-none text-white">Team name</label>
+                        <input type="text" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200" 
+                        v-model="teamName"
+        :class="{ 'is-invalid': submitted && $v.teamName.$error }"
+      />
+      <div
+          v-if="submitted && !$v.teamName.required"
+          class="invalid-feedback"
+        >
+          Team name is required.
+        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 flex flex-col md:ml-6 mt-4 md:mt-0">
+                        <label class="font-semibold leading-none text-white">User email</label>
+                        <input type="email" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"
+                        v-model="userEmail"
+        :class="{ 'is-invalid': submitted && $v.userEmail.$error }"
+      />
+      <div
+          v-if="submitted && !$v.userEmail.required"
+          class="invalid-feedback"
+        >
+          User email is required.
+        </div>
+                    </div>
+                </div>
+                <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">
+                        <label class="font-semibold leading-none text-white">Members</label>
+                        <input type="text" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"
+                        v-model="members"
+        :class="{ 'is-invalid': submitted && $v.members.$error }"
+      />
+      <div
+          v-if="submitted && !$v.members.required"
+          class="invalid-feedback"
+        >
+          Members is required.
+        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="w-full flex flex-col mt-8">
+                        <label class="font-semibold leading-none text-white">Note</label>
+                        <textarea type="text" class="h-40 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200" 
+                        v-model="note"
+        :class="{ 'is-invalid': submitted && $v.note.$error }"
+      ></textarea>
+      <div
+          v-if="submitted && !$v.note.required"
+          class="invalid-feedback"
+        >
+          Note is required.
+        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-start md:justify-end w-full">
+                    <button @click="submit()" type="button" class="mt-9 font-semibold leading-none text-white py-2 px-4 bg-blue-500 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none">
+                        Confirm booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+      <!-- <div id="box1" style="margin-left:27%">
          <div class="subtitle">
   <u><p>Booking</p></u>
 </div>
@@ -60,7 +133,7 @@
     <button class="btn" @click="submit()">
           <b>Confirm booking</b>
         </button>
-    </div>
+    </div> -->
 
     </div>
 </template>
@@ -73,6 +146,7 @@ export default {
   data() {
     return{
       teamName: '',
+      userEmail: '',
       members: '',
       note: '',
       submitted: false
@@ -81,7 +155,9 @@ export default {
   
   validations: {     
                 teamName: { required },
-                members: { required }
+                userEmail: { required },
+                members: { required },
+                note: { required }
   },
   methods: {
      submit() {
@@ -100,57 +176,3 @@ export default {
 }
 </script>
 
-  <style scoped>
-#box {
-  max-width: 200px; 
-  text-align: center;
-  color: white;
-  width: fixed;
-  height: 65px;
-  padding: 15px;
-  box-sizing: border-box;
-  border-radius: 0px;
-  background: #1286C7;
-  font-size: 16px;
-  margin-left: 50px;
-  display: block;
-  margin-top: 40px;
-}
-#box1 {
-  max-width: 1000px; 
-  text-align: left;
-  width: fixed;
-  height: 720px;
-  padding: 15px;
-  box-sizing: border-box;
-  border-radius: 0px;
-  font-size: 16px;
-  margin-left: 50px;
-  display: block;
-  margin-top: 50px;
-  background-color: #1286C7;
-  color: white;
-  border: none;
-}
-.form-control {
-  margin-bottom: 8px;
-  margin-top: 10px;
-  background-color: white;
-  outline: #1286C7;
-  box-shadow: #1286C7;
-}
-.subtitle{
-  text-align: center;
-  font-size: 40px;
-}
-.btn{
-  background-color: white;
-    color: #1286C7;
-    padding: 10px 50px;
-    border: none;
-    box-shadow: 0 3px #1286C7;
-    text-align: center;
-    position: absolute;
-  left: 50%;
-}
-  </style>

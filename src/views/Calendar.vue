@@ -1,139 +1,60 @@
      <template>
-    <div class="hidden">
+    <div class="">
      <navigation></navigation>
-      <div id="box1" style="margin-left:33%">
-        <v-row>
-    <v-col>
-      <v-sheet height="420">
-        <v-calendar
-          :now="today"
-          :value="today"
-          color="primary"
-        >
-          <template v-slot:day="{ past, date }">
-            <v-row
-              class="fill-height"
-            >
-              <template v-if="past && tracked[date]">
-                <v-sheet
-                  v-for="(percent, i) in tracked[date]"
-                  :key="i"
-                  :title="category[i]"
-                  :color="colors[i]"
-                  :width="`${percent}%`"
-                  height="100%"
-                  tile
-                ></v-sheet>
-              </template>
-            </v-row>
-          </template>
-        </v-calendar>
-      </v-sheet>
-    </v-col>
-  </v-row>
-        
-      </div>
-      <br>
-      <br>
-      <br>
+     <body class="flex items-center justify-center">
+	<div class="container">
+		<table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+			<thead class="text-white">
+				<tr class="bg-blue-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+					<th class="p-3 text-left">Date</th>
+					<th class="p-3 text-left">Time</th>
+					<th class="p-3 text-left" width="110px"><span>Action</span></th>
+				</tr>
+			</thead>
+			<tbody class="flex-1 sm:flex-none">
+				<tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+					<td class="border-grey-light border hover:bg-gray-100 p-3">20.01.2022</td>
+					<td class="border-grey-light border hover:bg-gray-100 p-3 truncate">8:30</td>
+			<router-link to="/booking"><td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">Choose</td></router-link>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
     
-      <div class="date" style="margin-left:40%">
-        <div class="row">
-        <div class="col-sm">
-           <router-link to="/booking">
-          <vs-button >
-          8:30
-        </vs-button>
-           </router-link>
-        </div>
-        <div class="col-sm">
-           <router-link to="/booking">
-          <vs-button >
-          10:30
-        </vs-button>
-           </router-link>
-        </div>
-        <div class="col-sm">
-           <router-link to="/booking">
-          <vs-button >
-          13:00
-        </vs-button>
-           </router-link>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        </div>
-        <div class="row">
-        <div class="col-sm">
-          <router-link to="/booking">
-          <vs-button >
-          15:30
-        </vs-button>
-          </router-link>
-        </div>
-        <div class="col-sm">
-           <router-link to="/booking">
-          <vs-button >
-          18:00
-        </vs-button>
-           </router-link>
-        </div>
-        <div class="col-sm">
-           <router-link to="/booking">
-          <vs-button >
-          20:30
-        </vs-button>
-           </router-link>
-        </div>
-        </div>
-      </div>
     </div>
 </template>
 <script>
 import navigation from '@/components/navigation.vue'
  export default {
-    data: () => ({
-      today: '2019-01-10',
-      tracked: {
-        '2019-01-09': [23, 45, 10],
-        '2019-01-08': [10],
-        '2019-01-07': [0, 78, 5],
-        '2019-01-06': [0, 0, 50],
-        '2019-01-05': [0, 10, 23],
-        '2019-01-04': [2, 90],
-        '2019-01-03': [10, 32],
-        '2019-01-02': [80, 10, 10],
-        '2019-01-01': [20, 25, 10],
-      },
-      colors: ['', '', ''],
-      category: ['Development', 'Meetings', 'Slacking'],
-    }),
+  
     components: {
       navigation
     }
   }
 
 </script>
+<style>
+  html,
+  body {
+    height: 100%;
+  }
 
-<style scoped>
+  @media (min-width: 640px) {
+    table {
+      display: inline-table !important;
+    }
 
-#box1 {
-  max-width: 800px; 
-  text-align: left;
-  width: fixed;
-  height: 445px;
-  padding: 15px;
-  box-sizing: border-box;
-  border-radius: 0px;
-  font-size: 16px;
-  margin-left: 50px;
-  display: block;
-  margin-top: 0px;
-  background-color: #1286C7;
-  color: white;
-  border: none;
-}
+    thead tr:not(:first-child) {
+      display: none;
+    }
+  }
 
+  td:not(:last-child) {
+    border-bottom: 0;
+  }
+
+  th:not(:last-child) {
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+  }
 </style>
