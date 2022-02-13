@@ -1,7 +1,30 @@
  <template>
  <div>
       <navigation></navigation>
-     <main class="flex-1">
+      <div class=" flex items-center h-auto  flex-wrap mx-auto my-32 ">
+    
+	<!--Main Col-->
+	<div id="profile" class="w-full lg:mx-5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
+	
+
+		<div class="p-4 md:p-12 text-center lg:text-left">
+			<!-- Image for mobile view-->
+			<div class="block rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('')"></div>
+			
+			<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-blue-500 opacity-25"></div>
+			<p class="pt-4 text-base font-bold flex items-center justify-center lg:mx-32"><label>Name</label> <label class="ml-16">{{store.name}}</label></p>
+			<p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"><label>Surname</label> {{store.surname}}</p>
+			<p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"><label>Email</label> {{store.email}}</p>
+
+
+			<div class="pt-12 pb-8">
+			</div>
+
+		</div>
+
+	</div>
+  </div>
+     <!-- <main class="flex-1">
       <div class="py-24">
         <div class="w-2/3 mx-96 px-4 sm:px-6 md:px-8">
           <div class="py-4">
@@ -47,7 +70,7 @@
           </div>
         </div>
       </div>
-    </main>
+    </main> -->
  </div>    
 </template>
 

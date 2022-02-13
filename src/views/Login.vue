@@ -1,9 +1,12 @@
 <template>
 <div class="w-full h-screen flex">
+  <div>
     <img :src="require('@/assets/sportvert.jpg')" class="object-cover object-center h-screen w-7/10">
+    <!-- <div class="absolute inset-0 bg-blue-300 mix-blend-multiply" /> -->
+    </div>
     <div class="bg-white flex flex-col justify-center items-center w-5/12 shadow-lg">
       <h1 class="text-3xl font-bold text-orange-500 mb-2">LOGIN</h1>
-      <div class="w-1/2 text-center">
+      <div class="w-1/2 text-center bg-white">
         <input type="text" name="email" placeholder="email" autocomplete="off"
             class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
             label="Email" 

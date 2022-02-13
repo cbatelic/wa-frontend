@@ -12,10 +12,12 @@
                 <label for="first_name" class="block text-sm font-medium text-gray-700">Terrain name</label>
                 <select v-model="terrainName" class="mt-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 :class="{ 'is-invalid': submitted && $v.terrainName.$error }">
-      <option value="Sportska 1" class="selected">Sportska dvorana 1</option>
-      <option value="Sportska 2" class="selected">Sportska dvorana 2</option>
-      <option value="Sportska 3" class="selected">Sportska dvorana 3</option>
-      <option value="Sportska 4" class="selected">Sportska dvorana 4</option>
+      <option value="Sportska 1" class="selected">Sports hall 'Žatika'</option>
+      <option value="Sportska 2" class="selected">Sports hall 'Franko Mileta'</option>
+      <option value="Sportska 3" class="selected">Sports hall 'Novigrad'</option>
+      <option value="Sportska 4" class="selected">Sports hall 'Umag'</option>
+      <option value="Sportska 4" class="selected">Sports hall 'Pazin'</option>
+      <option value="Sportska 4" class="selected">Sports hall 'Saline'</option>
       </select>
       <div
           v-if="submitted && !$v.terrainName.required"

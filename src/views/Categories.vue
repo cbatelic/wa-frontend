@@ -1,72 +1,54 @@
      <template>
-    <div class="hidden">
+<div>
      <navigation></navigation>
-      <div class="categories" style="margin-left:21%">
-        <div class="row">
-        <div class="col-sm">
-          <router-link to="/calendar">
-     <i class="fa fa-soccer-ball-o" style="font-size:170px;background-color: white; color: #1286C7;"></i>
-     <br>
-     <br>
-     <label style="font-size: 32px; color: white;">Soccer</label>
-          </router-link>
+ <body class="bg-gray-100 text-gray-700  font-sans quicksand">
+
+  <div class="p-9 md:p-16">
+    <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 m-5 mb-10 gap-24">
+
+
+            <div class="bg-white overflow-hidden hover:bg-green-100 border border-gray-200 p-3">
+        <div class="m-2 text-center">
+             <i class="fa fa-soccer-ball-o" style="font-size:170px;background-color: white; color: #1286C7;"></i>
         </div>
-        <div class="col-sm">
-          <router-link to="/calendar">
-     <i class='fas fa-basketball-ball' style="font-size:170px;background-color: white; color: #1286C7;"></i>
-     <br>
-     <br>
-     <label style="font-size: 32px; color: white;">Basketball</label>
-          </router-link>
+    </div>
+          <div class="bg-white overflow-hidden hover:bg-green-100 border border-gray-200 p-3">
+        <div class="m-2 text-center">
+            <i class='fas fa-basketball-ball' style="font-size:170px;background-color: white; color: #1286C7;"></i>
         </div>
-        <div class="col-sm">
-          <router-link to="/calendar">
-     <i class='fas fa-table-tennis' style="font-size:170px;background-color: white; color: #1286C7;"></i>
-     <br>
-     <br>
-     <label style="font-size: 32px; color: white;">Tennis</label>
-          </router-link>
+    </div>
+          <div class="bg-white overflow-hidden hover:bg-green-100 border border-gray-200 p-3">
+        <div class="m-2 text-center">
+            <i class='fas fa-table-tennis' style="font-size:170px;background-color: white; color: #1286C7;"></i>
         </div>
-        </div>
-     <br>
-     <br>
-     <br>
-     <br>
-     <br>
-     <div class="row">
-        <div class="col-sm">
-          <router-link to="/calendar">
-          <v-icon
+    </div>
+          <div class="bg-white overflow-hidden hover:bg-green-100 border border-gray-200 p-3">
+        <div class="m-2 text-center">
+            <v-icon
           dark
           left
           style="font-size:170px;background-color: white; color: #1286C7;"
         >
           mdi mdi-handball
         </v-icon>
-        <br>
-        <br>
-     <label style="font-size: 32px; color: white;">Handball</label>
-          </router-link>
         </div>
-        <div class="col-sm">
-          <router-link to="/calendar">
-     <i class='fas fa-volleyball-ball' style="font-size:170px;background-color: white; color: #1286C7;"></i>
-     <br>
-     <br>
-     <label style="font-size: 32px; color: white;">Volleyball</label>
-          </router-link>
-        </div>
-        <div class="col-sm">
-          <router-link to="/calendar">
-     <i class='fas fa-plus'  style="font-size:170px;background-color: white; color: #1286C7;"></i>
-     <br>
-     <br>
-     <label style="font-size: 32px; color: white;">Other</label>
-          </router-link>
-        </div>
-     </div>
-     </div>
     </div>
+          <div class="bg-white overflow-hidden hover:bg-green-100 border border-gray-200 p-3">
+        <div class="m-2 text-center">
+            <i class='fas fa-volleyball-ball' style="font-size:170px;background-color: white; color: #1286C7;"></i>
+        </div>
+    </div>
+          <div class="bg-white overflow-hidden hover:bg-green-100 border border-gray-200 p-3">
+        <div class="m-2 text-center">
+           <i class='fas fa-plus'  style="font-size:170px;background-color: white; color: #1286C7;"></i>
+        </div>
+    </div>
+    
+    </div>
+  </div>
+
+</body>
+</div>
 </template>
 <script>
 import navigation from '@/components/navigation.vue'
@@ -78,9 +60,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.categories{
-  margin-top: 60px;
-}
-    
-  </style>
+

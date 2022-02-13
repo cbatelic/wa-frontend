@@ -1,114 +1,87 @@
-     <template>
-    <div class="hidden">
-     <navigation></navigation>
-      <div id="box" style="margin-left:21%">
-       <form id="search" class="navbar-form form-inline ml-auto">
-      <input
-        icon="fa fa-search"
-        v-model="search"
-        class="form-control"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
-    </form>
-    </div>
-    <div id="box1" style="margin-left:25%">
-      <div id="box2" style="margin-left:0%">
-
-<div  :key="admTerrain.id" v-for="admTerrain in terrains">
-            <OneTerrain :info="admTerrain" />
-          </div>  
+<template>
+<div>
+<navigation></navigation>
+<ul role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8 mt-10 mx-3">
+    <!-- <li v-for="file in files" :key="file.source" class="relative"> -->
+      <router-link to="/categories">
+      <li class="relative">
+      <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+        <!-- <img :src="file.source" alt="" class="object-cover pointer-events-none group-hover:opacity-75" /> -->
+        <img :src="require('@/assets/pictureHome.jpg')" alt="" class="object-cover pointer-events-none group-hover:opacity-75" />
+        <button type="button" class="absolute inset-0 focus:outline-none">
+          <!-- <span class="sr-only">View details for {{ file.title }}</span> -->
+          <span class="sr-only">View details for</span>
+        </button>
       </div>
+      <!-- <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">{{ file.title }}</p> -->
+      <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none"></p>
+      <!-- <p class="block text-sm font-medium text-gray-500 pointer-events-none">{{ file.size }}</p> -->
+      <p class="block text-sm font-medium text-gray-500 pointer-events-none"></p>
+    </li>
+      </router-link>
+    <li class="relative">
+      <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+        <!-- <img :src="file.source" alt="" class="object-cover pointer-events-none group-hover:opacity-75" /> -->
+        <img :src="require('@/assets/pictureHome.jpg')" alt="" class="object-cover pointer-events-none group-hover:opacity-75" />
+        <button type="button" class="absolute inset-0 focus:outline-none">
+          <!-- <span class="sr-only">View details for {{ file.title }}</span> -->
+          <span class="sr-only">View details for</span>
+        </button>
+      </div>
+      <!-- <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">{{ file.title }}</p> -->
+      <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none"></p>
+      <!-- <p class="block text-sm font-medium text-gray-500 pointer-events-none">{{ file.size }}</p> -->
+      <p class="block text-sm font-medium text-gray-500 pointer-events-none"></p>
+    </li>
+    <li class="relative">
+      <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+        <!-- <img :src="file.source" alt="" class="object-cover pointer-events-none group-hover:opacity-75" /> -->
+        <img :src="require('@/assets/pictureHome.jpg')" alt="" class="object-cover pointer-events-none group-hover:opacity-75" />
+        <button type="button" class="absolute inset-0 focus:outline-none">
+          <!-- <span class="sr-only">View details for {{ file.title }}</span> -->
+          <span class="sr-only">View details for</span>
+        </button>
+      </div>
+      <!-- <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">{{ file.title }}</p> -->
+      <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none"></p>
+      <!-- <p class="block text-sm font-medium text-gray-500 pointer-events-none">{{ file.size }}</p> -->
+      <p class="block text-sm font-medium text-gray-500 pointer-events-none"></p>
+    </li>
+  </ul>
+  <!-- <div class="container" style="max-width: 500px;">
+    <div id="cards">
+      <dogadaji-card v-for="card in cards" :key="card.terrainName" :info="card" />
+      <dogadaji-card v-for="card in cards" :key="card.terrainCity" :info="card" />
     </div>
-    </div>
+    <footer id="footer"></footer>
+  </div> -->
+</div>
 </template>
-<script>
-import navigation from '@/components/navigation.vue'
-import OneTerrain from '@/components/OneTerrain'
-import { Posts } from '@/services';
-  
-  export default {
-    data() {
-      return{
-        search: '',
-        terrains: [],
-      }
-      
-    },
-     created() {
-        this.GetAllTerrain();
-        
-    },
-     methods: {
-        async GetAllTerrain() {
-            this.terrains = await Posts.GetAll();
-            console.log(this.terrains)
-        },
-  },
 
+<script>
+import OneTerrain from "@/components/OneTerrain.vue";
+import navigation from "@/components/navigation.vue";
+import Navigation from '../components/navigation.vue';
+export default {
+  name: "Terrain",
+  data: function() {
+    return {
+      cards: []
+    };
+  },
   components: {
-        navigation,
-        OneTerrain
-    }
-  }
-  </script>
+    OneTerrain,
+    navigation
+  },
+  mounted() {
+    // getAllTerrain();
+  },
+  methods: {
+        // async GetAllTerrain() {
+        //     this.terrains = await Posts.GetAll();
+        //     console.log(this.terrains)
+        // },
+  },
+};
+</script>
   
-  <style scoped>
-  .search{
-    max-width: 1000px;
-  }
-  #box{
-  max-width: 1000px; 
-  text-align: left;
-  width: fixed;
-  height: 70px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 16px;
-  margin-left: 50px;
-  display: block;
-  margin-top: 50px;
-  background-color: #86d1fc;
-  color: black;
-  }
-  #box1{
-  max-width: 900px; 
-  text-align: left;
-  color: white;
-  width: fixed;
-  height: 570px;
-  /* padding: 15px; */
-  box-sizing: border-box;
-  border-radius: 0px;
-  background: white;
-  font-size: 16px;
-  margin-left: 2px;
-  /* display: block; */
-  margin-top: 30px;
-  overflow: scroll;
-}
-#box2 {
-  max-width: 800px; 
-  text-align: left;
-  width: fixed;
-  height: 250px;
-  padding: 15px;
-  box-sizing: border-box;
-  border-radius: 0px;
-  font-size: 16px;
-  margin-left: 50px;
-  display: block;
-  margin-top: 30px;
-  background-color: white;
-  color: #1286C7;
-  border: none;
-  box-shadow: 0 3px #1286C7;
-}
-.img{
-  max-width: 800px;
-  height: 160px;
-  margin-top: 0px;
-  width: 50%;
-}
-  </style>
