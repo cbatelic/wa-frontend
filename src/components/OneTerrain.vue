@@ -6,19 +6,13 @@
       <p class="card-text">{{ info.terrainCity }}</p>
     </div>
   </div> -->
-  <ul  id="cards" role="list" class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8 mt-10 mx-3">
-    <!-- <li v-for="file in files" :key="file.source" class="relative"> -->
       <li class="relative" :href="info.route">
-      <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-        <!-- <img :src="file.source" alt="" class="object-cover pointer-events-none group-hover:opacity-75" /> -->
+      <div class="group block w-full aspect-w-10 aspect-h-7 rounded-t-xl bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
         <img :src="info.img" alt="" class="object-cover pointer-events-none group-hover:opacity-75" />
       </div>
-      <!-- <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">{{ file.title }}</p> -->
-      <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">{{info.terrainName}}</p>
-      <!-- <p class="block text-sm font-medium text-gray-500 pointer-events-none">{{ file.size }}</p> -->
-      <p class="block text-sm font-medium text-gray-500 pointer-events-none">{{info.terrainCity}}</p>
+      <p class="pt-2 px-2 block text-sm font-medium text-white bg-blue-500 truncate pointer-events-none">Sports hall name: {{info.terrainName}}</p>
+      <p class="pt-2 px-2 pb-2 rounded-b-xl block text-sm font-medium text-white bg-blue-500 pointer-events-none">Sports hall city: {{info.terrainCity}}</p>
     </li>
-  </ul>
 </template>
 
 <script>
