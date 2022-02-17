@@ -38,13 +38,15 @@ let Posts ={
 
     async getAll() {        
         let response = await Service.get(`/terrain`)
-        let data = response.data
+        return response.data
         data = data.map(doc =>{
             return {
                 id:doc._id,
                 terrainName: doc.terrainName,
                 terrainCity: doc.terrainCity,
                 terrainCategories: doc.terrainCategories,
+                date: doc.date,
+                time: doc.time,
                 posted_at: Number (doc.posted_at)
             
             };

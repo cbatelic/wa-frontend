@@ -12,12 +12,12 @@
                 <label for="first_name" class="block text-sm font-medium text-gray-700">Terrain name</label>
                 <select v-model="terrainName" class="mt-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 :class="{ 'is-invalid': submitted && $v.terrainName.$error }">
-      <option value="Sportska 1" class="selected">Sports hall 'Žatika'</option>
-      <option value="Sportska 2" class="selected">Sports hall 'Franko Mileta'</option>
-      <option value="Sportska 3" class="selected">Sports hall 'Novigrad'</option>
-      <option value="Sportska 4" class="selected">Sports hall 'Umag'</option>
-      <option value="Sportska 4" class="selected">Sports hall 'Pazin'</option>
-      <option value="Sportska 4" class="selected">Sports hall 'Saline'</option>
+      <option value="Sports hall 'Žatika'" class="selected">Sports hall 'Žatika'</option>
+      <option value="Sports hall 'Franko Mileta'" class="selected">Sports hall 'Franko Mileta'</option>
+      <option value="Sports hall 'Novigrad'" class="selected">Sports hall 'Novigrad'</option>
+      <option value="Sports hall 'Umag'" class="selected">Sports hall 'Umag'</option>
+      <option value="Sports hall 'Pazin'" class="selected">Sports hall 'Pazin'</option>
+      <option value="Sports hall 'Saline'" class="selected">Sports hall 'Saline'</option>
       </select>
       <div
           v-if="submitted && !$v.terrainName.required"
@@ -228,7 +228,6 @@ export default {
                 console.log(this.terrainName)
                 let newterrain = await Posts.add_terrain(admTerrain);
         console.log('Save terrain', newterrain.data);
-        this.$router.push({ path: '/dateAdmin' });
     },
   },
   components:{

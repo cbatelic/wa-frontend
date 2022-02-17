@@ -6,7 +6,7 @@
       <p class="card-text">{{ info.terrainCity }}</p>
     </div>
   </div> -->
-      <li class="relative" :href="info.route">
+      <li class="relative" :href="info.route" @click="changeRoute()">
       <div class="group block w-full aspect-w-10 aspect-h-7 rounded-t-xl bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
         <img :src="info.img" alt="" class="object-cover pointer-events-none group-hover:opacity-75" />
       </div>
@@ -18,6 +18,12 @@
 <script>
 export default {
   props: ["info"],
-  name: "OneTerrain"
+  name: "OneTerrain",
+
+  methods: {
+    changeRoute(){
+      this.$router.push({name:'Categories', query:{name:this.info.terrainName}}); 
+    }
+  }
 };
 </script>

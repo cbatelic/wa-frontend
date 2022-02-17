@@ -1,7 +1,8 @@
      <template>
     <div class="">
      <navigation></navigation>
-     <body class="flex items-center justify-center">
+     <body class="items-center justify-center">
+       <div class="text-white ml-11 pt-5">{{this.$route.query.name}} i {{this.$route.query.sport}}</div>
 	<div class="container">
 		<table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
 			<thead class="text-white">
@@ -12,9 +13,9 @@
 				</tr>
 			</thead>
 			<tbody class="flex-1 sm:flex-none">
-				<tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-					<td class="border-grey-light border hover:bg-gray-100 p-3">20.01.2022</td>
-					<td class="border-grey-light border hover:bg-gray-100 p-3 truncate">8:30</td>
+				<tr v-for="terrain of this.data" :key="terrain.id" class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+					<td class="border-grey-light border hover:bg-gray-100 p-3">{{terrain.date}}</td>
+					<td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{terrain.time}}</td>
 			<router-link to="/booking"><td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">Choose</td></router-link>
 				</tr>
 			</tbody>
@@ -26,10 +27,23 @@
 </template>
 <script>
 import navigation from '@/components/navigation.vue'
+import { Posts } from '@/services';
  export default {
+   data(){
+     return {
+       data: null
+     }
+
+   },
   
     components: {
       navigation
+    },
+    async created(){
+      let terrains = await Posts.getAll();
+      let naziv = this.$route.query.name;
+      let sport = this.$route.query.sport;
+      this.data = terrains.filter(x => x.terrainName == naziv && x.terrainCategories == sport)
     }
   }
 
