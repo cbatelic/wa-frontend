@@ -16,7 +16,7 @@
 				<tr v-for="terrain of this.data" :key="terrain.id" class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
 					<td class="border-grey-light border hover:bg-gray-100 p-3">{{terrain.date}}</td>
 					<td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{terrain.time}}</td>
-			<router-link to="/booking"><td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">Choose</td></router-link>
+			<td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">Choose</td>
 				</tr>
 			</tbody>
 		</table>
@@ -44,6 +44,11 @@ import { Posts } from '@/services';
       let naziv = this.$route.query.name;
       let sport = this.$route.query.sport;
       this.data = terrains.filter(x => x.terrainName == naziv && x.terrainCategories == sport)
+    },
+    methods: {
+      // async choose(){
+
+      // }
     }
   }
 

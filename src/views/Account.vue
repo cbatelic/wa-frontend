@@ -23,6 +23,21 @@
 		</div>
 
 	</div>
+  <button type="button">Change password</button>
+   <input
+                v-model="old_password"
+                type="password"
+                name="old_password"
+                class="form-control"
+                id="old_password" />
+
+     <input
+                v-model="new_password"
+                type="password"
+                name="new_password"
+                class="form-control"
+                id="new_password" />
+                <button type="button" @click="changePassword()"> Save</button>
   </div>
      <!-- <main class="flex-1">
       <div class="py-24">
@@ -85,10 +100,29 @@ export default {
     return {
       auth: Auth.state,
       user: {},
-      store
+      store,
+      new_password: '',
+      old_password: ''
     };
   },
   methods: {
+    async changePassword() {
+      try{
+      let success = await Auth.change_Password(
+          this.old_password,
+          this.new_password
+        );
+        console.log('Result: ', success);
+        if (success) {
+          this.$router.go();
+        }
+      } catch (e) {
+        console.log(e);
+        this.error = 'Wrong';
+      }
+    },
+  
+
   //  account(){
   //    if(this.auth.authenticated){
   //    this.user = Auth.account();

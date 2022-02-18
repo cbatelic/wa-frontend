@@ -141,6 +141,7 @@
 import navigation from '@/components/navigation.vue';
 import { required } from 'vuelidate/lib/validators'
 import Navigation from '../components/navigation.vue';
+import { Booking } from '@/services';
 
 export default {
   data() {
@@ -160,7 +161,7 @@ export default {
                 note: { required }
   },
   methods: {
-     submit() {
+    async submit() {
                 this.submitted = true;
 
                 // stop here if form is invalid
@@ -168,6 +169,19 @@ export default {
                 if (this.$v.$invalid) {
                     return;
                 }
+
+                let add_booking = {
+                  sport: this.terrain,
+                  teamName: this.teamName,
+                  userEmail: this.userEmail,
+                  members: this.members,
+                  note: this.note
+                };
+                console.log(this.userEmail)
+                console.log(this.data)
+                let booking = await Booking.add_booking(add_booking)
+                console.log('push booking', booking.data);
+                
     },
   },
   components: {

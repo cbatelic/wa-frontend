@@ -30,7 +30,29 @@ Service.interceptors.response.use(
         //console.error('Interceptor', error.response)
     }
 );
+let Booking = {
+    add_booking(add_booking){
+        return Service.post('/homeAdmin', add_booking)
+    },
+    async getAll() {        
+        let response = await Service.get(`/terrain`)
+        return response.data
+        data = data.map(doc =>{
+            return {
+                id:doc._id,
+                terrainName: doc.terrainName,
+                terrainCity: doc.terrainCity,
+                terrainCategories: doc.terrainCategories,
+                date: doc.date,
+                time: doc.time,
+                posted_at: Number (doc.posted_at)
+            
+            };
+        });
+        return data
+    },
 
+}
 let Posts ={
     add_terrain(admTerrain) {
         return Service.post('/terrain', admTerrain);
@@ -109,6 +131,18 @@ let Auth = {
     logout(){
       localStorage.removeItem("user");
     },
+    async change_Password(old_password, new_password) {
+        let response = await Service.patch('/user', {
+          old_password: old_password,
+          new_password: new_password,
+        });
+    
+        let user = response.data;
+    
+        localStorage.setItem('user', JSON.stringify(user));
+    
+        return true;
+      },
     getUser(){
       return JSON.parse(localStorage.getItem("user"))  
     },
@@ -143,4 +177,4 @@ let Auth = {
     }
 };
 
-export { Service, Auth, Posts, Admin }
+export { Service, Auth, Posts, Admin, Booking}
