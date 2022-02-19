@@ -45,12 +45,12 @@
                 <img class="h-full w-full object-cover" :src="require('@/assets/pictureHome.jpg')" />
                 <div class="absolute inset-0 bg-blue-300 mix-blend-multiply" />
               </div>
-              <div class="relative px-4 py-60 sm:px-6 sm:py-56 lg:py-52 lg:px-8 md:py-56">
+              <div class="relative px-4 py-52 sm:px-6 sm:py-56 lg:py-52 lg:px-8 md:py-56">
                 <h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
                   <span class="block text-white">Right place to play</span>
-                  <span class="block text-indigo-200">with your team</span>
+                  <span class="block text-indigo-200">with your team or to find new team</span>
                 </h1>
-                <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">If you need some</p>
+                <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">Book sports halls in the Croatian region of Istria</p>
                 <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
                   <div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
                     <a href="#" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"> Get started </a>

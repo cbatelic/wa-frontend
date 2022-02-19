@@ -45,17 +45,8 @@
                                     <span v-if="!$v.password.required">Password is required</span>
                                     <span v-if="!$v.password.minLength">Password must be at least 6 characters</span>
                                 </div>
-       <input type="password" name="confirmPassword" placeholder="confirm Password" autocomplete="off"
-            class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
-            
-label="confirmPassword" 
-                                v-model="confirmPassword"
-                                :class="{ 'is-invalid': submitted && $v.confirmPassword.$error }">
-                                <div v-if="submitted && $v.confirmPassword.$error" class="invalid-feedback">
-                                    <span v-if="!$v.confirmPassword.required">Confirm Password is required</span>
-                                    <span v-else-if="!$v.confirmPassword.sameAsPassword">Passwords must match</span>
-                                </div>
-        <button type="button" @click="submit(name,surname,email,password,confirmPassword)" class="bg-orange-500 hover:bg-orange-600 text-black px-3 py-1 rounded text-lg focus:outline-none shadow">Sign Up</button>
+                              
+        <button type="button" @click="submit(name,surname,email,password)" class="bg-orange-500 hover:bg-orange-600 text-black px-3 py-1 rounded text-lg focus:outline-none shadow">Sign Up</button>
       </div>
     </div>
   </div>
@@ -73,7 +64,6 @@ export default {
                     surname: "",
                     email: "",
                     password: "",
-                    confirmPassword: "",
                     store,
                 submitted: false
             };
@@ -84,8 +74,7 @@ export default {
                 name: { required },
                 surname: { required },
                 email: { required, email },
-                password: { required, minLength: minLength(6) },
-                confirmPassword: { required, sameAsPassword: sameAs('password') }
+                password: { required, minLength: minLength(6) }
           
   },
   methods: {
@@ -115,7 +104,7 @@ export default {
   //       }
 
   // },
-  async submit(name,surname,email,password,confirmPassword) {
+  async submit(name,surname,email,password) {
         this.submitted = true;
 
                 // stop here if form is invalid
@@ -128,8 +117,7 @@ export default {
           name: this.name,
           surname: this.surname,
           email: this.email,
-          password: this.password,
-          confirmPassword: this.confirmPassword,
+          password: this.password
         }
 
         console.log(user)

@@ -1,95 +1,34 @@
      <template>
 <div>
   <navigation-admin></navigation-admin>
-  <div class=" flex items-center h-auto  flex-wrap mx-auto my-32 ">
-    
-	<!--Main Col-->
-	<div id="profile" class="w-full lg:mx-5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
-	
-
-		<div class="p-4 md:p-12 text-center lg:text-left">
-			<!-- Image for mobile view-->
-			<div class="block rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('')"></div>
-			
-			<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-blue-500 opacity-25"></div>
-			<p class="pt-4 text-base font-bold flex items-center justify-center lg:mx-32"><label>Name</label> <label class="ml-16">{{store.name}}</label></p>
-			<p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"><label>Surname</label> {{store.surname}}</p>
-			<p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"><label>Email</label> {{store.email}}</p>
-
-
-			<div class="pt-12 pb-8">
-			</div>
-
-		</div>
-
-	</div>
-  </div>
+  <div class="p-3 lg:mx-20">
+                    <div class=" flex justify-center items-center my-14 lg:my-10">
+                            <svg class="h-44 text-white bg-blue-400 rounded-3xl lg:h-3/6 lg:w-72" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                    </div>
+                    <div class="">
+                        <div class="grid text-lg space-y-12">
+                            <div class="grid grid-cols-2 bg-white rounded-md ">
+                                <div class="px-4 py-2 font-semibold text-blue-500">Name:</div>
+                                <div class="px-4 py-2 text-black">{{store.name}}</div>
+                            </div>
+                            <div class="grid grid-cols-2 bg-white rounded-md ">
+                                <div class="px-4 py-2 font-semibold text-blue-500">Surname:</div>
+                                <div class="px-4 py-2 text-black">{{store.surname}}</div>
+                            </div>
+                            <div class="grid grid-cols-2 bg-white rounded-md ">
+                                <div class="px-4 py-2 font-semibold text-blue-500">Email:</div>
+                                <div class="px-4 py-2">
+                                    <a class="text-black underline" >{{store.email}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </div>
-    <!-- <div class="hidden">
-      <vs-sidebar
-        text="#1286C7"
-        absolute
-        open
-        >
-        <template #logo>
-           <v-img :src="require('@/assets/logo.png')"> </v-img>
-        </template>
-        <vs-sidebar-item id="home" to='/homeAdmin'>
-          <template #icon>
-            <i class='fa fa-home fa-fw'></i>
-          </template>
-          Home
-        </vs-sidebar-item>
-        <vs-sidebar-item id="terrain" to='/terrainAdmin'>
-          <template #icon>
-            <i class='fa fa-area-chart'></i>
-          </template>
-          Sports halls/terrain
-        </vs-sidebar-item>
-        <vs-sidebar-item id="account" to='/accountAdmin'>
-          <template #icon>
-            <i class='fa fa-user fa'></i>
-          </template>
-          Account
-        </vs-sidebar-item>
-        <template #footer>
-          <vs-button to='/'>
-            <i class='fa fa-sign-out'></i>
-          Logout
-        </vs-button>
-        </template>
-      </vs-sidebar>
-      <div id="box" style="margin-left:27%">
-
-<div class="w3-container w3-teal">
-  <h3>Account</h3>
-</div>
-</div>
-<div id="box1" style="margin-left:27%">
-
-<div class="w3-container w3-teal">
-  <label>Name:
-  </label>
-  {{store.name}}
-    </div>
-    </div>
-    <div id="box1" style="margin-left:27%">
-
-<div class="w3-container w3-teal">
-  <label>Surname:
-  </label>
-  {{store.surname}}
-    </div>
-    </div>
-    <div id="box1" style="margin-left:27%">
-
-<div class="w3-container w3-teal">
-  <label>Email:
-  </label>
-  {{store.email}}
-    </div>
-    </div>
-    </div> -->
 </template>
 
 <script>

@@ -134,7 +134,7 @@ let Auth = {
     async change_Password(old_password, new_password) {
         let response = await Service.patch('/user', {
           old_password: old_password,
-          new_password: new_password,
+          new_password: new_password
         });
     
         let user = response.data;

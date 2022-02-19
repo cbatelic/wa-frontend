@@ -26,16 +26,6 @@
                                     <span v-if="!$v.password.required">Password is required</span>
                                     <span v-if="!$v.password.minLength">Password must be at least 6 characters</span>
                                 </div>
-       <input type="password" name="confirmPassword" placeholder="confirm Password" autocomplete="off"
-            class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
-            
-label="confirmPassword" 
-                                v-model="confirmPassword"
-                                :class="{ 'is-invalid': submitted && $v.confirmPassword.$error }">
-                                <div v-if="submitted && $v.confirmPassword.$error" class="invalid-feedback">
-                                    <span v-if="!$v.confirmPassword.required">Confirm Password is required</span>
-                                    <span v-else-if="!$v.confirmPassword.sameAsPassword">Passwords must match</span>
-                                </div>
         <button type="button" @click="submit()" class="bg-orange-500 hover:bg-orange-600 text-black px-3 py-1 rounded text-lg focus:outline-none shadow">Sign In</button>
       </div>
     </div>
@@ -52,7 +42,6 @@ export default {
                 
                     email: "",
                     password: "",
-                    confirmPassword: "",
 
                 submitted: false
             };
@@ -61,8 +50,7 @@ export default {
   validations: {
    
                 email: { required, email },
-                password: { required, minLength: minLength(6) },
-                confirmPassword: { required, sameAsPassword: sameAs('password') }
+                password: { required, minLength: minLength(6) }
             
   },
   methods: {
