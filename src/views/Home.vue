@@ -3,11 +3,11 @@
   <div class="antialiased bg-gray-100 dark-mode:bg-gray-900 border-b-2 border-blue-900" >
   <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
     <div class="flex  mx-auto md:items-center md:justify-between md:flex-row">
-      <div class="">
+      <div class="mt-1.5">
         <img class="h-16"  :src="require('@/assets/logoHome.png')" alt="Logo">
       </div>
-      <div class="flex flex-row justify-between pl-4 py-4 bg-blue-400" style="clip-path:polygon(5% 0, 100% 0%, 100% 100%, 0 100%)">
-        <a  class=" lg:ml-16 text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Move&Play</a>
+      <div class="flex flex-row justify-between pr-2 pl-4 py-4 bg-blue-400" style="clip-path:polygon(5% 0, 100% 0%, 100% 100%, 0 100%)">
+        <a  class=" lg:ml-16 text-gray-900 font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline font-black text-xl">Move&Play</a>
         <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="menu()">
           <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
             <path v-if="open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -15,8 +15,8 @@
           </svg>
         </button>
       <nav :class="{'flex': open, 'hidden': !open}" class="z-10 flex-col flex-grow hidden md:pb-0 md:flex justify-end md:flex-row bg-blue-400" >
-       <router-link to="/login"> <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" >Login</a></router-link>
-       <router-link to="/signUp"> <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">Registration</a></router-link>
+       <router-link to="/login"> <a class="text-base font-black bg-white text-blue-600 px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" >Login</a></router-link>
+       <router-link to="/signUp"> <a class="text-base font-black bg-white text-blue-600 px-4 py-2 mt-2 text-sm font-semibold  rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">Registration</a></router-link>
       </nav>
       <!-- <nav v-if="open" class="md:hidden flex-col">
         <router-link to="/login"> <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" >Login</a></router-link>
@@ -25,8 +25,8 @@
       </div>
     </div>
   <div v-if="!open" class="md:hidden w-auto h-28 grid px-2 pt-3">
-  <router-link to="/login"><a class="">Login</a></router-link>
-  <router-link to="/signUp"><a class="">Registration</a></router-link>
+  <router-link to="/login"><a class="bg-blue-400 font-black py-2 px-2 rounded-md text-white">Login</a></router-link>
+  <router-link to="/signUp"><a class="bg-blue-400 font-black py-2 px-2 rounded-md text-white">Registration</a></router-link>
   </div>
   </div>
 </div>
@@ -50,10 +50,10 @@
                   <span class="block text-white">Right place to play</span>
                   <span class="block text-indigo-200">with your team or to find new team</span>
                 </h1>
-                <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">Book sports halls in the Croatian region of Istria</p>
+                <p class="mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl">Book sports halls in the Croatian region of Istria</p>
                 <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-                  <div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
-                    <a href="#" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"> Get started </a>
+                  <div class="space-y-4 mx-auto">
+                    <a href="#" class="flex items-center text-2xl justify-center py-3 border border-transparent font-black font-medium rounded-md shadow-sm text-blue-700 bg-white sm:px-40 px-8 pointer-events-none"> Play now</a>
                     <!-- <a href="#" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 bg-opacity-60 hover:bg-opacity-70 sm:px-8"> Live demo </a> -->
                   </div>
                 </div>
@@ -85,7 +85,7 @@ Booking</li>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
 </svg>
-Teamate finder</li>
+Teammate finder</li>
             <!-- </ul> -->
         <!-- </div> -->
 </div>
