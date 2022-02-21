@@ -9,32 +9,36 @@
 				<th class="bg-gray-600 p-2 text-white font-bold text-left block md:table-cell"></th>
 				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
 				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+        				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+
       </tr>
 		</thead>
 		<thead class="block md:table-header-group">
 			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Name</th>
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">User Name</th>
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Email Address</th>
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
-        				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Team name</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">User email</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Members</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Sport hall</th>
+        				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Categorie</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Date and time</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Note</th>
 
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Actions</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell"></th>
 			</tr>
 		</thead>
 		<tbody class="block md:table-row-group">
-			<tr v-for="team of this.data" :key="team.id" class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Name</span>{{team.teamName}} </td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User Name</span>{{team.userEmail}}</td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Email Address</span>{{team.members}}</td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>{{team.note}}</td>
-        				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>{{this.$route.query.sport}}</td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>{{team.categories}}</td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>{{team.date && team.time}} </td>
+			<tr v-for="team of teams" :key="team.id" class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold text-white">Team name</span>{{team.teamName}} </td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User email</span>{{team.userEmail}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Members</span>{{team.members}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Sport hall</span>{{team.note}}</td>
+        				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Categorie</span></td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Date and time</span>{{team.categories}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Note</span>{{team.date && team.time}} </td>
 				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-					<span class="inline-block w-1/3 md:hidden font-bold">Actions</span>
+					<span class="inline-block w-1/3 md:hidden font-bold"></span>
 					<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Edit</button>
 					<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
 				</td>
@@ -51,140 +55,59 @@
 				<th class="bg-gray-600 p-2 text-white font-bold text-left block md:table-cell"></th>
 				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
 				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
-      </tr>
+      				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+</tr>
 		</thead>
 		<thead class="block md:table-header-group">
 			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Name</th>
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">User Name</th>
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Email Address</th>
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Actions</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Team name</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">User email</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Members</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Sport hall</th>
+								<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Categorie</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Date and time</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Note</th>
+<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell"></th>
 			</tr>
 		</thead>
 		<tbody class="block md:table-row-group">
-			<tr class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Name</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User Name</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Email Address</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-					<span class="inline-block w-1/3 md:hidden font-bold">Actions</span>
+			<tr  class="bg-white border border-grey-500 md:border-none block md:table-row">
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Team name</span>  </td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User email</span></td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Members</span></td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Sport hall</span></td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Categorie</span></td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Date and time</span></td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Note</span>{{teams.note}}</td>
+<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+					<span class="inline-block w-1/3 md:hidden font-bold"></span>
 					<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Edit</button>
 					<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
 				</td>
 			</tr>
 		</tbody>
 	</table>
+
+  <div class="text-white" >dddd {{teams.teamName}} </div>
+
+  <table class="w-full flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+			<thead class="text-white">
+				<tr class="bg-blue-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+					<th class="p-3 text-left">Date </th>
+					<th class="p-3 text-left">Time</th>
+					<th class="p-3 text-left" width="110px"><span>Action</span></th>
+				</tr>
+			</thead>
+			<tbody class="flex-1 sm:flex-none">
+				<tr v-for="team of teams" :key="team.id" class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+					<td class="border-grey-light border hover:bg-gray-100 p-3">{{team.teamName}}</td>
+					<td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{team.userEmail}}</td>
+				</tr>
+			</tbody>
+		</table>
  </nav>
- 
-    <!-- <div class="hidden">
-      <vs-sidebar
-        text="#1286C7"
-        absolute
-        open
-        >
-        <template #logo>
-           <v-img :src="require('@/assets/logo.png')"> </v-img>
-        </template>
-        <vs-sidebar-item id="home" to='/homeAdmin'>
-          <template #icon>
-            <i class='fa fa-home fa-fw'></i>
-          </template>
-          Home
-        </vs-sidebar-item>
-        <vs-sidebar-item id="terrain" to='/terrainAdmin'>
-          <template #icon>
-            <i class='fa fa-area-chart'></i>
-          </template>
-          Sports halls/terrain
-        </vs-sidebar-item>
-        <vs-sidebar-item id="account" to='/accountAdmin'>
-          <template #icon>
-            <i class='fa fa-user fa'></i>
-          </template>
-          Account
-        </vs-sidebar-item>
-        <template #footer>
-          <vs-button to='/'>
-            <i class='fa fa-sign-out'></i>
-          Logout
-        </vs-button>
-        </template>
-      </vs-sidebar>
-      <div class="row">
-      <div class="teams" style="margin-left:20%">
-    <router-link to="/filledListAdmin">
-        <button class="btn">
-          <b>Teams</b>
-        </button>
-    </router-link>
-        </div>
-        <div class="inbox" style="margin-left:20%">
-    <router-link to="/inboxAdmin">
-        <button class="btn">
-          <b>Inbox</b>
-        </button>
-    </router-link>
-        </div>
-    </div>
-     <div id="box" style="margin-left:20%">
-       <div class="subtitle" style="margin-left:0%">
-
-<div class="w3-container w3-teal">
-  <h3>List of unfilled sports players</h3>
-</div>
-</div>
-<div id="box1" style="margin-left:0%">
-
-<div>
-  <label>Team name:
-  </label>
-  <br>
-  <br>
-  <label>City:
-  </label>
-  <br>
-  <br>
-  <label>Categories:
-  </label>
-  <br>
-  <br>
-  <label>Date and time:
-  </label>
-  <br><br>
-  <label>Members:
-  </label>
-  <br>
-  <br>
-    </div>
-    </div>
-    <div id="box1" style="margin-left:0%">
-
-<div>
-  <label>Team name:
-  </label>
-  <br>
-  <br>
-  <label>City:
-  </label>
-  <br>
-  <br>
-  <label>Categories:
-  </label>
-  <br>
-  <br>
-  <label>Date and time:
-  </label>
-  <br><br>
-  <label>Members:
-  </label>
-  <br>
-  <br>
-    </div>
-    </div>
-</div>
-    </div> -->
 </template>
 
 <script>
@@ -194,15 +117,13 @@ import { Booking } from '@/services';
 export default {
    data(){
      return {
-       data: null
+       teams: [],
      }
 
    },
    async created(){
-     let teams = await Booking.getAll();
-     let naziv = this.$route.query.name;
-      let sport = this.$route.query.sport;
-      this.data = teams.filter(x => x.terrainName == naziv && x.terrainCategories == sport)
+     let teams = await Booking.getAllBooking();
+     console.log(teams)
    },
    
   
@@ -211,85 +132,3 @@ components: {
 }
 }
 </script>
-  <style scoped>
-  /* .btn{
-  background-color: white;
-    color: #1286C7;
-    padding: 5px 50px;
-    border: none;
-    box-shadow: 0 3px #1286C7;
-}
-.teams{
-  max-width: 20px; 
-  text-align: center;
-  color: white;
-  width: fixed;
-  height: 65px;
-  padding: 15px;
-  box-sizing: border-box;
-  border-radius: 0px;
-  background: #86d1fc;
-  font-size: 16px;
-  margin-left: 50px;
-  display: block;
-  margin-top: 40px;
-}
-.inbox{
-  max-width: 300px; 
-  text-align: center;
-  color: white;
-  width: fixed;
-  height: 65px;
-  background-color: #1286C7;
-  padding: 20px;
-  margin-top: 40px;
-  background-color: #86d1fc;
-}
-#box{
-  max-width: 900px; 
-  text-align: left;
-  color: white;
-  width: fixed;
-  height: 600px;
-  /* padding: 15px; */
-  /* box-sizing: border-box;
-  border-radius: 0px;
-  background: white;
-  font-size: 16px;
-  margin-left: 2px;
-  /* display: block; 
-  margin-top: 40px;
-  overflow: scroll;
-}
-.subtitle{
-  max-width: 500px; 
-  text-align: left;
-  color: white;
-  width: fixed;
-  height: 65px;
-  padding: 15px;
-  box-sizing: border-box;
-  border-radius: 0px;
-  background: #1286C7;
-  font-size: 16px; */
-  /* margin-left: 10px; 
-}
-/* #box1 {
-  max-width: 800px; 
-  text-align: left;
-  width: fixed;
-  height: 250px;
-  padding: 15px;
-  box-sizing: border-box;
-  border-radius: 0px;
-  font-size: 16px;
-  margin-left: 50px;
-  display: block;
-  margin-top: 70px;
-  background-color: white;
-  color: #1286C7;
-  border: none;
-  box-shadow: 0 3px #1286C7;
-}  */
-
-  </style>

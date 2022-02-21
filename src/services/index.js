@@ -34,15 +34,16 @@ let Booking = {
     add_booking(add_booking){
         return Service.post('/homeAdmin', add_booking)
     },
-    async getAll() {        
-        let response = await Service.get(`/terrain`)
-        return response.data
+    async getAllBooking() {        
+        let response = await Service.get(`/homeAdmin`)
+        let data = response.data;
         data = data.map(doc =>{
             return {
                 id:doc._id,
-                terrainName: doc.terrainName,
-                terrainCity: doc.terrainCity,
-                terrainCategories: doc.terrainCategories,
+                teamName: doc.teamName,
+                userEmail: doc.userEmail,
+                members: doc.members,
+                note: doc.note,
                 date: doc.date,
                 time: doc.time,
                 posted_at: Number (doc.posted_at)

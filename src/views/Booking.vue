@@ -169,16 +169,16 @@ export default {
                 if (this.$v.$invalid) {
                     return;
                 }
-
+          
                 let add_booking = {
                   sport: this.terrain,
+                  categories: this.terrainCategories,
                   teamName: this.teamName,
                   userEmail: this.userEmail,
                   members: this.members,
                   note: this.note
                 };
                 console.log(this.userEmail)
-                console.log(this.data)
                 let booking = await Booking.add_booking(add_booking)
                 console.log('push booking', booking.data);
                 
