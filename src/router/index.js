@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import { Auth } from "@/services";
 
 Vue.use(VueRouter)
 
@@ -86,6 +87,16 @@ const routes = [
     name: 'FilledListAdmin',
     component: () => import(/* webpackChunkName: "filledListAdmin" */ '../views/FilledListAdmin.vue')
   },
+  {
+    name: "error",
+    path: "/error",
+    component: () => import("@/Error/403"),
+  },
+  {
+    name: "404",
+    path: "/:pathMatch(.*)*",
+    component: () => import("@/Error/pageNotFound"),
+  },
 
 ]
 
@@ -94,5 +105,19 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+
+router.beforeEach((to, from, next) => {
+  const publicPage = ["/", "/signUp", "/login"];
+  const requiredLogin = !publicPage.includes(to.path);
+  const user = Auth.getUser();
+
+  if (requiredLogin && !user) {
+    next("/");
+    return;
+  }
+  next();
+});
+
 
 export default router

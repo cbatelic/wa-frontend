@@ -18,18 +18,18 @@ Service.interceptors.request.use((request) => {
 });
 
 Service.interceptors.response.use(
-    (response) => {
-        console.log('Interceptor', response);
-        return response;
-    },
+    (response) => response,
     (error) => {
-        if(error.response.status == 401){
-            Auth.logout();
-            $router.go();
-        }
-        //console.error('Interceptor', error.response)
+      if (error.response.status == 403) {
+        $router.replace("/error");
+        return Promise.reject("This route is forbidden!", error);
+      }
+      if (error.response.status == 401) {
+        Auth.logout();
+        $router.go();
+      }
     }
-);
+  );
 let Booking = {
     add_booking(add_booking){
         return Service.post('/homeAdmin', add_booking)
