@@ -1,12 +1,13 @@
 <template>
 <div class="w-full h-screen flex">
   <div>
-    <img :src="require('@/assets/sportvert.jpg')" class="object-cover object-center h-screen w-7/10">
+    <img :src="require('@/assets/sportvert.jpg')" class="hidden lg:flex lg:object-cover lg:object-center lg:h-screen lg:w-7/10">
     <!-- <div class="absolute inset-0 bg-blue-300 mix-blend-multiply" /> -->
     </div>
-    <div class="bg-white flex flex-col justify-center items-center w-5/12 shadow-lg">
-      <h1 class="text-3xl font-bold text-orange-500 mb-2">LOGIN</h1>
-      <div class="w-1/2 text-center bg-white">
+    <div class=" flex flex-col justify-center items-center w-5/12 shadow-lg">
+      <div class="w-11/12 md:w-10/12 px-2 md:px-10 py-3 lg:w-1/2 md:py-12 space-y-3.5 rounded-md text-center bg-white">
+      <div class="text-start text-blue-600 space-y-1.5">
+      <label for="email" class="pl-1 text-lg">Email:</label>
         <input type="text" name="email" placeholder="email" autocomplete="off"
             class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
             label="Email" 
@@ -16,6 +17,9 @@
                                     <span v-if="!$v.email.required">Email is required</span>
                                     <span v-if="!$v.email.email">Email is invalid</span>
                                 </div>
+                                </div>
+                                <div class="text-start text-blue-600 space-y-1.5">
+      <label for="password" class="pl-1 text-lg">Password:</label>
         <input type="password" name="password" placeholder="password" autocomplete="off"
             class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
             label="Password" 
@@ -26,7 +30,26 @@
                                     <span v-if="!$v.password.required">Password is required</span>
                                     <span v-if="!$v.password.minLength">Password must be at least 6 characters</span>
                                 </div>
-        <button type="button" @click="submit()" class="bg-orange-500 hover:bg-orange-600 text-black px-3 py-1 rounded text-lg focus:outline-none shadow">Sign In</button>
+                                </div>
+                                <div class="text-start text-blue-600 space-y-1.5">
+      <label for="confirmPassword" class="pl-1 text-lg">Confirm password:</label>
+                                 <input type="password" name="confirmPassword" placeholder="confirm Password" autocomplete="off"
+            class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
+
+label="confirmPassword" 
+                                v-model="confirmPassword"
+                                :class="{ 'is-invalid': submitted && $v.confirmPassword.$error }">
+                                <div v-if="submitted && $v.confirmPassword.$error" class="invalid-feedback">
+                                    <span v-if="!$v.confirmPassword.required">Confirm Password is required</span>
+                                    <span v-else-if="!$v.confirmPassword.sameAsPassword">Passwords must match</span>
+                                </div>
+                                </div>
+        <button type="button" @click="submit()" class="inline-flex gap-1.5  text-base font-black bg-white text-blue-600 px-3 py-1 rounded  focus:outline-none shadow">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+</svg>
+Login
+</button>
       </div>
     </div>
   </div>
@@ -42,6 +65,7 @@ export default {
                 
                     email: "",
                     password: "",
+                    confirmPassword: "",
 
                 submitted: false
             };
@@ -50,6 +74,7 @@ export default {
   validations: {
    
                 email: { required, email },
+                confirmPassword: { required, sameAsPassword: sameAs('password') },
                 password: { required, minLength: minLength(6) }
             
   },

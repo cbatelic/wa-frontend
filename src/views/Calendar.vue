@@ -2,8 +2,8 @@
     <div class="">
      <navigation></navigation>
      <body class="items-center justify-center">
-       <div class="text-white ml-11 pt-5">{{this.$route.query.name}} i {{this.$route.query.sport}}</div>
-	<div class="container">
+       <div class="text-white flex pt-5 pl-2 lg:ml-10 md:text-xl">Choose date and time for '{{this.$route.query.name}}' and categorie '{{this.$route.query.sport}}' :</div>
+	<div class="px-2 lg:mx-10 ">
 		<table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
 			<thead class="text-white">
 				<tr class="bg-blue-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">

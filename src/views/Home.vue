@@ -7,7 +7,7 @@
         <img class="h-16"  :src="require('@/assets/logoHome.png')" alt="Logo">
       </div>
       <div class="flex flex-row justify-between pr-2 pl-4 py-4 bg-blue-400" style="clip-path:polygon(5% 0, 100% 0%, 100% 100%, 0 100%)">
-        <a  class=" lg:ml-16 text-gray-900 font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline font-black text-xl">Move&Play</a>
+        <a  class=" lg:ml-16 text-gray-900 font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline font-black text-xl lg:mt-2.5">Move&Play</a>
         <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="menu()">
           <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
             <path v-if="open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -15,8 +15,18 @@
           </svg>
         </button>
       <nav :class="{'flex': open, 'hidden': !open}" class="z-10 flex-col flex-grow hidden md:pb-0 md:flex justify-end md:flex-row bg-blue-400" >
-       <router-link to="/login"> <a class="text-base font-black bg-white text-blue-600 px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" >Login</a></router-link>
-       <router-link to="/signUp"> <a class="text-base font-black bg-white text-blue-600 px-4 py-2 mt-2 text-sm font-semibold  rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">Registration</a></router-link>
+       <router-link to="/login"> <a class="inline-flex gap-1.5 text-base font-black bg-white text-blue-600 px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+</svg>
+Login
+</a></router-link>
+       <router-link to="/signUp"> <a class="inline-flex gap-1.5 text-base font-black bg-white text-blue-600 px-4 py-2 mt-2 text-sm font-semibold  rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+</svg>
+Registration
+</a></router-link>
       </nav>
       <!-- <nav v-if="open" class="md:hidden flex-col">
         <router-link to="/login"> <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" >Login</a></router-link>
@@ -25,8 +35,18 @@
       </div>
     </div>
   <div v-if="!open" class="md:hidden w-auto h-28 grid px-2 pt-3">
-  <router-link to="/login"><a class="bg-blue-400 font-black py-2 px-2 rounded-md text-white">Login</a></router-link>
-  <router-link to="/signUp"><a class="bg-blue-400 font-black py-2 px-2 rounded-md text-white">Registration</a></router-link>
+  <router-link to="/login"><a class="bg-blue-400 font-black py-2 px-2 rounded-md text-white inline-flex gap-1.5">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+</svg>
+Login
+</a></router-link>
+  <router-link to="/signUp"><a class="bg-blue-400 font-black py-2 px-2 rounded-md text-white inline-flex gap-1.5">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+</svg>
+Registration
+</a></router-link>
   </div>
   </div>
 </div>
