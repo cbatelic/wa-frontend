@@ -4,13 +4,13 @@
   <div class="mt-10 sm:mt-0">
   <div class="md:grid  md:gap-6">
     <div class="mt-5 md:mt-0 md:col-span-2">
-      <form action="#" method="POST">
+      <form class="mt-10">
         <div class="shadow overflow-hidden sm:rounded-md lg:mx-12">
           <div class="px-4 py-5 bg-white sm:p-6">
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 ">
-                <label for="first_name" class="block text-sm font-medium text-gray-700">Terrain name</label>
-                <select v-model="terrainName" class="mt-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                <label for="first_name" class="block text-sm font-medium text-blue-600">Terrain name</label>
+                <select v-model="terrainName" class="mt-2 py-2 block w-full border sm:text-sm  rounded-md"
                 :class="{ 'is-invalid': submitted && $v.terrainName.$error }">
       <option value="Sports hall 'Žatika'" class="selected">Sports hall 'Žatika'</option>
       <option value="Sports hall 'Franko Mileta'" class="selected">Sports hall 'Franko Mileta'</option>
@@ -28,8 +28,8 @@
               </div> 
 
               <div class="col-span-6 ">
-                <label for="last_name" class="block text-sm font-medium text-gray-700">Terrain city</label>
-                <input type="text" v-model="terrainCity" class="mt-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                <label for="last_name" class="block text-sm font-medium text-blue-600">Terrain city</label>
+                <input disabled  v-model="terrainCity" v-bind="terrainCity" class="mt-2 py-2  block w-full sm:text-sm border rounded-md"
                 :class="{ 'is-invalid': submitted && $v.terrainCity.$error }" />
       <div
           v-if="submitted && !$v.terrainCity.required"
@@ -40,8 +40,8 @@
               </div>
 
               <div class="col-span-6 ">
-                <label for="email_address" class="block text-sm font-medium text-gray-700">Categories</label>
-                <select type="text" v-model="terrainCategories" class="mt-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                <label for="email_address" class="block text-sm font-medium text-blue-600">Categories</label>
+                <select type="text" v-model="terrainCategories" class="mt-2 py-2 block w-full border sm:text-sm rounded-md"
                 :class="{ 'is-invalid': submitted && $v.terrainCategories.$error }">
                 <option value="Soccer" class="selected">Soccer</option>
       <option value="Basketball" class="selected">Basketball</option>
@@ -59,8 +59,8 @@
               </div>
 
               <div class="col-span-6 ">
-                <label for="country" class="block text-sm font-medium text-gray-700">Date</label>
-                <input type="date" class="mt-2 py-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                <label for="country" class="block text-sm font-medium text-blue-600">Date</label>
+                <input type="date" class="mt-2 py-2 block w-full py-2 px-3 border  rounded-md sm:text-sm"
                 v-model="date"
             :class="{ 'is-invalid': submitted && $v.date.$error }"
       />
@@ -73,8 +73,8 @@
               </div>
 
               <div class="col-span-6">
-                <label for="street_address" class="block text-sm font-medium text-gray-700">Time</label>
-                <input type="time"  class="mt-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                <label for="street_address" class="block text-sm font-medium text-blue-600">Time</label>
+                <input type="time"  class="mt-2 py-2 px-3 border block w-full sm:text-sm rounded-md"
                 v-model="time"
             :class="{ 'is-invalid': submitted && $v.time.$error }"
       />
@@ -98,90 +98,6 @@
   </div>
 </div>
 </div>
-    <!--
-       <div id="box1" style="margin-left:27%">
-         <div class="subtitle">
-  <h3>Add sports halls or terrain</h3>
-</div>
-<br>
-<br>
-
-
-<div class="w3-container w3-teal">
-  <label>Name:
-  </label>
-  <form class="navbar-form form-inline ml-auto">
-      <select
-        v-model="terrainName"
-        class="form-control mr-sm-2"
-        type="text"
-        :class="{ 'is-invalid': submitted && $v.terrainName.$error }"
-      >
-      <option value="Sportska 1" class="selected">Sportska dvorana 1</option>
-      <option value="Sportska 2" class="selected">Sportska dvorana 2</option>
-      <option value="Sportska 3" class="selected">Sportska dvorana 3</option>
-      <option value="Sportska 4" class="selected">Sportska dvorana 4</option>
-      </select>
-      <div
-          v-if="submitted && !$v.terrainName.required"
-          class="invalid-feedback"
-        >
-          Name is required.
-        </div>
-    </form>
-  <br>
-  <br>
-  <! Dodati gradove koji su povazani sa dvoranom koja se tamo nalazi -->
-  <!-- <label>City:
-  </label>
-  <form class="navbar-form form-inline ml-auto">
-      <input
-        v-model="terrainCity"
-        class="form-control mr-sm-2"
-        type="text"
-        :class="{ 'is-invalid': submitted && $v.terrainCity.$error }"
-      />
-      <div
-          v-if="submitted && !$v.terrainCity.required"
-          class="invalid-feedback"
-        >
-          City is required.
-        </div>
-    </form>
-  <br>
-  <br>
-  <label>Categories:
-  </label>
-   <form class="navbar-form form-inline ml-auto">
-      <select
-        v-model="terrainCategories"
-        class="form-control mr-sm-2"
-        type="text"
-        :class="{ 'is-invalid': submitted && $v.terrainCategories.$error }"
-      >
-      <option value="Soccer" class="selected">Soccer</option>
-      <option value="Basketball" class="selected">Basketball</option>
-      <option value="Tennis" class="selected">Tennis</option>
-      <option value="Handball" class="selected">Handball</option>
-      <option value="Volleyball" class="selected">Volleyball</option>
-      <option value="Other" class="selected">Other</option>
-      </select>
-      <div
-          v-if="submitted && !$v.terrainCategories.required"
-          class="invalid-feedback"
-        >
-          Categories is required.
-        </div>
-    </form>
-  <br>
-  <br>
-    </div>
-     <br>
-    <button class="btn" @click="submit()">
-          <b>Next</b>
-        </button>
-    </div>
-    </div>  -->
 </template>
 <script>
 import { required } from 'vuelidate/lib/validators'
@@ -207,6 +123,26 @@ export default {
                 terrainCategories: { required },
                 date: { required },
                 time: { required },
+  },
+  created(){
+    if(this.value == "Sports Hall 'Žatika'"){
+      this.push.terrainCity('Poreč')
+    }
+    else if (this.value == "Sports Hall 'Franko Mileta'"){
+      this.push.terrainCity('Labin')
+    }
+    else if (this.value == "Sports hall 'Novigrad'"){
+      this.push.terrainCity('Novigrad')
+    }
+    else if (this.value == "Sports hall 'Umag'"){
+      this.push.terrainCity('Umag')
+    }
+    else if (this.value == "Sports hall 'Pazin'"){
+      this.push.terrainCity('Pazin')
+    }
+    else if (this.value == "Sports hall 'Saline'"){
+      this.push.terrainCity('Vrsar')
+    }
   },
   methods: {
      async submit() {
