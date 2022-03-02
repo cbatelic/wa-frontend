@@ -57,11 +57,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "account" */ '../views/Account.vue')
   },
   {
-    path: '/loginAdmin',
-    name: 'LoginAdmin',
-    component: () => import(/* webpackChunkName: "loginAdmin" */ '../views/LoginAdmin.vue')
-  },
-  {
     path: '/homeAdmin',
     name: 'HomeAdmin',
     component: () => import(/* webpackChunkName: "homeAdmin" */ '../views/HomeAdmin.vue'),
@@ -78,14 +73,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "terrainAdmin" */ '../views/TerrainAdmin.vue')
   },
   {
-    path: '/inboxAdmin',
-    name: 'InboxAdmin',
-    component: () => import(/* webpackChunkName: "inboxAdmin" */ '../views/InboxAdmin.vue')
+    path: '/usersQuestionsAdmin',
+    name: 'UsersQuestionsAdmin',
+    component: () => import(/* webpackChunkName: "usersQuestionsAdmin" */ '../views/UsersQuestionsAdmin.vue')
   },
   {
-    path: '/filledListAdmin',
-    name: 'FilledListAdmin',
-    component: () => import(/* webpackChunkName: "filledListAdmin" */ '../views/FilledListAdmin.vue')
+    path: '/questions',
+    name: 'Questions',
+    component: () => import(/* webpackChunkName: "questions" */ '../views/Questions.vue')
   },
   {
     name: "error",
