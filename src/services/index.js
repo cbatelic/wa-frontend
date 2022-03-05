@@ -90,6 +90,41 @@ let Posts ={
     //     };
     // }, 
 }
+
+let Question = {
+    send_question(send_question) {
+        return Service.post('/usersQuestionsAdmin', send_question);
+    },
+
+    async getAllQuestions() {        
+        let response = await Service.get(`/usersQuestionsAdmin`)
+        let data = response.data;
+        data = data.map(doc =>{
+            return {
+                id:doc._id,
+                name: doc.name,
+                surname: doc.surname,
+                email: doc.email,
+                message: doc.message,
+                posted_at: Number (doc.posted_at)
+            
+            };
+        });
+        return data
+    },
+
+    async getOneQuestion(id) {
+        let response = await Service.get(`/usersQuestionsAdmin/${id}`);
+        let doc = response.data;
+        return {
+          id: doc._id,
+          name: doc.name,
+          surname: doc.surname,
+          message: doc.message
+        };
+      },
+
+}
 let Admin = {
     async getAll(admin) {
       let response = await Service.get(`/admin?${admin}`);
@@ -178,4 +213,4 @@ let Auth = {
     }
 };
 
-export { Service, Auth, Posts, Admin, Booking}
+export { Service, Auth, Posts, Admin, Booking, Question}

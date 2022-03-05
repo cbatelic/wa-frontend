@@ -83,6 +83,20 @@ const routes = [
     component: () => import(/* webpackChunkName: "questions" */ '../views/Questions.vue')
   },
   {
+    path: '/questionsAdminDetail',
+    name: 'QuestionsAdminDetail',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/QuestionsAdminDetail.vue'),
+  },
+  // ruta za zasebnu skriptu
+  {
+    path: '/questionsAdminDetail/:id',
+    props: true,
+    name: 'UsersQuestionsAdmin',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/UsersQuestionsAdmin.vue'),
+  },
+  {
     name: "error",
     path: "/error",
     component: () => import("@/Error/403"),
