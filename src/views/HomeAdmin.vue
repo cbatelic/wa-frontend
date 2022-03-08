@@ -30,19 +30,21 @@
 			</tr>
 		</thead>
 		<tbody class="block md:table-row-group">
-			<tr v-for="team of this.teams" :key="team.id" class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold text-white">Team name</span>{{team.teamName}} </td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User email</span>{{team.userEmail}}</td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Members</span>{{team.members}}</td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Sport hall</span>{{team.note}}</td>
-        				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Categorie</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Date and time</span>{{team.categories}}</td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Note</span>{{team.date && team.time}} </td>
+      <div v-if="merge[0].members>=12">
+			<tr v-for="merge of merge" :key="merge.id" class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold text-white">Team name</span>{{merge[0].teamName}} </td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User email</span>{{merge[0].userEmail}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Members</span>{{merge[0].members}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Sport hall</span>{{merge[1].terrainName}}</td>
+        				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Categorie</span>{{merge[1].terrainCategories}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Date and time</span>{{merge[1].date && merge[1].time}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Note</span>{{merge[0].note}} </td>
 				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
 					<span class="inline-block w-1/3 md:hidden font-bold"></span>
 					<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
 				</td>
 			</tr>
+      </div>
 		</tbody>
 	</table>
 
@@ -73,19 +75,21 @@
 			</tr>
 		</thead>
 		<tbody class="block md:table-row-group">
+      <div v-if="merge[0].members==12">
 			<tr  class="bg-white border border-grey-500 md:border-none block md:table-row">
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Team name</span>  </td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User email</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Members</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Sport hall</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Categorie</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Date and time</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Note</span>{{teams.note}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Team name</span> {{merge[0].teamName}}  </td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User email</span>{{merge[0].userEmail}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Members</span>{{merge[0].members}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Sport hall</span>{{merge[1].terrainName}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Categorie</span>{{merge[1].terrainCategories}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Date and time</span>{{merge[1].date && merge[1].time}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Note</span>{{merge[0].note}}</td>
 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
 					<span class="inline-block w-1/3 md:hidden font-bold"></span>
 					<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
 				</td>
 			</tr>
+      </div>
 		</tbody>
 	</table>
  </nav>
@@ -94,16 +98,24 @@
 <script>
 import navigationAdmin from '@/components/navigationAdmin.vue';
 import { Booking } from '@/services';
+import { Posts } from '@/services';
 
 export default {
    data(){
      return {
        teams: [],
+       posts: [],
+       merge: [],
+       length: []
      }
 
    },
    async created(){
      this.teams = await Booking.getAllBooking();
+     this.posts = await Posts.getAll();
+     this.length = this.teams.length
+     this.merge = Object.assign({}, [this.teams, this.posts]);
+     console.log(this.merge)
    },
    
   

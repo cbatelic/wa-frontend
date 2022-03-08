@@ -41,7 +41,7 @@ export default {
 
    methods: {
       gotoDetails(question) {
-      this.$router.push({ path: `usersQuestionsAdmin/${question.id}` });
+      this.$router.push({ path: `questionsAdminDetail/${question.id}` });
     },
    },
   

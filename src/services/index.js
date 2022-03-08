@@ -114,7 +114,7 @@ let Question = {
     },
 
     async getOneQuestion(id) {
-        let response = await Service.get(`/usersQuestionsAdmin/${id}`);
+        let response = await Service.get(`/questionsAdminDetail/${id}`);
         let doc = response.data;
         return {
           id: doc._id,
