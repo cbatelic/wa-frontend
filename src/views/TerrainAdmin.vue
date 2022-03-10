@@ -4,7 +4,7 @@
   <div class="mt-10 sm:mt-0">
   <div class="md:grid  md:gap-6">
     <div class="mt-5 md:mt-0 md:col-span-2">
-      <form class="mt-10">
+      <form  class="mt-10" @submit.prevent="submit">
         <div class="shadow overflow-hidden sm:rounded-md lg:mx-12">
           <div class="px-4 py-5 bg-white sm:p-6">
             <div class="grid grid-cols-6 gap-6">
@@ -29,7 +29,7 @@
 
               <div class="col-span-6 ">
                 <label for="last_name" class="block text-sm font-medium text-blue-600">Terrain city</label>
-                <input disabled  v-model="terrainCity" v-bind="terrainCity" class="mt-2 py-2  block w-full sm:text-sm border rounded-md"
+                <input  :options="availableCities" v-model="terrainCity"  class="mt-2 py-2  block w-full sm:text-sm border rounded-md"
                 :class="{ 'is-invalid': submitted && $v.terrainCity.$error }" />
       <div
           v-if="submitted && !$v.terrainCity.required"
@@ -106,6 +106,7 @@ import {Auth} from "@/services";
 import navigationAdmin from '../components/navigationAdmin.vue';
 
 
+
 export default {
   data() {
     return{
@@ -114,7 +115,7 @@ export default {
       terrainCategories: '',
       date: '',
       time: '',
-      submitted: false
+      submitted: false,
     };
   },
    validations: {     
@@ -124,9 +125,20 @@ export default {
                 date: { required },
                 time: { required },
   },
+  // locations: [
+  //     {
+  //       name: "Sports hall 'Žatika'",
+  //       cities: ['Vancouver', 'Calgary', 'Toronto']
+  //     },
+  //   ],
+  // computed: {
+  //   availableCities() {
+  //     return  this.terrainName.cities= false;
+  //   }
+  // },
   created(){
     if(this.value == "Sports Hall 'Žatika'"){
-      this.push.terrainCity('Poreč')
+      this.terrainCity== 'Poreč'
     }
     else if (this.value == "Sports Hall 'Franko Mileta'"){
       this.push.terrainCity('Labin')
@@ -146,13 +158,12 @@ export default {
   },
   methods: {
      async submit() {
-                this.submitted = true;
-
-                // stop here if form is invalid
                 this.$v.$touch();
                 if (this.$v.$invalid) {
                     return;
                 }
+                try {
+                this.loading = true;
                 let admTerrain = {
                   terrainName: this.terrainName,
                   terrainCity: this.terrainCity,
@@ -164,6 +175,16 @@ export default {
                 console.log(this.terrainName)
                 let newterrain = await Posts.add_terrain(admTerrain);
         console.log('Save terrain', newterrain.data);
+
+        this.terrainName = "";
+        this.terrainCity = "";
+        this.terrainCategories = "";
+        this.date = "";
+        this.time= "";
+        this.submitted = false;
+      } catch (e) {
+        console.error("greška", e);
+      }
     },
   },
   components:{
@@ -173,65 +194,3 @@ export default {
 </script>
 
 
-  <style scoped>
-  #box {
-  max-width: 200px; 
-  text-align: center;
-  color: #1286C7;
-  width: fixed;
-  height: 65px;
-  padding: 15px;
-  box-sizing: border-box;
-  border-radius: 0px;
-  background: white;
-  font-size: 16px;
-  margin-left: 50px;
-  display: block;
-  margin-top: 40px;
-}
-#box1 {
-  max-width: 1000px; 
-  text-align: left;
-  width: fixed;
-  height: 680px;
-  padding: 15px;
-  box-sizing: border-box;
-  border-radius: 0px;
-  font-size: 16px;
-  margin-left: 50px;
-  display: block;
-  margin-top: 50px;
-  background-color: white;
-  color: #1286C7;
-  border: none;
-}
-.form-control {
-  margin-bottom: 8px;
-  margin-top: 10px;
-  background-color: white;
-  outline: #1286C7;
-  box-shadow: #1286C7;
-}
-.subtitle{
-  text-align: left;
-  font-size: 40px;
-  background-color: #1286C7;
-  color:white;
-  padding: 15px;
-  max-width: 350px; 
-}
-.btn{
-  background-color: white;
-    color: #1286C7;
-    padding: 10px 50px;
-    border: none;
-    box-shadow: 0 3px #1286C7;
-    text-align: center;
-    position: absolute;
-  right: 15%;
-}
-.form-control{
-  
-    box-shadow: 0 3px #1286C7;
-}
-  </style>

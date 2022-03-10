@@ -169,7 +169,7 @@ export default {
                 if (this.$v.$invalid) {
                     return;
                 }
-          
+               try {
                 let add_booking = {
                   sport: this.terrain,
                   categories: this.terrainCategories,
@@ -181,6 +181,14 @@ export default {
                 console.log(this.userEmail)
                 let booking = await Booking.add_booking(add_booking)
                 console.log('push booking', booking.data);
+
+                this.teamName = "";
+                this.userEmail = "";
+                this.members = "";
+                this.note = "";
+               } catch(e){
+                console.error("greška", e);
+               }
                 
     },
   },

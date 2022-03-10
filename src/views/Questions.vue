@@ -18,14 +18,14 @@
                     <div class="w-full flex flex-col my-4">
                         <label class="font-semibold leading-none text-white mb-4 px-6">Message:</label>
                         <textarea v-model="message" type="text" class="h-40 text-base leading-none text-gray-900 mx-6 p-3 focus:oultine-none focus:border-blue-700  bg-gray-100 border rounded border-gray-200" 
-                    
-      ></textarea>
-      <!-- <div
-          v-if="submitted && !$v.note.required"
+                        :class="{ 'is-invalid': submitted && $v.message.$error }"
+                        />
+      <div
+          v-if="submitted && !$v.message.required"
           class="invalid-feedback"
         >
-          Note is required.
-        </div> -->
+If you want to send a question then the message space must not be empty.
+        </div>
                     </div>
                 </div>
                 <div class="bottom">
@@ -46,18 +46,29 @@
 import navigation from '@/components/navigation.vue';
 import store from '@/store.js';
 import { Question } from '@/services';
+import { required } from 'vuelidate/lib/validators'
 
 export default {
     data() {
     return{
       store,
       message: '',
-      user: ''
+      user: '',
+      submitted: false,
        };
+  },
+  validations: {     
+                message: { required },
   },
   methods:{
      async sendQuestion(){
-         let send_question = {
+         this.$v.$touch();
+                if (this.$v.$invalid) {
+                    console.log('jes')
+                    return;
+                    console.log('jes')
+                }
+        try { let send_question = {
              name: this.store.name,
              surname: this.store.surname,
              email: this.store.email,
@@ -65,6 +76,11 @@ export default {
      };
      let question = await Question.send_question(send_question)
                 console.log('push question', question.data);
+
+            this.message = "";
+            } catch (e) {
+        console.error("greška", e);
+      }
      }
   },
   

@@ -30,7 +30,6 @@
 			</tr>
 		</thead>
 		<tbody class="block md:table-row-group">
-      <div v-if="merge[0].members>=12">
 			<tr v-for="merge of merge" :key="merge.id" class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
 				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold text-white">Team name</span>{{merge[0].teamName}} </td>
 				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User email</span>{{merge[0].userEmail}}</td>
@@ -44,7 +43,6 @@
 					<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
 				</td>
 			</tr>
-      </div>
 		</tbody>
 	</table>
 
@@ -75,7 +73,6 @@
 			</tr>
 		</thead>
 		<tbody class="block md:table-row-group">
-      <div v-if="merge[0].members==12">
 			<tr  class="bg-white border border-grey-500 md:border-none block md:table-row">
 				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Team name</span> {{merge[0].teamName}}  </td>
 				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User email</span>{{merge[0].userEmail}}</td>
@@ -89,7 +86,6 @@
 					<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
 				</td>
 			</tr>
-      </div>
 		</tbody>
 	</table>
  </nav>
