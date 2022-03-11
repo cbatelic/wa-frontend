@@ -42,7 +42,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "calendar" */ '../views/Calendar.vue')
   },
   {
-    path: '/booking',
+    path: '/booking/:id',
     name: 'Booking',
     component: () => import(/* webpackChunkName: "booking" */ '../views/Booking.vue')
   },
@@ -83,7 +83,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "questions" */ '../views/Questions.vue')
   },
   {
-    path: '/questionsAdminDetail/:id',
+    path: '/usersQuestionsAdmin/:id',
     props: true,
     name: 'QuestionsAdminDetail',
     component: () => import('../views/QuestionsAdminDetail.vue'),

@@ -2,7 +2,7 @@
     <div class="">
      <navigation></navigation>
      <body class="items-center justify-center">
-       <div class="text-white flex pt-5 pl-2 lg:ml-10 md:text-xl">Choose date and time for '{{this.$route.query.name}}' and categorie '{{this.$route.query.sport}}' :</div>
+       <div class="text-white flex pt-5 pl-2 lg:ml-10 md:text-xl">Choose date and time for '{{this.$route.query.name}}' and category '{{this.$route.query.sport}}' :</div>
 	<div class="px-2 lg:mx-10 ">
 		<table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
 			<thead class="text-white">
@@ -16,7 +16,7 @@
 				<tr v-for="terrain of this.data" :key="terrain.id" class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
 					<td class="border-grey-light border hover:bg-gray-100 p-3">{{terrain.date}}</td>
 					<td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{terrain.time}}</td>
-			<td @click="choose()" class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">Choose</td>
+			<td @click="choose(terrain._id)" class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">Choose</td>
 				</tr>
 			</tbody>
 		</table>
@@ -41,17 +41,14 @@ import { Posts } from '@/services';
     },
     async created(){
       let terrains = await Posts.getAll();
+      console.log()
       let naziv = this.$route.query.name;
       let sport = this.$route.query.sport;
       this.data = terrains.filter(x => x.terrainName == naziv && x.terrainCategories == sport)
     },
     methods: {
-      async choose(){
-        this.$route.query.name;
-        let booking = this.$route.booking;
-        let sport = this.$route.query.sport;
-        console.log(this.$route.query.name)
-        this.$router.push({name:'Booking', query:{name:this.$route.query.name, sport:sport, booking:booking}}); 
+      async choose(tId){
+        this.$router.push({name:'Booking', params:{id: tId}}); 
       }
     }
   }

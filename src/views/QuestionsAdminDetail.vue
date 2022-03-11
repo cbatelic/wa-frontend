@@ -15,7 +15,7 @@ import Questions from '@/components/Questions.vue';
 import { Question } from '@/services';
 
 export default {
-     props: ['id'],
+  props: ['id'],
    data(){
      return {
          question: []
@@ -24,6 +24,8 @@ export default {
 
    async mounted() {
     this.question = await Question.getOneQuestion(this.id);
+    console.log(this.id)
+    console.log(this.question)
   },
 
   

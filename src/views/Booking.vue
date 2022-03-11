@@ -21,7 +21,7 @@
           Team name is required.
         </div>
                     </div>
-                    <div class="w-full md:w-1/2 flex flex-col md:ml-6 mt-4 md:mt-0">
+                    <div class="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0">
                         <label class="font-semibold leading-none text-white">User email</label>
                         <input type="email" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"
                         v-model="userEmail"
@@ -74,67 +74,6 @@
         </div>
     </div>
 </div>
-      <!-- <div id="box1" style="margin-left:27%">
-         <div class="subtitle">
-  <u><p>Booking</p></u>
-</div>
-<br>
-<br>
-<div class="w3-container w3-teal">
-  <label>Team name:
-  </label>
-  <form class="navbar-form form-inline ml-auto">
-      <input
-        class="form-control mr-sm-2"
-        type="text"
-        v-model="teamName"
-        :class="{ 'is-invalid': submitted && $v.teamName.$error }"
-      />
-      <div
-          v-if="submitted && !$v.teamName.required"
-          class="invalid-feedback"
-        >
-          Team name is required.
-        </div>
-    </form>
-  <br>
-  <br>
-  <label>Members:
-  </label>
-  <form class="navbar-form form-inline ml-auto">
-      <input
-        class="form-control mr-sm-2"
-        type="text"
-        v-model="members"
-        :class="{ 'is-invalid': submitted && $v.members.$error }"
-      />
-      <div
-          v-if="submitted && !$v.members.required"
-          class="invalid-feedback"
-        >
-          Members is required.
-        </div>
-    </form>
-  <br>
-  <br>
-  <label>Note:
-  </label>
-   <textarea
-            class="form-control"
-            maxlength="500"
-            id="note"
-            rows="4"
-            v-model="note"
-          ></textarea>
-  <br>
-  <br>
-    </div>
-     <br>
-    <button class="btn" @click="submit()">
-          <b>Confirm booking</b>
-        </button>
-    </div> -->
-
     </div>
 </template>
 <script>
@@ -160,19 +99,19 @@ export default {
                 members: { required },
                 note: { required }
   },
+  created(){
+   console.log(this.$route.params.id)
+  },
   methods: {
     async submit() {
                 this.submitted = true;
-
-                // stop here if form is invalid
                 this.$v.$touch();
                 if (this.$v.$invalid) {
                     return;
                 }
                try {
                 let add_booking = {
-                  sport: this.terrain,
-                  categories: this.terrainCategories,
+                  terrainId: this.$route.params.id,
                   teamName: this.teamName,
                   userEmail: this.userEmail,
                   members: this.members,
@@ -186,6 +125,7 @@ export default {
                 this.userEmail = "";
                 this.members = "";
                 this.note = "";
+                this.submitted = false;
                } catch(e){
                 console.error("greška", e);
                }

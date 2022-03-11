@@ -36,21 +36,7 @@ let Booking = {
     },
     async getAllBooking() {        
         let response = await Service.get(`/homeAdmin`)
-        let data = response.data;
-        data = data.map(doc =>{
-            return {
-                id:doc._id,
-                teamName: doc.teamName,
-                userEmail: doc.userEmail,
-                members: doc.members,
-                note: doc.note,
-                date: doc.date,
-                time: doc.time,
-                posted_at: Number (doc.posted_at)
-            
-            };
-        });
-        return data
+        return response
     },
 
 }
@@ -120,7 +106,9 @@ let Question = {
           id: doc._id,
           name: doc.name,
           surname: doc.surname,
-          message: doc.message
+          email: doc.email,
+          message: doc.message,
+          posted_at: Number (doc.posted_at)
         };
       },
 

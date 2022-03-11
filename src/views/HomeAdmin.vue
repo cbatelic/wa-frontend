@@ -30,14 +30,14 @@
 			</tr>
 		</thead>
 		<tbody class="block md:table-row-group">
-			<tr v-for="merge of merge" :key="merge.id" class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold text-white">Team name</span>{{merge[0].teamName}} </td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User email</span>{{merge[0].userEmail}}</td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Members</span>{{merge[0].members}}</td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Sport hall</span>{{merge[1].terrainName}}</td>
-        				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Categorie</span>{{merge[1].terrainCategories}}</td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Date and time</span>{{merge[1].date && merge[1].time}}</td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Note</span>{{merge[0].note}} </td>
+			<tr v-for="teams of teams" :key="teams.id" class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold text-white">Team name</span>{{teams.teamName}} </td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User email</span>{{teams.userEmail}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Members</span>{{teams.members}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Sport hall</span>{{teams.terrainName}}</td>
+        				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Categorie</span>{{teams.terrainCategories}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Date and time</span>{{teams.date && teams.time}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Note</span>{{teams.note}} </td>
 				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
 					<span class="inline-block w-1/3 md:hidden font-bold"></span>
 					<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
@@ -47,7 +47,7 @@
 	</table>
 
   <!-- 2 tablica -->
-  <table class="min-w-full border-collapse block md:table">
+  <!-- <table class="min-w-full border-collapse block md:table">
     <thead class="block md:table-header-group">
 			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
 				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell">List of filled teams</th>
@@ -87,7 +87,7 @@
 				</td>
 			</tr>
 		</tbody>
-	</table>
+	</table> -->
  </nav>
 </template>
 
@@ -100,18 +100,13 @@ export default {
    data(){
      return {
        teams: [],
-       posts: [],
-       merge: [],
-       length: []
      }
 
    },
    async created(){
      this.teams = await Booking.getAllBooking();
-     this.posts = await Posts.getAll();
-     this.length = this.teams.length
-     this.merge = Object.assign({}, [this.teams, this.posts]);
-     console.log(this.merge)
+     console.log(this.teams)
+     console.log('a')
    },
    
   
