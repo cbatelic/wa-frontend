@@ -18,25 +18,49 @@ Service.interceptors.request.use((request) => {
 });
 
 Service.interceptors.response.use(
-    (response) => response,
+    (response) => {
+        console.log('Interceptor', response);
+        return response;
+    },
     (error) => {
-      if (error.response.status == 403) {
-        $router.replace("/error");
-        return Promise.reject("This route is forbidden!", error);
-      }
-      if (error.response.status == 401) {
-        Auth.logout();
-        $router.go();
-      }
+        if(error.response.status == 401){
+            Auth.logout();
+            $router.go();
+        }
     }
-  );
+);
+//     (response) => response,
+//     (error) => {
+//       if (error.response.status == 403) {
+//         $router.replace("/error");
+//         return Promise.reject("This route is forbidden!", error);
+//       }
+//       if (error.response.status == 401) {
+//         Auth.logout();
+//         $router.go();
+//       }
+//     }
+//   );
 let Booking = {
     add_booking(add_booking){
         return Service.post('/homeAdmin', add_booking)
     },
     async getAllBooking() {        
         let response = await Service.get(`/homeAdmin`)
-        return response
+        let data = response.data;
+        data = data.map(doc =>{
+            return {
+                id:doc._id,
+                terrainId: doc._id,
+                teamName: doc.teamName,
+                userEmail: doc.userEmail,
+                members: doc.members,
+                note: doc.note,
+                posted_at: Number (doc.posted_at)
+            
+            };
+        });
+        return data
     },
 
 }
@@ -114,25 +138,25 @@ let Question = {
 
 }
 let Admin = {
-    async getAll(admin) {
-      let response = await Service.get(`/admin?${admin}`);
-      let data = response.data;
-      data = data.map((doc) => {
-        return {
-          email: doc.email,
-          role: doc.role,
-        };
-      });
-      return data;
-    },
+//     async getAll(admin) {
+//       let response = await Service.get(`/homeAdmin?${admin}`);
+//       let data = response.data;
+//       data = data.map((doc) => {
+//         return {
+//           email: doc.email,
+//           role: doc.role,
+//         };
+//       });
+//       return data;
+//     },
   
-    async getOne(admin) {
-      let response = await Service.get(`/admin/${admin}`);
-      let doc = response.data;
-      return {
-        role: doc.role,
-      };
-    },
+//     async getOne(admin) {
+//       let response = await Service.get(`/homeAdmin/${admin}`);
+//       let doc = response.data;
+//       return {
+//         role: doc.role,
+//       };
+//     },
   };
 
 let Auth = {

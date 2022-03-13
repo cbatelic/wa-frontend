@@ -12,8 +12,6 @@
 </div>
        </div>
 </div>
-<!-- warning -->
-     
 </template>
 
 <script>
@@ -29,15 +27,11 @@ export default {
    },
    async created(){
     this.question = await Question.getAllQuestions();
-    console.log(this.question)
-    console.log(this.question.id)
-    console.log(this.question[0].id)
    },
 
    methods: {
      details(question){
        this.$router.push({ path: `/usersQuestionsAdmin/${question.id}` })
-       console.log(this.question.id)
        
      }
      

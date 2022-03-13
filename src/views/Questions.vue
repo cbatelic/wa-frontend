@@ -22,7 +22,7 @@
                         />
       <div
           v-if="submitted && !$v.message.required"
-          class="invalid-feedback"
+          class="invalid-feedback px-6"
         >
 If you want to send a question then the message space must not be empty.
         </div>
@@ -62,6 +62,7 @@ export default {
   },
   methods:{
      async sendQuestion(){
+         this.submitted = true;
          this.$v.$touch();
                 if (this.$v.$invalid) {
                     console.log('jes')

@@ -10,7 +10,7 @@
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 ">
                 <label for="first_name" class="block text-sm font-medium text-blue-600">Terrain name</label>
-                <select v-model="terrainName" class="mt-2 py-2 block w-full border sm:text-sm  rounded-md"
+                <select  v-model="terrainName" class="mt-2 py-2 block w-full border sm:text-sm  rounded-md"
                 :class="{ 'is-invalid': submitted && $v.terrainName.$error }">
       <option value="Sports hall 'Žatika'" class="selected">Sports hall 'Žatika'</option>
       <option value="Sports hall 'Franko Mileta'" class="selected">Sports hall 'Franko Mileta'</option>
@@ -29,7 +29,7 @@
 
               <div class="col-span-6 ">
                 <label for="last_name" class="block text-sm font-medium text-blue-600">Terrain city</label>
-                <input  :options="availableCities" v-model="terrainCity"  class="mt-2 py-2  block w-full sm:text-sm border rounded-md"
+                <input type="text" :options="options" v-model="terrainCity"  class="mt-2 py-2  block w-full sm:text-sm border rounded-md"
                 :class="{ 'is-invalid': submitted && $v.terrainCity.$error }" />
       <div
           v-if="submitted && !$v.terrainCity.required"
@@ -41,7 +41,7 @@
 
               <div class="col-span-6 ">
                 <label for="email_address" class="block text-sm font-medium text-blue-600">Categories</label>
-                <select type="text" v-model="terrainCategories" class="mt-2 py-2 block w-full border sm:text-sm rounded-md"
+                <select v-model="terrainCategories" class="mt-2 py-2 block w-full border sm:text-sm rounded-md"
                 :class="{ 'is-invalid': submitted && $v.terrainCategories.$error }">
                 <option value="Soccer" class="selected">Soccer</option>
       <option value="Basketball" class="selected">Basketball</option>
@@ -116,6 +116,14 @@ export default {
       date: '',
       time: '',
       submitted: false,
+      options: [
+      { text: "Sports Hall 'Žatika'", value: 'Poreč' },
+      { text: "Sports Hall 'Franko Mileta'", value: 'Labin' },
+      { text: "Sports hall 'Novigrad'", value: 'Novigrad' },
+      { text: "Sports hall 'Umag'", value: 'Umag' },
+      { text: "Sports hall 'Pazin'", value: 'Pazin' },
+      { text: "Sports hall 'Saline'", value: 'Vrsar' }
+    ],
     };
   },
    validations: {     
@@ -125,39 +133,9 @@ export default {
                 date: { required },
                 time: { required },
   },
-  // locations: [
-  //     {
-  //       name: "Sports hall 'Žatika'",
-  //       cities: ['Vancouver', 'Calgary', 'Toronto']
-  //     },
-  //   ],
-  // computed: {
-  //   availableCities() {
-  //     return  this.terrainName.cities= false;
-  //   }
-  // },
-  created(){
-    if(this.value == "Sports Hall 'Žatika'"){
-      this.terrainCity== 'Poreč'
-    }
-    else if (this.value == "Sports Hall 'Franko Mileta'"){
-      this.push.terrainCity('Labin')
-    }
-    else if (this.value == "Sports hall 'Novigrad'"){
-      this.push.terrainCity('Novigrad')
-    }
-    else if (this.value == "Sports hall 'Umag'"){
-      this.push.terrainCity('Umag')
-    }
-    else if (this.value == "Sports hall 'Pazin'"){
-      this.push.terrainCity('Pazin')
-    }
-    else if (this.value == "Sports hall 'Saline'"){
-      this.push.terrainCity('Vrsar')
-    }
-  },
   methods: {
      async submit() {
+                this.submitted = true;
                 this.$v.$touch();
                 if (this.$v.$invalid) {
                     return;

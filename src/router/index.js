@@ -88,16 +88,16 @@ const routes = [
     name: 'QuestionsAdminDetail',
     component: () => import('../views/QuestionsAdminDetail.vue'),
 },
-  {
-    name: "error",
-    path: "/error",
-    component: () => import("@/Error/403"),
-  },
-  {
-    name: "404",
-    path: "/:pathMatch(.*)*",
-    component: () => import("@/Error/pageNotFound"),
-  },
+  // {
+  //   name: "error",
+  //   path: "/error",
+  //   component: () => import("@/Error/403"),
+  // },
+  // {
+  //   name: "404",
+  //   path: "/:pathMatch(.*)*",
+  //   component: () => import("@/Error/pageNotFound"),
+  // },
 
 ]
 

@@ -6,7 +6,6 @@
   </div>
 </template>
 <script>
-// import { SidebarMenu } from 'vue-sidebar-menu'
 import {Auth} from "@/services";
 import store from "@/store.js"
 
@@ -19,7 +18,6 @@ export default {
     };
   },
    methods:{
-    //Drži korisnika ulogiranog i nakon refresha -> problem što je nakon odjave korisnik i dalje prijavljen
 
     account(){
       if(this.auth.authenticated){
@@ -36,7 +34,7 @@ export default {
   created() {
       this.account();
 
-      if(store.email=='chiarab@gmail.com' || store.email=='klaudiab@gmail.com'){
+      if(store.email=='chiarab@gmail.com'){
           store.admin=true;
           console.log("Da li je trenutno ulogiran admin: ", store.email, store.admin)
         }
@@ -53,27 +51,9 @@ export default {
 </script>
 
 <style lang="scss">
-// #app {
-//   font-family: Avenir, Helvetica, Arial, sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-//   text-align: center;
-//   color: #2c3e50;
-// }
 body{
     background-color: #374151;
 
 }
 
-// #nav {
-
-//   a {
-//     font-weight: bold;
-//     color: #2c3e50;
-
-//     &.router-link-exact-active {
-//       color: #42b983;
-//     }
-//   }
-// }
 </style>

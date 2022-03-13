@@ -98,8 +98,8 @@ export default {
         store.name=this.store.name;
         store.surname=this.store.surname;
 
-        // Dva admina
-        if(store.email=='chiarab@gmail.com' || store.email=='klaudiab@gmail.com'){
+        // Admin
+        if(store.email=='chiarab@gmail.com'){
           this.$router.replace({ path: '/homeAdmin '});
           store.admin=true;
           console.log("Da li je trenutno ulogiran admin: ", store.admin)
