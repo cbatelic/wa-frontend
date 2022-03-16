@@ -1,5 +1,5 @@
 <template>
-    <div class="antialiased bg-white dark-mode:bg-gray-900" >
+    <div class="fixed w-full z-20 bg-white " >
   <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
     <div class="flex mx-auto md:items-center md:justify-between md:flex-row">
       <div class="px-4">

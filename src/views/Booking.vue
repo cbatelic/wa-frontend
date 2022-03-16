@@ -3,7 +3,7 @@
       <navigation></navigation>
       <div class="w-full">
     <div class="h-72"></div>
-    <div class="mx-auto px-6 sm:px-6 lg:px-8 mt-1.5">
+    <div class="mx-auto px-6 sm:px-6 lg:px-8 mt-1.5 lg:pt-32 pt-8">
         <div class="w-full p-8 sm:p-12 -mt-72">
             <p class="text-3xl font-bold leading-7 text-center"></p>
             <form action="" method="post">

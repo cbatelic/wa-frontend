@@ -1,18 +1,12 @@
  <template>
-  <div class="bg-white" >
+  <div class="bg-white fixed w-full z-20" >
   <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
     <div class="flex mx-auto md:items-center md:justify-between md:flex-row">
-      <div class="md:px-4 mt-1.5 md:mt-0.5">
-        <img class="h-16"  :src="require('@/assets/logo.png')" alt="Logo">
+      <div class="md:px-4 mt-1.5 md:mt-0.5 mx-10 md:mx-0">
+        <img class="h-16 w-20"  :src="require('@/assets/logo.png')" alt="Logo">
       </div>
       <div class="flex flex-row items-center justify-end p-4 bg-blue-400" style="clip-path:polygon(5% 0, 100% 0%, 100% 100%, 0 100%)">
         <div class="relative text-gray-600 focus-within:text-gray-400 lg:ml-12 mr-9">
-      <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-        <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-        </button>
-      </span>
-      <input type="search" name="q" class="md:w-96 lg:w-96 py-2 text-sm text-black bg-white rounded-md pl-10 focus:outline-none focus:bg-gray-800 focus:text-black" placeholder="Search..." autocomplete="off">
     </div>
         <button class="rounded-lg justify-end lg:hidden focus:outline-none focus:shadow-outline" @click="menu()">
           <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">

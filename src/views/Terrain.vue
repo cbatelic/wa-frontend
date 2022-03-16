@@ -1,7 +1,7 @@
 <template>
 <div>
 <navigation></navigation>
-<ul  class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8 mt-10 mx-3">
+<ul  class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8 pt-24 mx-3">
  <one-terrain v-for="card in cards" :key="card.terrainName && card.terrainCity"  :info="card" />
  </ul>
   <!-- <div class="container" style="max-width: 500px;">

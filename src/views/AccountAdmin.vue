@@ -1,7 +1,7 @@
      <template>
 <div>
   <navigation-admin></navigation-admin>
-  <div class="p-3 lg:mx-20">
+  <div class="p-20 lg:mx-20">
                     <div class=" flex justify-center items-center my-14 lg:my-10">
                             <svg class="h-44 text-white bg-blue-400 rounded-3xl lg:h-3/6 lg:w-72" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">

@@ -2,7 +2,7 @@
     <div>
      <navigation></navigation>
      <div class=" mx-auto">
-    <div class="overflow-hidden shadow-md text-white shadow-md mt-12">
+    <div class="overflow-hidden shadow-md text-white shadow-md pt-24 md:pt-36">
         <!-- card header -->
         <div class="px-6 py-4 bg-gray-600 border-b border-gray-800 font-bold uppercase">
             Do you have questions?

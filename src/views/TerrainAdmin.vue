@@ -1,9 +1,9 @@
 <template>
 <div>
   <navigation-admin></navigation-admin>
-  <div class="mt-10 sm:mt-0">
+  <div class="pt-32 sm:mt-0">
   <div class="md:grid  md:gap-6">
-    <div class="mt-5 md:mt-0 md:col-span-2">
+    <div class=" md:mt-0 md:col-span-2">
       <form  class="mt-10" @submit.prevent="submit">
         <div class="shadow overflow-hidden sm:rounded-md lg:mx-12">
           <div class="px-4 py-5 bg-white sm:p-6">

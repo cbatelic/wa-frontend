@@ -1,7 +1,7 @@
      <template>
 <nav class="min-h-screen">
   <navigationAdmin></navigationAdmin>
-  <div class="flex justify-start sm:justify-end px-2 my-4"><router-link to="/usersQuestionsAdmin" class="bg-blue-400 text-gray-700 font-semibold text-sm px-1 py-2 rounded-md"> User questions</router-link></div>
+  <div class="flex justify-start sm:justify-end px-2 pt-24 pb-4"><router-link to="/usersQuestionsAdmin" class="bg-blue-400 text-gray-700 font-semibold text-sm px-1 py-2 rounded-md"> User questions</router-link></div>
 <table class="min-w-full border-collapse block md:table  mb-20">
      <thead class="block md:table-header-group">
 			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
