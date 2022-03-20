@@ -1,7 +1,8 @@
  <template>
     <div>
      <navigation></navigation>
-        <div class="holder overflow-hidden space-y- mt-5 box-border border border-b-4 border-red-600 rounded-md mx-2 shadow-xl">
+     <div class="pt-40 lg:pt-56">
+        <div class="holder overflow-hidden space-y-  box-border border border-b-4 border-red-600 rounded-md mx-2 shadow-xl">
   <div class="top bg-blue-400 text-gray-700 font-semibold text-md p-2 px-4 space-y-2 grid">
       <div class="inline-flex items-center">
     <label>Name:</label>
@@ -39,6 +40,7 @@ If you want to send a question then the message space must not be empty.
     </div>    
   </div>
 </div>
+    </div>
     </div>
 </template>
 

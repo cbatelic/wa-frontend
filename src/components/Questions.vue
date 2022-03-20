@@ -1,5 +1,6 @@
 <template>
-      <div id="info" class="holder overflow-hidden space-y- mt-36 box-border border border-b-4 border-red-600 rounded-md mx-2 shadow-xl">
+<div class="pt-36">
+      <div id="info" class="holder overflow-hidden space-y- box-border border border-b-4 border-red-600 rounded-md mx-2 shadow-xl">
       <div class="text-white  py-3 px-2 font-black text-3xl ">User question</div>
       <div class="top bg-blue-400 text-gray-700 font-semibold text-md p-2 px-4 space-y-16 py-4 grid ">
       <div class=" items-center border-b">
@@ -16,6 +17,7 @@
     </div>
       </div>
     </div>
+</div>
 </template>
 
 <script>
