@@ -47,6 +47,7 @@ let Booking = {
     },
     async getAllBooking() {        
         let response = await Service.get(`/homeAdmin`)
+        return response.data
         let data = response.data;
         data = data.map(doc =>{
             return {
@@ -138,25 +139,25 @@ let Question = {
 
 }
 let Admin = {
-//     async getAll(admin) {
-//       let response = await Service.get(`/homeAdmin?${admin}`);
-//       let data = response.data;
-//       data = data.map((doc) => {
-//         return {
-//           email: doc.email,
-//           role: doc.role,
-//         };
-//       });
-//       return data;
-//     },
+    async getAll(admin) {
+      let response = await Service.get(`/homeAdmin?${admin}`);
+      let data = response.data;
+      data = data.map((doc) => {
+        return {
+          email: doc.email,
+          role: doc.role,
+        };
+      });
+      return data;
+    },
   
-//     async getOne(admin) {
-//       let response = await Service.get(`/homeAdmin/${admin}`);
-//       let doc = response.data;
-//       return {
-//         role: doc.role,
-//       };
-//     },
+    async getOne(admin) {
+      let response = await Service.get(`/homeAdmin/${admin}`);
+      let doc = response.data;
+      return {
+        role: doc.role,
+      };
+    },
   };
 
 let Auth = {
