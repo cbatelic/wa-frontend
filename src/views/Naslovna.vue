@@ -42,7 +42,8 @@
         </div>
     </div>
 </div>
-     <table class="min-w-full border-collapse block md:table ">
+<div class="h-96">
+     <table class="min-w-full border-collapse block md:table  mb-20">
      <thead class="block md:table-header-group">
 			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
 				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell">List of unfilled teams</th>
@@ -51,38 +52,69 @@
 				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
 				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
         				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
+                <th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
       </tr>
 		</thead>
 		<thead class="block md:table-header-group">
 			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
 				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Team name</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">User email</th>
 				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Members</th>
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Categories</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Sport hall</th>
+        				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Categorie</th>
 				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Date and time</th>
-        <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Terrain</th>
-				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Note</th>
+                <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell"></th>
 			</tr>
 		</thead>
-		<tbody class="block md:table-row-group">
-			<tr class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Name</span> </td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User Name</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Email Address</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span></td>
-        				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span></td>
-				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+		<tbody class="block md:table-row-group overflow-x-auto" v-for="team of teams" :key="team.id">
+			<tr v-if="team.members>'12'" class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold text-white">Team name</span>{{team.teamName}} </td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User email</span>{{team.userEmail}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Members</span>{{team.members}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Sport hall</span>{{team.terrain.terrainName}}</td>
+        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Categorie</span>{{team.terrain.terrainCategories}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Date and time</span>{{team.terrain.date && team.terrain.time}}</td>
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Note</span>{{team.note}} </td>
+                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
 					<span class="inline-block w-1/3 md:hidden font-bold">Actions</span>
-					<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Choose</button>
+					<button @click="addMember()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Choose</button>
 				</td>
-			</tr>
+      </tr>
 		</tbody>
 	</table>
+</div>
     </div>
 </template>
 <script>
 import navigation from '@/components/navigation.vue';
+import { Booking } from '@/services';
+import store from '@/store.js';
 
 export default {
+    data(){
+     return {
+       teams: [],
+     }
+
+   },
+   async created(){
+     this.teams = await Booking.getAllBooking();
+     console.log(this.teams)
+     console.log('a')
+   },
+
+   methods: {
+       async addMember(){
+        let add_booking = {
+                 members: store.name && store.surname
+                };
+                console.log(this.members)
+                let booking = await Booking.add_booking(add_booking)
+                console.log(booking.data)
+       }
+   },
     
     components: {
         navigation

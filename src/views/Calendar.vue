@@ -55,7 +55,7 @@ import { Posts } from '@/services';
     },
     async created(){
       let terrains = await Posts.getAll();
-      console.log()
+      console.log(terrains)
       let naziv = this.$route.query.name;
       let sport = this.$route.query.sport;
       this.data = terrains.filter(x => x.terrainName == naziv && x.terrainCategories == sport)

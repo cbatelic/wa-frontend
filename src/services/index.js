@@ -45,6 +45,9 @@ let Booking = {
     add_booking(add_booking){
         return Service.post('/homeAdmin', add_booking)
     },
+    add_member(add_member){
+        return Service.post('/homeAdmin', add_member)
+    },
     async getAllBooking() {        
         let response = await Service.get(`/homeAdmin`)
         return response.data
