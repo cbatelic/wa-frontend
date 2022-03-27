@@ -66,7 +66,7 @@ export default {
   
    data() {
     return {
-      open:Boolean
+      open: Boolean
     };
   },
   methods: {

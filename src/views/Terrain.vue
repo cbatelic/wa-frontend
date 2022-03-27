@@ -4,13 +4,6 @@
 <ul  class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8 pt-24 mx-3">
  <one-terrain v-for="card in cards" :key="card.terrainName && card.terrainCity"  :info="card" />
  </ul>
-  <!-- <div class="container" style="max-width: 500px;">
-    <div id="cards">
-      <dogadaji-card v-for="card in cards" :key="card.terrainName" :info="card" />
-      <dogadaji-card v-for="card in cards" :key="card.terrainCity" :info="card" />
-    </div>
-    <footer id="footer"></footer>
-  </div> -->
 </div>
 </template>
 
@@ -70,15 +63,6 @@ export default {
   components: {
     OneTerrain,
     navigation
-  },
-  mounted() {
-    // getAllTerrain();
-  },
-  methods: {
-        // async GetAllTerrain() {
-        //     this.terrains = await Posts.GetAll();
-        //     console.log(this.terrains)
-        // },
   },
 };
 </script>

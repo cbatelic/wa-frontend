@@ -10,37 +10,37 @@
 
   <div class="p-2 md:p-9 md:p-16">
     <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 m-5 mb-10 gap-24">
-            <div @click="routeToDate('Soccer')" class=" cursor-pointer sport-card bg-white overflow-hidden  border border-gray-200 p-3 rounded-lg">
+            <div @click="routeToDate('Soccer')" class=" cursor-pointer bg-white overflow-hidden  border-gray-200 p-3 rounded-lg">
         <div class="m-2 text-center">
              <i class="fa fa-soccer-ball-o" style="font-size:170px;background-color: white; color: #1286C7;"></i>
         </div>
         <label for="soccer" class="flex justify-center text-base font-black text-3xl text-blue-900 cursor-pointer">Soccer</label>
     </div>
-          <div @click="routeToDate('Basketball')" class=" cursor-pointer bg-white overflow-hidden  border border-gray-200 p-3 rounded-lg">
+          <div @click="routeToDate('Basketball')" class=" cursor-pointer bg-white overflow-hidden  border-gray-200 p-3 rounded-lg">
         <div class="m-2 text-center">
             <i class='fas fa-basketball-ball' style="font-size:170px;background-color: white; color: #1286C7;"></i>
         </div>
                     <label for="basketball" class="flex justify-center text-base font-black text-3xl text-blue-900 cursor-pointer">Basketball</label>
     </div>
-          <div @click="routeToDate('Tennis')" class=" cursor-pointer bg-white overflow-hidden  border border-gray-200 p-3 rounded-lg">
+          <div @click="routeToDate('Tennis')" class=" cursor-pointer bg-white overflow-hidden border-gray-200 p-3 rounded-lg">
         <div class="m-2 text-center">
             <i class='fas fa-table-tennis' style="font-size:170px;background-color: white; color: #1286C7;"></i>
         </div>
         <label for="tennis" class="flex justify-center text-base font-black text-3xl text-blue-900 cursor-pointer">Tennis</label>
     </div>
-          <div @click="routeToDate('Handball')" class=" cursor-pointer bg-white overflow-hidden  border border-gray-200 p-3 rounded-lg">
+          <div @click="routeToDate('Handball')" class=" cursor-pointer bg-white overflow-hidden border-gray-200 p-3 rounded-lg">
         <div class="m-2 text-center">
             <i class='mdi mdi-handball' style="font-size:120px;background-color: white; color: #1286C7;"></i>
         </div>
         <label for="volleyball" class="flex justify-center text-base font-black text-3xl text-blue-900 cursor-pointer">Handball</label>
     </div>
-          <div @click="routeToDate('Volleyball')" class=" cursor-pointer bg-white overflow-hidden  border border-gray-200 p-3 rounded-lg">
+          <div @click="routeToDate('Volleyball')" class=" cursor-pointer bg-white overflow-hidden border-gray-200 p-3 rounded-lg">
         <div class="m-2 text-center">
             <i class='fas fa-volleyball-ball' style="font-size:170px;background-color: white; color: #1286C7;"></i>
         </div>
         <label for="volleyball" class="flex justify-center text-base font-black text-3xl text-blue-900 cursor-pointer">Volleyball</label>
     </div>
-          <div @click="routeToDate('Other')" class=" cursor-pointer bg-white overflow-hidden  border border-gray-200 p-3 rounded-lg">
+          <div @click="routeToDate('Other')" class=" cursor-pointer bg-white overflow-hidden border-gray-200 p-3 rounded-lg">
         <div class="m-2 text-center">
            <i class='fas fa-plus'  style="font-size:170px;background-color: white; color: #1286C7;"></i>
         </div>
@@ -70,11 +70,5 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.sport-card{
-  cursor: pointer;
-}
-</style>
 
 
