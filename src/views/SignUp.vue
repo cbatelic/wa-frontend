@@ -76,6 +76,10 @@ label="confirmPassword"
 </svg>
 Registration
 </button>
+<div class="space-x-2 text-md">
+  <label>Already have an account?</label>
+<router-link to="/login" class="text-blue-600">Login</router-link>
+</div>
       </div>
     </div>
   </div>
@@ -109,36 +113,10 @@ export default {
           
   },
   methods: {
-  //    async submit() {
-    
-  //       let success = await Auth.login(this.email, this.password);
-  //       console.log('Rezultat prijave', success);
-  //       if(success == true){
-  //         this.$router.push({path: '/naslovna'})
-  //        if (
-  //       this.password !== this.confirmPassword ||
-  //       this.confirmPassword !== this.password
-  //     ) {
-  //       alert("Lozinke se ne podudaraju!");
-  //       console.log(error);
-  //     }
-  //     else { let user = {
-  //         name: this.name,
-  //         surname: this.surname,
-  //         email: this.email,
-  //         password: this.password,
-  //         confirmPassword: this.confirmPassword,
-  //     };
-  //      let newuser = await Auth.registracija(user);
-  //       console.log('Registriran je korisnik', newuser.data);
-  //       }
-  //       }
-
-  // },
   async submit(name,surname,email,password) {
         this.submitted = true;
 
-                // stop here if form is invalid
+                // stani ako nije dobro
                 this.$v.$touch();
                 if (this.$v.$invalid) {
                     return;
@@ -153,7 +131,7 @@ export default {
 
         console.log(user)
         await Auth.signUp(user).then(() => {
-            this.$router.push({ path: '/naslovna' });
+            this.$router.replace({ path: '/naslovna' });
             store.authenticated=true;
             this.store = Auth.account()
             store.email=this.email;
@@ -165,9 +143,3 @@ export default {
   }
 
 </script>
-
-<style scoped>
-#inspire{
-  background-color: #86D1FC;
-}
-</style>

@@ -34,14 +34,14 @@ export default {
   created() {
       this.account();
 
-      if(store.email=='chiarab@gmail.com'){
-          store.admin=true;
-          console.log("Da li je trenutno ulogiran admin: ", store.email, store.admin)
-        }
-        else{
-          store.admin=false;
-          console.log("Da li je trenutno ulogiran admin: ", store.admin)
-        }
+      // if(store.email=='chiarab@gmail.com'){
+      //     store.admin=true;
+      //     console.log("Da li je trenutno ulogiran admin: ", store.email, store.admin)
+      //   }
+      //   else{
+      //     store.admin=false;
+      //     console.log("Da li je trenutno ulogiran admin: ", store.admin)
+      //   }
     },
   
   components: {

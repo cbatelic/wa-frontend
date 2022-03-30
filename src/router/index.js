@@ -83,17 +83,6 @@ const routes = [
     name: 'QuestionsAdminDetail',
     component: () => import('../views/QuestionsAdminDetail.vue'),
 },
-  // {
-  //   name: "error",
-  //   path: "/error",
-  //   component: () => import("@/Error/403"),
-  // },
-  // {
-  //   name: "404",
-  //   path: "/:pathMatch(.*)*",
-  //   component: () => import("@/Error/pageNotFound"),
-  // },
-
 ]
 
 const router = new VueRouter({
@@ -102,18 +91,6 @@ const router = new VueRouter({
   routes
 })
 
-
-router.beforeEach((to, from, next) => {
-  const publicPage = ["/", "/signUp", "/login"];
-  const requiredLogin = !publicPage.includes(to.path);
-  const user = Auth.getUser();
-
-  if (requiredLogin && !user) {
-    next("/");
-    return;
-  }
-  next();
-});
 
 
 export default router

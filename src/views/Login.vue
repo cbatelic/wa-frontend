@@ -2,7 +2,6 @@
 <div class="w-full h-screen flex">
   <div>
     <img :src="require('@/assets/sportvert.jpg')" class="hidden lg:flex lg:object-cover lg:object-center lg:h-screen lg:w-7/10">
-    <!-- <div class="absolute inset-0 bg-blue-300 mix-blend-multiply" /> -->
     </div>
     <div class=" flex flex-col justify-center items-center w-5/12 shadow-lg">
       <div class="w-11/12 md:w-10/12 px-2 md:px-10 py-3 lg:w-1/2 md:py-12 space-y-3.5 rounded-md text-center bg-white">
@@ -50,6 +49,10 @@ label="confirmPassword"
 </svg>
 Login
 </button>
+<div class="space-x-2 text-md">
+  <label>You don't have an account?</label>
+<router-link to="/signUp" class="text-blue-600">Sign up</router-link>
+</div>
       </div>
     </div>
   </div>
@@ -82,14 +85,13 @@ export default {
      async submit() {
                 this.submitted = true;
 
-                // stop here if form is invalid
+                // stani ovdje ako nije dobro
                 this.$v.$touch();
                 if (this.$v.$invalid) {
                     return;
                 }
                try {
         // prijava je prošla uspješnp
-        console.log('ddd');
         let success = await Auth.login(this.email, this.password, this.name, this.surname);
         console.log('Result of login: ', success);
         
@@ -101,6 +103,7 @@ export default {
         // Admin
         if(store.email=='chiarab@gmail.com'){
           this.$router.replace({ path: '/homeAdmin '});
+          this.$router.go();
           store.admin=true;
           console.log("Da li je trenutno ulogiran admin: ", store.admin)
         }
@@ -108,42 +111,11 @@ export default {
           this.$router.replace({ path: '/naslovna' });
           store.admin=false;
           console.log("Da li je trenutno ulogiran admin: ", store.admin)
-          // refresh trenutne stranice
-          // this.$router.go();
         }
       } catch (e) {
         this.error = 'Wrong username or password!';
       }
-    //             {
-		
-    // console.log("pokusaj prijave")
-
-		// let success=false;
-		
-		// success = await Auth.login(this.email, this.password);
-		
-    //     if(success == true){
-    //         // store.authenticated = true;
-    //         // store.email=this.email;
-            
-            
-    //         console.log('Rezultat prijave', success);
-            
-		// 		console.log(success);
-    //             console.log(this.email,this.password)
-				
-		// 		console.log("evo me")
-    //     }
-    //     console.log(store.authenticated)
-    //   }
     },
   }
   }
 </script>
-
-
-<style scoped>
-#inspire{
-  background-color:  #86D1FC;
-}
-</style>

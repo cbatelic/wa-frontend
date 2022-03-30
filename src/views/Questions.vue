@@ -6,12 +6,10 @@
   <div class="top bg-blue-400 text-gray-700 font-semibold text-md p-2 px-4 space-y-2 grid">
       <div class="inline-flex items-center">
     <label>Name:</label>
-    <!-- <input disabled v-bind="store.name" class="mx-2 bg-white border-gray-900 rounded-md px-2 py-1" type="text" /> -->
     <div class="mx-2.5 bg-white border-gray-900 rounded-md px-2 py-1">{{store.name}} {{store.surname}}</div>
   </div>
   <div class="inline-flex items-center">
       <label>Email:</label>
-      <!-- <input disabled v-bind="store.email" class="mx-2.5 bg-white border-gray-900 rounded-md px-2 py-1" type="text" /> -->
       <div class="mx-2.5 bg-white border-gray-900 rounded-md px-2 py-1">{{store.email}}</div>
     </div>
   </div>

@@ -29,18 +29,7 @@ Service.interceptors.response.use(
         }
     }
 );
-//     (response) => response,
-//     (error) => {
-//       if (error.response.status == 403) {
-//         $router.replace("/error");
-//         return Promise.reject("This route is forbidden!", error);
-//       }
-//       if (error.response.status == 401) {
-//         Auth.logout();
-//         $router.go();
-//       }
-//     }
-//   );
+
 let Booking = {
     add_booking(add_booking){
         return Service.post('/homeAdmin', add_booking)
@@ -90,19 +79,6 @@ let Posts ={
         });
         return data
     },
-    // async getOne(id){
-    //     let response = await Service.get(`/terrain/${id}`);
-    //     let doc = response.data;
-    //     return {
-    //         id:doc._id,
-    //         terrainName: doc.terrainName,
-    //         terrainCity: doc.terrainCity,
-    //         terrainCategories: doc.terrainCategories,
-    //         posted_at: Number(doc.posted_at),
-
-            
-    //     };
-    // }, 
 }
 
 let Question = {
@@ -141,27 +117,6 @@ let Question = {
       },
 
 }
-let Admin = {
-    async getAll(admin) {
-      let response = await Service.get(`/homeAdmin?${admin}`);
-      let data = response.data;
-      data = data.map((doc) => {
-        return {
-          email: doc.email,
-          role: doc.role,
-        };
-      });
-      return data;
-    },
-  
-    async getOne(admin) {
-      let response = await Service.get(`/homeAdmin/${admin}`);
-      let doc = response.data;
-      return {
-        role: doc.role,
-      };
-    },
-  };
 
 let Auth = {
     
@@ -229,4 +184,4 @@ let Auth = {
     }
 };
 
-export { Service, Auth, Posts, Admin, Booking, Question}
+export { Service, Auth, Posts,  Booking, Question}
