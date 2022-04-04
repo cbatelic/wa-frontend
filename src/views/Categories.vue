@@ -8,8 +8,8 @@
        </div>
  <body class=" text-gray-700  font-sans quicksand pt-36 ">
 
-  <div class="p-2 md:p-9 md:p-16">
-    <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 m-5 mb-10 gap-24">
+  <div class="p-4 md:p-9 md:p-16">
+    <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 lg:m-5 mb-10 gap-24">
             <div @click="routeToDate('Soccer')" class=" cursor-pointer bg-white overflow-hidden  border-gray-200 p-3 rounded-lg">
         <div class="m-2 text-center">
              <i class="fa fa-soccer-ball-o" style="font-size:170px;background-color: white; color: #1286C7;"></i>

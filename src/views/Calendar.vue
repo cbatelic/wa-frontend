@@ -7,7 +7,7 @@
        </div>
        </div>
      <body class="items-center justify-center pt-40 ">
-	<div class="px-2 lg:mx-10 ">
+	<div class="px-2 lg:mx-10 " >
 		<table class="w-full flex-row  sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
       <thead class="block md:table-header-group">
 			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
@@ -27,7 +27,7 @@
 			</tr>
 		</tbody>
 		</table>
-    <div v-if="data==0" class="text-white text-3xl flex justify-center">No available data in this categorie!</div>
+    <div v-if="data==0" class="text-white lg:text-3xl text-xl border bg-blue-400 p-2 rounded-md mt-24 flex justify-center">No available data in this categorie!</div>
 	</div>
 </body>
     

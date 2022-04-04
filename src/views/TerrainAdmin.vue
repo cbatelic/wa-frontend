@@ -10,7 +10,7 @@
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 ">
                 <label for="first_name" class="block text-sm font-medium text-blue-600">Terrain name</label>
-                <select  v-model="terrainName" class="mt-2 py-2 block w-full border sm:text-sm  rounded-md"
+                <select  v-model="terrainName" class="px-2 mt-2 py-2 block w-full border sm:text-sm  rounded-md"
                 :class="{ 'is-invalid': submitted && $v.terrainName.$error }">
       <option value="Sports hall 'Žatika'" class="selected">Sports hall 'Žatika'</option>
       <option value="Sports hall 'Franko Mileta'" class="selected">Sports hall 'Franko Mileta'</option>
@@ -29,7 +29,7 @@
 
               <div class="col-span-6 ">
                 <label for="last_name" class="block text-sm font-medium text-blue-600">Terrain city</label>
-                <input type="text" :options="options" v-model="terrainCity"  class="mt-2 py-2  block w-full sm:text-sm border rounded-md"
+                <input type="text" :options="options" v-model="terrainCity"  class="mt-2 py-2 px-2 block w-full sm:text-sm border rounded-md"
                 :class="{ 'is-invalid': submitted && $v.terrainCity.$error }" />
       <div
           v-if="submitted && !$v.terrainCity.required"
@@ -41,7 +41,7 @@
 
               <div class="col-span-6 ">
                 <label for="email_address" class="block text-sm font-medium text-blue-600">Categories</label>
-                <select v-model="terrainCategories" class="mt-2 py-2 block w-full border sm:text-sm rounded-md"
+                <select v-model="terrainCategories" class="mt-2 px-2 py-2 block w-full border sm:text-sm rounded-md"
                 :class="{ 'is-invalid': submitted && $v.terrainCategories.$error }">
                 <option value="Soccer" class="selected">Soccer</option>
       <option value="Basketball" class="selected">Basketball</option>

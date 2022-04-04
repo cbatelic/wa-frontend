@@ -1,7 +1,7 @@
      <template>
 <div>
   <navigation-admin></navigation-admin>
-  <div class="p-20 lg:mx-20">
+  <div class="py-20 mx-1.5 lg:mx-20 lg:px-20">
                     <div class=" flex justify-center items-center my-14 lg:my-10">
                             <svg class="h-44 text-white bg-blue-400 rounded-3xl lg:h-3/6 lg:w-72" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -13,15 +13,15 @@
                         <div class="grid text-lg space-y-12">
                             <div class="grid grid-cols-2 bg-white rounded-md ">
                                 <div class="px-4 py-2 font-semibold text-blue-500">Name:</div>
-                                <div class="px-4 py-2 text-black">{{store.name}}</div>
+                                <div class=" py-2 text-black">{{store.name}}</div>
                             </div>
                             <div class="grid grid-cols-2 bg-white rounded-md ">
                                 <div class="px-4 py-2 font-semibold text-blue-500">Surname:</div>
-                                <div class="px-4 py-2 text-black">{{store.surname}}</div>
+                                <div class="py-2 text-black">{{store.surname}}</div>
                             </div>
                             <div class="grid grid-cols-2 bg-white rounded-md ">
                                 <div class="px-4 py-2 font-semibold text-blue-500">Email:</div>
-                                <div class="px-4 py-2">
+                                <div class=" py-2">
                                     <a class="text-black underline" >{{store.email}}</a>
                                 </div>
                             </div>

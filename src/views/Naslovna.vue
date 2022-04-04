@@ -59,8 +59,8 @@
                 <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell"></th>
 			</tr>
 		</thead>
-		<tbody class="block md:table-row-group overflow-x-auto" v-for="team of teams" :key="team.id">
-			<tr v-if="team.members>'1'" class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
+		<tbody class="block md:table-row-group overflow-x-auto" v-for="team of team1" :key="team.id">
+			<tr class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
 				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold text-white">Team name</span>{{team.teamName}} </td>
 				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User email</span>{{team.userEmail}}</td>
 				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Members</span>{{team.members}}</td>
@@ -70,7 +70,7 @@
 				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Note</span>{{team.note}} </td>
                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
 					<span class="inline-block w-1/3 md:hidden font-bold">Actions</span>
-					<button @click="addMember()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Choose</button>
+					<button @click="addMember(team._id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Choose</button>
 				</td>
       </tr>
 		</tbody>
@@ -87,30 +87,32 @@ export default {
     data(){
      return {
        teams: [],
+       team1: [],
      }
 
    },
    async created(){
      this.teams = await Booking.getAllBooking();
-     console.log(this.teams)
-     console.log('a')
+    this.teams.forEach(team => {
+        if(team.members.length <12 ) {
+          this.team1.push(team);
+        } 
+    })
    },
 
    methods: {
-       async addMember(){
-        let add_booking = {
-                 members: store.name && store.surname
-                };
-                console.log(this.members)
-                let booking = await Booking.add_booking(add_booking)
-                console.log(booking.data)
-       }
+       async addMember(id){
+        let team = this.teams.find(x => x._id == id);
+        let user = store.name;
+        team.members.push(user);
+        let update = await Booking.update_team(team);
+        console.log(update)
    },
-    
-    components: {
+  
+},
+ components: {
         navigation
     }
-  
 }
 </script>
 

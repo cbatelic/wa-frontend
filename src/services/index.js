@@ -19,7 +19,7 @@ Service.interceptors.request.use((request) => {
 
 Service.interceptors.response.use(
     (response) => {
-        console.log('Interceptor', response);
+        
         return response;
     },
     (error) => {
@@ -34,8 +34,8 @@ let Booking = {
     add_booking(add_booking){
         return Service.post('/homeAdmin', add_booking)
     },
-    add_member(add_member){
-        return Service.post('/homeAdmin', add_member)
+    update_team(team) {
+        return Service.put('/homeAdmin', team)
     },
     async getAllBooking() {        
         let response = await Service.get(`/homeAdmin`)
