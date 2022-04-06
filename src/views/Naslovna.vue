@@ -39,7 +39,7 @@
 			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
 				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell">List of unfilled teams</th>
 			 <th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
-				<th class="bg-gray-600 p-2 text-white font-bold text-left block md:table-cell"></th>
+				<th class="bg-gray-600 p-2 text-white font-bold text-left block md:table-cell w-1/2"></th>
 				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
 				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
         				<th class="bg-gray-600 p-2 text-white font-bold  text-left block md:table-cell"></th>
@@ -70,8 +70,9 @@
 				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Note</span>{{team.note}} </td>
                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
 					<span class="inline-block w-1/3 md:hidden font-bold">Actions</span>
-					<button @click="addMember(team._id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Choose</button>
-				</td>
+					<button v-if="show" @click="addMember(team._id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Choose</button>
+					<button v-if="!show" disabled class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">You are member</button>
+                </td>
       </tr>
 		</tbody>
 	</table>
@@ -88,6 +89,7 @@ export default {
      return {
        teams: [],
        team1: [],
+       show: Boolean = true
      }
 
    },
@@ -98,15 +100,23 @@ export default {
           this.team1.push(team);
         } 
     })
+    if(this.addMember(id)){
+    this.show = true;
+    } else {
+        this.show = false;
+    }
    },
 
    methods: {
        async addMember(id){
+           try{
         let team = this.teams.find(x => x._id == id);
         let user = store.name;
         team.members.push(user);
-        let update = await Booking.update_team(team);
-        console.log(update)
+        await Booking.update_team(team);
+           }catch (e) {
+      }
+      this.show = false;
    },
   
 },

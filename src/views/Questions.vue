@@ -60,12 +60,12 @@ export default {
   },
   methods:{
      async sendQuestion(){
-         this.submitted = true;
-         this.$v.$touch();
+                this.submitted = true;
+
+                // stani ovdje ako nije dobro
+                this.$v.$touch();
                 if (this.$v.$invalid) {
-                    console.log('jes')
                     return;
-                    console.log('jes')
                 }
         try { let send_question = {
              name: this.store.name,
@@ -77,6 +77,7 @@ export default {
                 console.log('push question', question.data);
 
             this.message = "";
+            this.submitted = false;
             } catch (e) {
         console.error("greška", e);
       }
