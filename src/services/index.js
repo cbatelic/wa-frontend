@@ -2,10 +2,10 @@ import axios from 'axios';
 import $router from '@/router';
 
 
-let Service = axios.create({     
-    baseURL: 'http://localhost:3000/',  
+let Service = axios.create({
+    baseURL: 'https://infinite-bastion-37476.herokuapp.com/', 
     timeout: 1000,
-});
+    });
 
 Service.interceptors.request.use((request) => {
    try{
