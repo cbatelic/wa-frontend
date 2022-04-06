@@ -4,7 +4,11 @@ import $router from '@/router';
 
 let Service = axios.create({     
     baseURL: 'https://infinite-bastion-37476.herokuapp.com/',  
-    timeout: 1000,
+    timeout: 3000,
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
 });
 
 Service.interceptors.request.use((request) => {
